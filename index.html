@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>منوی رستوران لقمه احسان</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
+  <style>
+    body {
+      direction: rtl;
+      font-family: Vazir, sans-serif;
+      background: linear-gradient(180deg, #fffdf9, #fbe8d3);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-image: url('https://itehsan.github.io/khaneehsan/header.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      padding: 80px 20px 40px;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    header > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    header img {
+      width: 80px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin: 15px 0 5px;
+      font-size: 26px;
+    }
+
+    header p {
+      font-size: 16px;
+      color: #eee;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    section {
+      margin: 50px 0;
+    }
+
+    .category-title {
+      font-size: 24px;
+      color: #8e2d1a;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #8e2d1a;
+      padding-bottom: 5px;
+      position: relative;
+    }
+
+    .category-title::before {
+      content: "🍽️";
+      margin-left: 10px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .menu-item {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    .menu-info {
+      padding: 15px;
+    }
+
+    .menu-info h3 {
+      margin: 0 0 5px;
+      font-size: 18px;
+      color: #b63e2f;
+    }
+
+    .menu-info p {
+      font-size: 14px;
+      margin: 4px 0;
+    }
+
+    footer {
+      background-color: #fbe2c0;
+      text-align: center;
+      padding: 20px;
+      font-size: 15px;
+      color: #5c4033;
+    }
+
+    .contact-button {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 999;
+      transition: background 0.3s;
+    }
+
+    .contact-button:hover {
+      background-color: #1ebc5a;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="لوگوی رستوران">
+    <h1>رستوران لقمه احسان</h1>
+    <p>با ما لقمه‌ای دلچسب تجربه کنید</p>
+  </header>
+
+  <div class="container">
+
+    <!-- پیش‌غذاها -->
+    <section>
+      <h2 class="category-title">🍲 پیش‌غذا</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="https://itehsan.github.io/khaneehsan/soup.jpg" alt="سوپ جو">
+          <div class="menu-info">
+            <h3>سوپ جو</h3>
+            <p>شنبه، دوشنبه، چهارشنبه</p>
+            <p>یک کیلوگرم ، جو، بلغور جو، گوشت سینه بوقلمون، هویج، رب، گوجه فرنگی، جعفری</p>
+            <p><strong>۸۳٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="https://itehsan.github.io/khaneehsan/ash.jpg" alt="آش جو">
+          <div class="menu-info">
+            <h3>آش جو</h3>
+            <p>یکشنبه، سه‌شنبه، پنج‌شنبه</p>
+            <p>یک کیلو آش، حبوبات شامل ماش، عدس، نخود، لوبیاها و سبزی آش</p>
+            <p><strong>۱۰۹٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- کباب‌ها -->
+    <section>
+      <h2 class="category-title">🍢 کباب‌ها</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="images/kabab-koobideh.jpg" alt="کباب کوبیده گوسفندی">
+          <div class="menu-info">
+            <h3> کباب کوبیده بوقلمون </h3>
+            <p>کباب با حرارت غیر مستقیم 
+▫️تهیه شده با گوشت بوقلمون، دنبه، پیاز و ادویه </p>
+            <p><strong>۹۵٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="images/kabab-koobideh.jpg" alt="کباب کوبیده بوقلمون">
+          <div class="menu-info">
+            <h3>کباب بوقلمون</h3>
+            <p>کباب لقمه گوشت شتر</p>
+            <p><strong>۹۸٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="images/kabab-koobideh.jpg" alt="کباب لقمه شتر">
+          <div class="menu-info">
+            <h3>کباب شتر لقمه</h3>
+            <p>گوشت شتر</p>
+            <p><strong>۱۱۰٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ساندویچ‌ها -->
+    <section>
+      <h2 class="category-title">🥪 ساندویچ‌ها</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="images/sandwich-kabab.jpg" alt="ساندویچ کباب گوبیده گوسفندی">
+          <div class="menu-info">
+            <h3>ساندویچ کباب لقمه</h3>
+            <p>کوبیده در نان باگت با گوجه و سس</p>
+            <p><strong>۶۵٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="images/sandwich-kabab.jpg" alt="ساندویچ کوبیده بوقلمون">
+          <div class="menu-info">
+            <h3>ساندویچ جوجه گریل</h3>
+            <p>جوجه طعم‌دار، نان نرم، سس مخصوص</p>
+            <p><strong>۶۰٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="images/sandwich-kabab.jpg" alt="ساندویچ همبرگر">
+          <div class="menu-info">
+            <h3>ساندویچ همبرگر گوشت بوقلمون</h3>
+            <p> متن توضیحات</p>
+            <p><strong>۵۵٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- نوشیدنی‌ها -->
+    <section>
+      <h2 class="category-title">🥤 نوشیدنی‌ها</h2>
+      <div class="menu-grid">
+
+        <!-- نمونه نوشیدنی (فقط یک نمونه؛ بقیه مشابه اضافه کن) -->
+        <div class="menu-item">
+          <img src="images/doogh.jpg" alt="دوغ سنتی">
+          <div class="menu-info">
+            <h3>دوغ سنتی</h3>
+           <p>دوغ نیم لیتری</p>
+            <p><strong>۱۲٬۰۰۰ تومان</strong></p>
+          </div>
+        </div>
+
+        <!-- نوشیدنی‌های دیگرت همین ساختار رو داشته باشن -->
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+ استان خراسان رضوی، مشهد، منطقه 9، بلوار لادن، بعد از لادن 51
+  </footer>
+
+  <button class="contact-button" onclick="window.location.href='tel:051-31903'">📞 تماس سریع</button>
+
+</body>
+</html>
 
