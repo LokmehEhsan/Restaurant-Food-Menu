@@ -14,9 +14,9 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-     body {
+    body {
       font-family: 'Vazirmatn', sans-serif;
-      background-color: #808080;
+      background-color: #2b2e34;
       color: #fff;
       padding: 1rem;
       position: relative;
@@ -194,8 +194,9 @@
       position: relative;
     }
 
+
     .menu-item {
-      background-color: #2a2a2a;
+      background-color: #3b3f47;
       border-radius: 12px;
       padding: 1rem;
       cursor: pointer;
@@ -207,7 +208,7 @@
       transition: background-color 0.3s ease;
     }
     .menu-item:hover {
-      background-color: #808080;
+      background-color: #3b3f47;
     }
 
     .menu-item .info {
@@ -234,16 +235,16 @@
       flex-shrink: 0;
     }
 
-   .modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(100, 100, 100, 0.4); /* می‌تونی شفاف‌ترش هم کنی */
-  backdrop-filter: blur(4px);
-  justify-content: center;
-  align-items: center;
-  z-index: 11000;
-}
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(100, 100, 100, 0.4); /* شفاف‌تر */
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      z-index: 11000;
+    }
 
     .modal-content {
       background-color: #2a2a2a;
@@ -256,21 +257,45 @@
     }
 
     .modal-content img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-bottom: 1rem;
-}
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-
+    /* دکمه بستن مودال - سمت راست بالا و با آیکون SVG */
     .modal-content .close {
       position: absolute;
       top: 10px;
-      left: 10px;
-      font-size: 1.5rem;
+      right: 10px;  /* سمت راست */
+      background: transparent;
+      border: none;
       cursor: pointer;
-      color: #f55;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .modal-content .close:hover {
+      transform: rotate(90deg);
+    }
+
+    .modal-content .close svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+      fill: #f55;
+      transition: fill 0.3s ease;
+    }
+
+    .modal-content .close:hover svg {
+      fill: #e74c3c;
     }
 
     .footer {
@@ -283,25 +308,25 @@
     }
 
     .rating {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  gap: 5px;
-  margin-top: 10px;
-}
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 10px;
+    }
 
-.star {
-  font-size: 2rem;
-  color: #888;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+    .star {
+      font-size: 2rem;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-.star:hover,
-.star.hovered,
-.star.selected {
-  color: gold;
-}
+    .star:hover,
+    .star.hovered,
+    .star.selected {
+      color: gold;
+    }
 
     /* واکنشگرایی موبایل */
     @media (max-width: 600px) {
@@ -335,7 +360,7 @@
   <nav class="side-menu" id="sideMenu" aria-hidden="true">
     <a href="http://www.khaneehsan.com" target="_blank" rel="noopener">خانه احسان</a>
     <a href="https://khaneehsan.github.io/social-platform/" target="_blank" rel="noopener">درباره ما</a>
-      </nav>
+  </nav>
 
   <!-- جستجو -->
   <div class="search-box">
@@ -481,166 +506,147 @@
   </div>
 
   <!-- مودال نمایش غذا -->
-  <div class="modal" id="modal">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
-      <span class="close" id="modalClose" role="button" aria-label="بستن">&times;</span>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <div class="modal-content">
+      <button class="close" id="modalClose" aria-label="بستن مودال" title="بستن">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#f55" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M18.3 5.71a1 1 0 00-1.42 0L12 10.59 7.12 5.7A1 1 0 105.7 7.12L10.59 12l-4.88 4.88a1 1 0 101.42 1.42L12 13.41l4.88 4.88a1 1 0 001.42-1.42L13.41 12l4.88-4.88a1 1 0 000-1.41z"/>
+        </svg>
+      </button>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
       <img id="modalImg" src="" alt="" />
       <p id="orderTime" style="margin-top:10px; font-weight:bold; color:#f9c400;"></p>
       <div class="rating" id="rating">
-  <span class="star" data-value="5">&#9733;</span>
-  <span class="star" data-value="4">&#9733;</span>
-  <span class="star" data-value="3">&#9733;</span>
-  <span class="star" data-value="2">&#9733;</span>
-  <span class="star" data-value="1">&#9733;</span>
-</div>
+        <span class="star" data-value="5">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="1">&#9733;</span>
+      </div>
     </div>
   </div>
 
-  <div class="footer">
-    آدرس: خراسان رضوی، مشهد ، بلوار لادن ُ بعد از لادن 51 - تلفن: 051-31903
-  </div>
+  <div class="footer">© ۲۰۲۵ رستوران لقمه احسان</div>
 
-<script>
-  // منوی بازشو
-  const menuButton = document.getElementById('menuToggle');
-  const sideMenu = document.getElementById('sideMenu');
-
-  menuButton.addEventListener('click', () => {
-    sideMenu.classList.toggle('open');
-    const expanded = sideMenu.classList.contains('open');
-    sideMenu.setAttribute('aria-hidden', !expanded);
-  });
-
-  // بستن منو بعد از کلیک روی لینک‌های داخل منو
-  document.querySelectorAll('#sideMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      sideMenu.classList.remove('open');
-      sideMenu.setAttribute('aria-hidden', 'true');
+  <script>
+    // باز و بسته کردن منوی بازشو
+    const menuToggle = document.getElementById('menuToggle');
+    const sideMenu = document.getElementById('sideMenu');
+    menuToggle.addEventListener('click', () => {
+      sideMenu.classList.toggle('open');
+      // aria-hidden تنظیم برای دسترس پذیری
+      const isOpen = sideMenu.classList.contains('open');
+      sideMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
     });
-  });
 
-  // بستن منو وقتی بیرون ازش کلیک شد
-  document.addEventListener('click', (event) => {
-    const isClickInsideMenu = sideMenu.contains(event.target);
-    const isClickOnButton = menuButton.contains(event.target);
-
-    if (!isClickInsideMenu && !isClickOnButton) {
-      sideMenu.classList.remove('open');
-      sideMenu.setAttribute('aria-hidden', 'true');
-    }
-  });
-
-  // تب‌ها برای فیلتر
-  const tabs = document.querySelectorAll('.tab');
-  const menuItems = document.querySelectorAll('.menu-item');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      const cat = tab.getAttribute('data-category');
+    // فیلتر جستجو
+    const searchInput = document.getElementById('search');
+    const menuItems = document.querySelectorAll('.menu-item');
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
       menuItems.forEach(item => {
-        item.style.display = item.getAttribute('data-category') === cat ? 'flex' : 'none';
+        const title = item.querySelector('strong').textContent.trim().toLowerCase();
+        const category = item.getAttribute('data-category').trim().toLowerCase();
+        if (title.includes(query) || category.includes(query)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
       });
     });
-  });
 
-  // جستجو
-  const searchInput = document.getElementById('search');
-  searchInput.addEventListener('input', () => {
-    const val = searchInput.value.trim().toLowerCase();
-    menuItems.forEach(item => {
-      const text = item.querySelector('.info strong').textContent.toLowerCase();
-      if(text.includes(val)) item.style.display = 'flex';
-      else item.style.display = 'none';
+    // تغییر تب‌ها
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const category = tab.getAttribute('data-category');
+        menuItems.forEach(item => {
+          if (item.getAttribute('data-category') === category) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
     });
-  });
 
-  // تابع نمایش ساعت سفارش برای سوپ جو و آش جو بر اساس روزهای هفته
-  function getOrderTime(foodName) {
-    const today = new Date();
-    const day = today.getDay(); 
-    const dayNames = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه', 'جمعه', 'شنبه'];
-    const todayName = dayNames[day];
+    // نمایش مودال
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+    const orderTime = document.getElementById('orderTime');
+    const ratingStars = document.querySelectorAll('#rating .star');
 
-    const evenDays = ['شنبه', 'دوشنبه', 'چهارشنبه'];
-    const oddDays = ['یکشنبه', 'سه‌شنبه', 'پنج‌شنبه'];
+    function showModal(title, price, imgSrc) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = price;
+      modalImg.src = imgSrc;
+      modalImg.alt = title;
 
-    if (foodName === 'سوپ جو') {
-      if (evenDays.includes(todayName)) return 'ساعت سفارش‌دهی ۱۲ تا ۱۵';
-      else return 'موجود نیست';
+      // زمان سفارش (مثال ساده)
+      orderTime.textContent = 'زمان سفارش: ۱۲ تا ۱۵';
+
+      // ریست رنگ ستاره‌ها
+      ratingStars.forEach(star => star.classList.remove('selected'));
+
+      modal.style.display = 'flex';
     }
-    if (foodName === 'آش جو') {
-      if (oddDays.includes(todayName)) return 'ساعت سفارش‌دهی ۱۲ تا ۱۵';
-      else return 'موجود نیست';
-    }
-    return '';
-  }
 
-  // مودال بازشو
-  const modal = document.getElementById('modal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDesc');
-  const modalImg = document.getElementById('modalImg');
-  const modalClose = document.getElementById('modalClose');
-  const orderTime = document.getElementById('orderTime');
-
-  function showModal(name, price, img) {
-    modalTitle.textContent = name;
-    modalDesc.textContent = price;
-
-    modalImg.src = img;
-    modalImg.alt = name;
-
-    const timeText = getOrderTime(name);
-    orderTime.textContent = timeText;
-
-    modal.style.display = 'flex';
-  }
-
-  modalClose.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  window.addEventListener('click', e => {
-    if(e.target === modal){
+    modalClose.addEventListener('click', () => {
       modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // ستاره‌ها - امتیازدهی
+    ratingStars.forEach(star => {
+      star.addEventListener('mouseenter', () => {
+        const val = parseInt(star.getAttribute('data-value'));
+        highlightStars(val);
+      });
+      star.addEventListener('mouseleave', () => {
+        resetStars();
+      });
+      star.addEventListener('click', () => {
+        const val = parseInt(star.getAttribute('data-value'));
+        setRating(val);
+      });
+    });
+
+    let currentRating = 0;
+
+    function highlightStars(val) {
+      ratingStars.forEach(star => {
+        const starVal = parseInt(star.getAttribute('data-value'));
+        star.classList.toggle('hovered', starVal <= val);
+      });
     }
-  });
 
-  const stars = document.querySelectorAll('.star');
-let selectedRating = 0;
-
-stars.forEach(star => {
-  star.addEventListener('mouseover', () => {
-    const val = parseInt(star.dataset.value);
-    highlightStars(val);
-  });
-
-  star.addEventListener('mouseout', () => {
-    highlightStars(selectedRating);
-  });
-
-  star.addEventListener('click', () => {
-    selectedRating = parseInt(star.dataset.value);
-    highlightStars(selectedRating);
-    console.log('امتیاز ثبت شده برای', modalTitle.textContent, ':', selectedRating);
-    // اینجا می‌تونی ارسال به Google Sheets یا سرور رو هم اضافه کنی
-  });
-});
-
-function highlightStars(rating) {
-  stars.forEach(s => {
-    s.classList.remove('selected', 'hovered');
-    if (parseInt(s.dataset.value) <= rating) {
-      s.classList.add('selected');
+    function resetStars() {
+      ratingStars.forEach(star => {
+        star.classList.toggle('hovered', false);
+      });
     }
-  });
-}
 
-</script>
+    function setRating(val) {
+      currentRating = val;
+      ratingStars.forEach(star => {
+        const starVal = parseInt(star.getAttribute('data-value'));
+        star.classList.toggle('selected', starVal <= val);
+      });
+      // اینجا می‌تونی اطلاعات امتیاز رو به گوگل شیت یا سرور ارسال کنی
+      console.log('امتیاز انتخاب شده:', val);
+    }
+
+  </script>
 </body>
 </html>
