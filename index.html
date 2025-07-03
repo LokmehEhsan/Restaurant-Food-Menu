@@ -239,7 +239,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(100, 100, 100, 0.4); /* شفاف‌تر */
+      background: rgba(43, 46, 52, 0.8);
       backdrop-filter: blur(4px);
       justify-content: center;
       align-items: center;
@@ -267,11 +267,10 @@
       margin-right: auto;
     }
 
-    /* دکمه بستن مودال - سمت راست بالا و با آیکون SVG */
     .modal-content .close {
       position: absolute;
       top: 10px;
-      right: 10px;  /* سمت راست */
+      right: 10px;
       background: transparent;
       border: none;
       cursor: pointer;
@@ -328,7 +327,6 @@
       color: gold;
     }
 
-    /* واکنشگرایی موبایل */
     @media (max-width: 600px) {
       .menu-container {
         grid-template-columns: 1fr;
@@ -341,28 +339,23 @@
 </head>
 <body>
 
-  <!-- لوگو و معرفی -->
   <div class="branding">
     <img src="https://itehsan.github.io/khaneehsan/logo.png" alt="لوگوی رستوران">
     <h1>به خانه طعم‌ها خوش آمدید</h1>
     <p>تجربه‌ای متفاوت از غذای اصیل ایرانی</p>
   </div>
 
-  <!-- هدر اصلی -->
   <div class="header">
     <h2>منوی رستوران لقمه احسان</h2>
 
-    <!-- دکمه منوی بازشو -->
     <button class="menu-button" id="menuToggle" aria-label="باز کردن منو">&#9776;</button>
   </div>
 
-  <!-- منوی بازشو سمت راست -->
   <nav class="side-menu" id="sideMenu" aria-hidden="true">
     <a href="http://www.khaneehsan.com" target="_blank" rel="noopener">خانه احسان</a>
     <a href="https://khaneehsan.github.io/social-platform/" target="_blank" rel="noopener">درباره ما</a>
   </nav>
 
-  <!-- جستجو -->
   <div class="search-box">
     <input type="text" id="search" placeholder="هرچی دوست داری جستجو کن ...">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" >
@@ -378,10 +371,10 @@
     <div class="tab" data-category="نوشیدنی">شربت ، نوشیدنی</div>
   </div>
 
-  <!-- کانتینر محصولات -->
   <div class="menu-container">
-
-    <!---پیش غذا) -->
+    <!-- محصولات با onclick نمایش مودال -->
+   
+<!---پیش غذا) -->
     <div class="menu-item" data-category="پیش غذا" onclick="showModal('سوپ جو', '۸۳.۰۰۰ تومان', 'https://itehsan.github.io/khaneehsan/soup.jpg')">
       <div class="info"><strong>سوپ جو</strong><span>کیلویی ۸۳.۰۰۰ تومان </span></div>
       <img src="https://itehsan.github.io/khaneehsan/soup.jpg" alt="سوپ جو">
@@ -504,8 +497,8 @@
 
 
   </div>
+  </div>
 
-  <!-- مودال نمایش غذا -->
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <div class="modal-content">
       <button class="close" id="modalClose" aria-label="بستن مودال" title="بستن">
@@ -538,6 +531,16 @@
       // aria-hidden تنظیم برای دسترس پذیری
       const isOpen = sideMenu.classList.contains('open');
       sideMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    });
+
+    // بستن منوی بازشو وقتی روی بیرون منو کلیک شود
+    window.addEventListener('click', (event) => {
+      const isClickInsideMenu = sideMenu.contains(event.target);
+      const isClickOnButton = menuToggle.contains(event.target);
+      if (!isClickInsideMenu && !isClickOnButton) {
+        sideMenu.classList.remove('open');
+        sideMenu.setAttribute('aria-hidden', 'true');
+      }
     });
 
     // فیلتر جستجو
@@ -610,43 +613,25 @@
     // ستاره‌ها - امتیازدهی
     ratingStars.forEach(star => {
       star.addEventListener('mouseenter', () => {
-        const val = parseInt(star.getAttribute('data-value'));
-        highlightStars(val);
+        const val = star.getAttribute('data-value');
+        ratingStars.forEach(s => {
+          s.classList.toggle('hovered', s.getAttribute('data-value') <= val);
+        });
       });
+
       star.addEventListener('mouseleave', () => {
-        resetStars();
+        ratingStars.forEach(s => s.classList.remove('hovered'));
       });
+
       star.addEventListener('click', () => {
-        const val = parseInt(star.getAttribute('data-value'));
-        setRating(val);
+        const val = star.getAttribute('data-value');
+        ratingStars.forEach(s => {
+          s.classList.toggle('selected', s.getAttribute('data-value') <= val);
+        });
+        // ارسال یا ذخیره امتیاز در اینجا
+        console.log(`امتیاز داده شده: ${val}`);
       });
     });
-
-    let currentRating = 0;
-
-    function highlightStars(val) {
-      ratingStars.forEach(star => {
-        const starVal = parseInt(star.getAttribute('data-value'));
-        star.classList.toggle('hovered', starVal <= val);
-      });
-    }
-
-    function resetStars() {
-      ratingStars.forEach(star => {
-        star.classList.toggle('hovered', false);
-      });
-    }
-
-    function setRating(val) {
-      currentRating = val;
-      ratingStars.forEach(star => {
-        const starVal = parseInt(star.getAttribute('data-value'));
-        star.classList.toggle('selected', starVal <= val);
-      });
-      // اینجا می‌تونی اطلاعات امتیاز رو به گوگل شیت یا سرور ارسال کنی
-      console.log('امتیاز انتخاب شده:', val);
-    }
-
   </script>
 </body>
 </html>
