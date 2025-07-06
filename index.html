@@ -279,7 +279,10 @@
       display: flex;
     }
     .modal-content {
-      background-color: #2b2e34;
+      background-color: #1f2430;
+  border-radius: 24px;
+  border: 3px solid #f4c430;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
       padding: 1rem 1.5rem 2rem;
       border-radius: 16px;
       text-align: center;
@@ -292,6 +295,11 @@
     /* عکس بزرگ در مودال */
     .modal-content img {
       width: 100%;
+  max-width: 330px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+  margin-bottom: 1rem;
       max-width: 350px;
       height: auto;
       object-fit: cover;
@@ -302,20 +310,40 @@
       margin-right: auto;
     }
     /* تیتر مودال */
-    .modal-content h3 {
+    .modal-content h2 {
       margin-top: 0.5rem;
       margin-bottom: 0.3rem;
-      font-size: 1.5rem;
+      font-size: 35px;
+  margin: 12px 0 4px;
+  color: white;
       color: #f9c400;
     }
     /* قیمت غذا */
     .modal-content p {
       margin-bottom: 0.3rem;
-      font-size: 1.1rem;
+      font-size: 18px;
+  color: #f9c400;
+  margin-bottom: 8px;
     }
     /* دکمه بستن مودال */
     .modal-content .close {
       position: absolute;
+  top: -16px;
+  right: -16px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: background-color 0.3s ease;
       top: 10px;
       right: 10px;
       background: transparent;
@@ -335,7 +363,7 @@
       height: 24px;
       fill: #f55;
       transition: fill 0.3s ease;
-    }
+    display: none;}
     .modal-content .close:hover svg {
       fill: #e74c3c;
     }
@@ -377,6 +405,20 @@
   text-align: center;
   display: block;
 }
+
+.menu-item {
+  -webkit-tap-highlight-color: transparent; /* مخصوص موبایل کروم */
+  outline: none; /* حذف کادر آبی هنگام فوکوس */
+}
+
+.menu-item:focus {
+  outline: none;
+}
+
+.menu-item:active {
+  background-color: #555; /* اختیاری: رنگ کمی تیره‌تر برای کلیک */
+}
+
 
   </style>
 </head>
@@ -514,12 +556,12 @@
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کباب لقمه شتر"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="گوجه کبابی" data-price="۲۱۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/gojeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="گوجه کبابی" data-price="۲۱۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/gojehh.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>گوجه کبابی</strong>
     <span>۲۱۵.۰۰۰ تومان</span>
   </div>
-  <img src="https://itehsan.github.io/khaneehsan/gojeh.jpg" alt="گوجه کبابی" />
+  <img src="https://itehsan.github.io/khaneehsan/gojehh.png" alt="گوجه کبابی" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="گوجه کبابی"></div>
 </div>
 
@@ -588,31 +630,31 @@
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="نوشانه زرشک"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="دسر و چاشنی" data-title="زیتون پرورده ۷۵ گرمی" data-price="۲۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/zeyton.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="دسر و چاشنی" data-title="زیتون پرورده ۷۵ گرمی" data-price="۲۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/zeytonnnnn.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>زیتون پرورده</strong>
     <span>۲۵.۰۰۰ تومان</span>
   </div>
-  <img src="https://itehsan.github.io/khaneehsan/zeyton.jpg" alt="زیتون پرورده" />
+  <img src="https://itehsan.github.io/khaneehsan/zeytonnnnn.png" alt="زیتون پرورده" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="زیتون پرورده"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="دسر و چاشنی" data-title="سبزی خوردن" data-price="۳۸.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/1730493013JJmlL.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="دسر و چاشنی" data-title="سبزی خوردن" data-price="۳۸.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/sabzii.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>سبزی خوردن</strong>
     <span>۳۸.۰۰۰ تومان</span>
   </div>
-  <img src="https://itehsan.github.io/khaneehsan/1730493013JJmlL.jpg" alt="سبزی خوردن" />
+  <img src="https://itehsan.github.io/khaneehsan/sabzii.png" alt="سبزی خوردن" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="سبزی خوردن"></div>
 </div>
 
 <!-- نوشیدنی -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="دوغ تلمی نیم لیتری" data-price="۱۹.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/doq500.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="دوغ تلمی نیم لیتری" data-price="۱۹.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/dooooq.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>دوغ تلمی نیم لیتری</strong>
     <span>۱۹.۰۰۰ تومان</span>
   </div>
-  <img src="https://itehsan.github.io/khaneehsan/doq500.jpg" alt="دوغ تلمی نیم لیتری" />
+  <img src="https://itehsan.github.io/khaneehsan/dooooq.png" alt="دوغ تلمی نیم لیتری" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="دوغ تلمی نیم لیتری"></div>
 </div>
 
@@ -650,11 +692,7 @@
   <!-- مودال نمایش جزئیات غذا و امتیازدهی -->
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
     <div class="modal-content">
-      <button class="close" id="modalClose" aria-label="بستن">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M18.3 5.71a1 1 0 00-1.42-1.42L12 9.59 7.12 4.7a1 1 0 00-1.42 1.42L10.59 12l-4.89 4.88a1 1 0 001.42 1.42L12 14.41l4.88 4.88a1 1 0 001.42-1.42L13.41 12l4.88-4.88z"/>
-        </svg>
-      </button>
+      <button class="close" id="modalClose" aria-label="بستن">×</button>
       <img src="" alt="" id="modalImg" />
       <h3 id="modalTitle"></h3>
       <p id="modalPrice"></p>
@@ -662,13 +700,15 @@
       <p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
 
       <!-- بخش امتیازدهی ستاره‌ای -->
-      <div class="rating" role="radiogroup" aria-label="امتیازدهی ستاره‌ای">
-        <span class="star" role="radio" aria-checked="false" tabindex="0" data-value="5" aria-label="۵ ستاره">&#9733;</span>
-        <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="4" aria-label="۴ ستاره">&#9733;</span>
-        <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="3" aria-label="۳ ستاره">&#9733;</span>
-        <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="2" aria-label="۲ ستاره">&#9733;</span>
-        <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="1" aria-label="۱ ستاره">&#9733;</span>
-      </div>
+     <div class="rating" role="radiogroup" aria-label="امتیازدهی ستاره‌ای">
+  <span class="star" role="radio" aria-checked="false" tabindex="0" data-value="5" aria-label="۵ ستاره">&#9733;</span>
+  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="4" aria-label="۴ ستاره">&#9733;</span>
+  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="3" aria-label="۳ ستاره">&#9733;</span>
+  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="2" aria-label="۲ ستاره">&#9733;</span>
+  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="1" aria-label="۱ ستاره">&#9733;</span>
+</div>
+<button id="submit-rating">ارسال امتیاز</button>
+<div id="response-message"></div>
       <p id="ratingMsg" style="margin-top: 0.5rem; color: #f9c400; font-weight: bold;"></p>
     </div>
   </div>
@@ -694,7 +734,7 @@
   const modalOrderTime = document.getElementById('modalOrderTime'); // متن زمان سفارش داخل مودال
   const stars = modal.querySelectorAll('.star'); // ستاره‌های امتیازدهی
   const ratingMsg = document.getElementById('ratingMsg'); // پیام امتیاز (میانگین و تعداد رای)
-
+  
   // کلید ذخیره در localStorage برای امتیازها
   const STORAGE_KEY = 'restaurant_ratings';
 
@@ -880,7 +920,7 @@
       });
     }
 
-        // ستاره اول در مودال قابلیت فوکوس بگیرد
+    // ستاره اول در مودال قابلیت فوکوس بگیرد
     stars[0].tabIndex = 0;
 
     // نمایش مودال
@@ -895,19 +935,19 @@
 
   // بستن مودال با کلیک روی فضای بیرون مودال
   // بستن منوی بازشو وقتی روی بیرون منو کلیک شود
-    window.addEventListener('click', (event) => {
-      const isClickInsideMenu = sideMenu.contains(event.target);
-      const isClickOnButton = menuToggle.contains(event.target);
-      if (!isClickInsideMenu && !isClickOnButton) {
-        sideMenu.classList.remove('open');
-        sideMenu.setAttribute('aria-hidden', 'true');
-      }
-    });
-  //modal.addEventListener('click', (e) => {
-  //  if(e.target === modal) {
-    //  modal.classList.remove('show');
-  //  }
-//  });
+  window.addEventListener('click', (event) => {
+    const isClickInsideMenu = sideMenu.contains(event.target);
+    const isClickOnButton = menuToggle.contains(event.target);
+    if (!isClickInsideMenu && !isClickOnButton) {
+      sideMenu.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
 
   // امتیازدهی ستاره‌ای در مودال
   stars.forEach(star => {
@@ -948,27 +988,50 @@
     });
   });
 
-  // ذخیره امتیاز انتخاب شده و بروزرسانی UI
+  // ذخیره امتیاز انتخاب شده و بروزرسانی UI + ارسال به Netlify و دریافت میانگین
   function saveRating(value) {
-    if(!currentItem) return;
+    if (!currentItem) return;
     const title = currentItem.dataset.title;
     const ratings = loadRatings();
-    if(!ratings[title]) ratings[title] = [];
+    if (!ratings[title]) ratings[title] = [];
     ratings[title].push(value);
     saveRatings(ratings);
 
-    // بروزرسانی پیام و رنگ ستاره‌ها در مودال
-    const scores = ratings[title];
-    const avg = calculateAverage(scores);
-    ratingMsg.textContent = `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`;
+    // ارسال امتیاز به Netlify Function
+    fetch("https://khaneehsan.netlify.app/api/submit-rating", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        rating: value,
+        comment: ""
+      })
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        const avg = data.averageRating || calculateAverage(ratings[title]);
+        ratingMsg.textContent = `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`;
 
-    stars.forEach(star => {
-      star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
-      star.setAttribute('aria-checked', parseInt(star.dataset.value) <= Math.round(avg) ? 'true' : 'false');
+        stars.forEach(star => {
+          star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
+          star.setAttribute('aria-checked', parseInt(star.dataset.value) <= Math.round(avg) ? 'true' : 'false');
+        });
+
+        updateAverageRatingsUI();
+      } else {
+        throw new Error(data.error || "خطا در دریافت پاسخ سرور.");
+      }
+    })
+    .catch(error => {
+      console.error("خطا:", error);
+      alert("خطا در ارسال امتیاز. لطفا دوباره تلاش کنید.");
     });
-
-    // بروزرسانی میانگین امتیاز زیر غذا
-    updateAverageRatingsUI();
   }
 
   // وقتی صفحه بارگذاری شد، میانگین امتیازها را بروز کن
@@ -984,6 +1047,7 @@
   // شروع اولیه با نمایش همه غذاها
   changeCategory("همه");
 </script>
+
 
 </body>
 </html>
