@@ -18,7 +18,7 @@
       padding: 1rem;
       min-height: 100vh; /* حداقل ارتفاع صفحه */
       overflow-x: hidden; /* جلوگیری از اسکرول افقی */
-      user-select: none; /* جلوگیری از انتخاب متن */
+      user-select: text; /* جلوگیری از انتخاب متن */
     }
 
     /* بخش برندینگ (لوگو و عنوان) */
@@ -391,6 +391,45 @@
       color: gold;
     }
 
+    
+.weight-cards {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.weight-card {
+  background-color: #3c3f48;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 0.85rem;
+  border: 2px solid transparent;
+  font-family: inherit;
+  flex: 1 1 auto;
+  min-width: 80px;
+  max-width: 100px;
+}
+.weight-card small {
+  color: #ccc;
+  font-size: 0.75rem;
+}
+.weight-card:hover {
+  transform: translateY(-2px);
+  background-color: #50545f;
+}
+.weight-card.active {
+  background-color: #f9c400;
+  color: black;
+  font-weight: bold;
+  border-color: #f9c400;
+}
+
+
     /* فوتر پایین صفحه */
     .footer {
       text-align: center;
@@ -417,6 +456,12 @@
 
 .menu-item:active {
   background-color: #555; /* اختیاری: رنگ کمی تیره‌تر برای کلیک */
+}
+
+    #modalTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
 }
 
 
@@ -473,26 +518,26 @@
   <main class="menu-container" role="list" aria-label="لیست غذاها">
     
     <!-- نمونه غذاها: هر آیتم یک div با داده‌ها -->
-    <div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="سوپ جو" data-price="۸۳.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/soup.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+    <div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="سوپ جو"  data-img="https://itehsan.github.io/khaneehsan/soup.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
       <div class="info">
         <strong>سوپ جو</strong>
-        <span>۸۳.۰۰۰ تومان</span>
+        <span>کیلویی۸۰.۰۰۰ تومان</span>
       </div>
       <img src="https://itehsan.github.io/khaneehsan/soup.jpg" alt="سوپ جو" />
       <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="سوپ جو"></div>
     </div>
 
-    <div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="آش جو" data-price="۱۰۹.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/ash.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+    <div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="آش جو" data-img="https://itehsan.github.io/khaneehsan/ash.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
       <div class="info">
         <strong>آش جو</strong>
-        <span>۱۰۹.۰۰۰ تومان</span>
+        <span>کیلویی۱۰۹.۰۰۰ تومان</span>
       </div>
       <img src="https://itehsan.github.io/khaneehsan/ash.jpg" alt="آش جو" />
       <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="آش جو"></div>
     </div>
 
     <!-- پیش غذا -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="حلیم گندم" data-price="۱۴۸.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/haleam.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="حلیم گندم"  data-img="https://itehsan.github.io/khaneehsan/haleam.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>حلیم گندم</strong>
     <span>کیلویی ۱۴۸.۰۰۰ تومان</span>
@@ -502,19 +547,19 @@
 </div>
 
 <!-- کباب ها -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده گوسفندی" data-price="۱۱۱.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/0c53a7a9-636.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده گوسفندی" data-price="۱۱۶.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/0c53a7a9-636.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>کوبیده گوسفندی</strong>
-    <span>۱۲۵.۰۰۰ تومان</span>
+    <span>۱۱۶.۰۰۰ تومان</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/0c53a7a9-636.jpg" alt="کوبیده گوسفندی" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده گوسفندی"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده بوقلمون" data-price="۷۹.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/008bcb7c-447.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده بوقلمون" data-price="۸۴.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/008bcb7c-447.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>کوبیده بوقلمون</strong>
-    <span>۱۲۵.۰۰۰ تومان</span>
+    <span>۸۴.۰۰۰ تومان</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/008bcb7c-447.jpg" alt="کوبیده بوقلمون" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده بوقلمون"></div>
@@ -547,13 +592,31 @@
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کباب لقمه گوسفندی"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کباب لقمه شتر" data-price="۲۱۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/loqmeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کباب لقمه شتر" data-price="۲۳۰.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/loqmeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>کباب لقمه شتر</strong>
-    <span>۲۱۵.۰۰۰ تومان</span>
+    <span>۲۳۰.۰۰۰ تومان</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/loqmeh.jpg" alt="کباب لقمه شتر" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کباب لقمه شتر"></div>
+</div>
+
+    <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="ساندویچ کباب لقمه شتر" data-price="۲۵۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/loqmeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+  <div class="info">
+    <strong>ساندویچ کباب لقمه شتر</strong>
+    <span>۲۵۵.۰۰۰ تومان</span>
+  </div>
+  <img src="https://itehsan.github.io/khaneehsan/loqmeh.jpg" alt="ساندویچ کباب لقمه شتر" />
+  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ کباب لقمه شتر"></div>
+</div>
+
+    <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="جوجه کباب بوقلمون" data-price="۲۰۸.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/jojeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+  <div class="info">
+    <strong>جوجه کباب بوقلمون</strong>
+    <span>۲۰۸.۰۰۰ تومان</span>
+  </div>
+  <img src="https://itehsan.github.io/khaneehsan/jojeh.jpg" alt="جوجه کباب بوقلمون" />
+  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="جوجه کباب بوقلمون"></div>
 </div>
 
 <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="گوجه کبابی" data-price="۲۱۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/gojehh.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
@@ -574,20 +637,29 @@
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="دورچین"></div>
 </div>
 
+    <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="ظرف یکبار مصرف کباب آلومینیومی" data-price="۸.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/zarf.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+  <div class="info">
+    <strong>ظرف یکبار مصرف کباب آلومینیومی</strong>
+    <span>۸.۰۰۰ تومان</span>
+  </div>
+  <img src="https://itehsan.github.io/khaneehsan/zarf.jpg" alt="ظرف یکبار مصرف کباب آلومینیومی"/>
+  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ظرف یکبار مصرف کباب آلومینیومی"></div>
+</div>
+
 <!-- ساندویچ ها -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ کوبیده گوسفندی" data-price="۱۲۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/sandevich gosfandy.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ کوبیده گوسفندی" data-price="۱۳۰.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/sandevich gosfandy.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>ساندویچ کوبیده گوسفندی</strong>
-    <span>۱۲۵.۰۰۰ تومان</span>
+    <span>۱۳۰.۰۰۰ تومان</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/sandevich gosfandy.jpg" alt="ساندویچ کوبیده گوسفندی" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ کوبیده گوسفندی"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ کوبیده بوقلمون" data-price="۲۲۰.۰۰۰ ریال" data-img="https://itehsan.github.io/khaneehsan/boqlamon.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ کوبیده بوقلمون" data-price="۹۹.۰۰۰ ریال" data-img="https://itehsan.github.io/khaneehsan/boqlamon.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>ساندویچ کوبیده بوقلمون</strong>
-    <span>۲۲۰.۰۰۰ ریال</span>
+    <span>۹۹.۰۰۰ ریال</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/boqlamon.jpg" alt="ساندویچ کوبیده بوقلمون" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ کوبیده بوقلمون"></div>
@@ -694,12 +766,49 @@
     <div class="modal-content">
       <button class="close" id="modalClose" aria-label="بستن">×</button>
       <img src="" alt="" id="modalImg" />
-      <h3 id="modalTitle"></h3>
+      <h2 id="modalTitle"></h2>
       <p id="modalPrice"></p>
       <!-- زمان سفارش فقط برای سوپ جو و آش جو نمایش داده می‌شود -->
       <p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
 
-      <!-- بخش امتیازدهی ستاره‌ای -->
+      
+<!-- ✨ بخش انتخاب وزن برای سوپ جو، آش جو و حلیم گندم -->
+<!-- وزن برای سوپ جو -->
+<div id="weightOptions-soup" class="weightOptions" style="display:none; margin-top:1.2rem;">
+  <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن سوپ جو:</h4>
+  <div class="weight-cards" style="display:flex; gap:1rem;">
+    <div class="weight-card active" data-price="24000" style="cursor:pointer; ...">۳۰۰ گرم<br><small>۲۴.۰۰۰ تومان</small></div>
+    <div class="weight-card" data-price="64000" style="cursor:pointer; ...">پرسی<br><small>۶۴.۰۰۰ تومان</small></div>
+    <div class="weight-card" data-price="80000" style="cursor:pointer; ...">۱ کیلو<br><small>۸۰.۰۰۰ تومان</small></div>
+  </div>
+  <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
+</div>
+
+<!-- وزن برای آش جو -->
+<div id="weightOptions-ash" class="weightOptions" style="display:none; margin-top:1.2rem;">
+  <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن آش جو:</h4>
+  <div class="weight-cards" style="display:flex; gap:1rem;">
+    <div class="weight-card active" data-price="22000" style="cursor:pointer; ...">۲۰۰ گرم<br><small>۲۲.۰۰۰ تومان</small></div>
+    <div class="weight-card" data-price="93000" style="cursor:pointer; ...">پرسی<br><small>۹۳.۰۰۰ تومان</small></div>
+    <div class="weight-card" data-price="109000" style="cursor:pointer; ...">۱ کیلو<br><small>۱۰۹.۰۰۰ تومان</small></div>
+  </div>
+  <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۲.۰۰۰</span> تومان</p>
+</div>
+
+<!-- وزن برای حلیم گندم -->
+<div id="weightOptions-halim" class="weightOptions" style="display:none; margin-top:1.2rem;">
+  <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن حلیم گندم:</h4>
+  <div class="weight-cards" style="display:flex; gap:1rem;">
+    <div class="weight-card active" data-price="44400" style="cursor:pointer; ...">۳۰۰ گرم<br><small>۴۴.۴۰۰ تومان</small></div>
+    <div class="weight-card" data-price="124000" style="cursor:pointer; ...">پرسی<br><small>۱۲۴.۰۰۰ تومان</small></div>
+    <div class="weight-card" data-price="148000" style="cursor:pointer; ...">۱ کیلو<br><small>۱۴۸.۰۰۰ تومان</small></div>
+  </div>
+  <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۸.۰۰۰</span> تومان</p>
+</div>
+
+
+
+<!-- بخش امتیازدهی ستاره‌ای -->
      <div class="rating" role="radiogroup" aria-label="امتیازدهی ستاره‌ای">
   <span class="star" role="radio" aria-checked="false" tabindex="0" data-value="5" aria-label="۵ ستاره">&#9733;</span>
   <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="4" aria-label="۴ ستاره">&#9733;</span>
@@ -926,6 +1035,8 @@
     // نمایش مودال
     modal.classList.add('show');
     modal.focus();
+    updateWeightSection(element.dataset.title);
+
   }
 
   // بستن مودال با کلیک روی دکمه بستن
@@ -1037,6 +1148,63 @@
   // وقتی صفحه بارگذاری شد، میانگین امتیازها را بروز کن
   updateAverageRatingsUI();
 
+  
+  // ✨ کنترل نمایش وزن گرافیکی برای غذاهای خاص
+  const allWeightSections = document.querySelectorAll('.weightOptions');
+
+function updateWeightSection(title) {
+  allWeightSections.forEach(section => section.style.display = 'none');
+  let sectionId = null;
+  if (title === "سوپ جو") sectionId = "weightOptions-soup";
+  else if (title === "آش جو") sectionId = "weightOptions-ash";
+  else if (title === "حلیم گندم") sectionId = "weightOptions-halim";
+
+  if (sectionId) {
+    const section = document.getElementById(sectionId);
+    section.style.display = "block";
+
+    const cards = section.querySelectorAll('.weight-card');
+    const priceSpan = section.querySelector('.dynamicPrice');
+
+ // cards.forEach(card => {
+//  card.addEventListener('click', () => {
+ //   cards.forEach(c => c.classList.remove('active'));
+ //   card.classList.add('active');
+//    const price = Number(card.dataset.price);
+//if (!isNaN(price)) {
+//  priceSpan.textContent = price.toLocaleString('fa-IR'); // یا بدون fa-IR برای انگلیسی
+//} else {
+//  priceSpan.textContent = "—";
+//}
+//const price = Number(card.dataset.price);
+ //   if (!isNaN(price)) {
+ //     priceSpan.textContent = price.toLocaleString();
+  //  } else {
+//      priceSpan.textContent = "—";
+//    }
+// });
+///});
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    cards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    const priceStr = card.dataset.price?.replace(/[^0-9.]/g, ''); // فقط اعداد و نقطه
+    const price = Number(priceStr);
+
+    if (!isNaN(price)) {
+      priceSpan.textContent = price.toLocaleString('fa-IR'); // نمایش فارسی: ۸۰٬۰۰۰
+    } else {
+      priceSpan.textContent = "—";
+    }
+  });
+});
+
+  }
+}
+
+
+
   // امکان بستن مودال با دکمه Esc کیبورد
   window.addEventListener('keydown', (e) => {
     if(e.key === 'Escape' && modal.classList.contains('show')) {
@@ -1047,7 +1215,5 @@
   // شروع اولیه با نمایش همه غذاها
   changeCategory("همه");
 </script>
-
-
 </body>
 </html>
