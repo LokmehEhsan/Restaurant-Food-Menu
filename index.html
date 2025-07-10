@@ -565,19 +565,19 @@
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده بوقلمون"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده گوسفندی با نان و دورچین" data-price="۱۲۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/kabab gosfandi.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده گوسفندی با نان و دورچین" data-price="۱۳۶.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/kabab gosfandi.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>کوبیده گوسفندی با نان و دورچین</strong>
-    <span>۱۲۵.۰۰۰ تومان</span>
+    <span>۱۳۶.۰۰۰ تومان</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/kabab gosfandi.jpg" alt="کوبیده گوسفندی با نان و دورچین" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده گوسفندی با نان و دورچین"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده بوقلمون با نان و درچین" data-price="۷۹.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/babab boqlamon.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده بوقلمون با نان و درچین" data-price="۱۰۴.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/babab boqlamon.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>کوبیده بوقلمون با نان و درچین</strong>
-    <span>۷۹.۰۰۰ تومان</span>
+    <span>۱۰۴.۰۰۰ تومان</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/babab boqlamon.jpg" alt="کوبیده بوقلمون با نان و درچین" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده بوقلمون با نان و درچین"></div>
@@ -739,10 +739,10 @@
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="دوغ تلمی خانواده دولیتری"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="آب معدنی کوچک" data-price="۱۵.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/vata.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="آب معدنی کوچک" data-price="۱۰.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/vata.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>آب معدنی کوچک</strong>
-    <span>۱۵.۰۰۰ تومان</span>
+    <span>۱۰.۰۰۰ تومان</span>
   </div>
   <img src="https://itehsan.github.io/khaneehsan/vata.jpg" alt="آب معدنی کوچک" />
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="آب معدنی کوچک"></div>
@@ -788,7 +788,7 @@
 <div id="weightOptions-ash" class="weightOptions" style="display:none; margin-top:1.2rem;">
   <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن آش جو:</h4>
   <div class="weight-cards" style="display:flex; gap:1rem;">
-    <div class="weight-card active" data-price="22000" style="cursor:pointer; ...">۲۰۰ گرم<br><small>۲۲.۰۰۰ تومان</small></div>
+    <div class="weight-card active" data-price="22000" style="cursor:pointer; ...">۳۰۰ گرم<br><small>۲۲.۰۰۰ تومان</small></div>
     <div class="weight-card" data-price="93000" style="cursor:pointer; ...">پرسی<br><small>۹۳.۰۰۰ تومان</small></div>
     <div class="weight-card" data-price="109000" style="cursor:pointer; ...">۱ کیلو<br><small>۱۰۹.۰۰۰ تومان</small></div>
   </div>
@@ -1215,5 +1215,74 @@ cards.forEach(card => {
   // شروع اولیه با نمایش همه غذاها
   changeCategory("همه");
 </script>
+
+<!-- ✅ دکمه تغییر حالت شب/روز -->
+<button id="themeToggle" style="position: fixed; top: 1rem; left: 1rem; z-index: 10001; background: #f9c400; color: #000; padding: 0.4rem 0.9rem; border-radius: 10px; border: none; cursor: pointer; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">🌗 حالت شب / روز</button>
+
+<!-- ✅ CSS حالت‌ها -->
+
+
+<!-- ✅ اسکریپت تغییر حالت -->
+<script>
+  function applyTheme(mode) {
+    document.body.classList.remove('day-mode', 'night-mode');
+    document.body.classList.add(`${mode}-mode`);
+    localStorage.setItem('site-theme', mode);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedTheme = localStorage.getItem('site-theme') || 'night';
+    applyTheme(savedTheme);
+
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
+      const newTheme = current === 'night' ? 'day' : 'night';
+      applyTheme(newTheme);
+    });
+  });
+</script>
+
+
+<style>
+  body.day-mode {
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9) !important;
+    color: #000 !important;
+  }
+  body.day-mode .menu-item {
+    background-color: #fff9e6 !important;
+    color: #000 !important;
+  }
+  body.day-mode .menu-item .info span {
+    color: #444 !important;
+  }
+  body.day-mode .modal-content {
+    background-color: #ffffff !important;
+    color: #000 !important;
+  }
+  body.day-mode .modal-content h2,
+  body.day-mode .modal-content p,
+  body.day-mode .modal-content span,
+  body.day-mode .rating .star {
+    color: #000 !important;
+  }
+  body.day-mode .tab,
+  body.day-mode .search-box {
+    background-color: #f0f0f0 !important;
+    color: #000 !important;
+  }
+  body.day-mode .menu-button {
+    color: #000 !important;
+  }
+  body.day-mode .side-menu {
+    background-color: #ffffff !important;
+    color: #000 !important;
+  }
+  body.day-mode .side-menu a,
+  body.day-mode .side-menu .tab {
+    background-color: #f0f0f0 !important;
+    color: #000 !important;
+  }
+</style>
+
 </body>
 </html>
