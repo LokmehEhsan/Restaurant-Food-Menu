@@ -464,6 +464,45 @@
   color: white;
 }
 
+  body.day-mode {
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9) !important;
+    color: #000 !important;
+  }
+  body.day-mode .menu-item {
+    background-color: #fff9e6 !important;
+    color: #000 !important;
+  }
+  body.day-mode .menu-item .info span {
+    color: #444 !important;
+  }
+  body.day-mode .modal-content {
+    background-color: #ffffff !important;
+    color: #000 !important;
+  }
+  body.day-mode .modal-content h2,
+  body.day-mode .modal-content p,
+  body.day-mode .modal-content span,
+  body.day-mode .rating .star {
+    color: #000 !important;
+  }
+  body.day-mode .tab,
+  body.day-mode .search-box {
+    background-color: #f0f0f0 !important;
+    color: #000 !important;
+  }
+  body.day-mode .menu-button {
+    color: #000 !important;
+  }
+  body.day-mode .side-menu {
+    background-color: #ffffff !important;
+    color: #000 !important;
+  }
+  body.day-mode .side-menu a,
+  body.day-mode .side-menu .tab {
+    background-color: #f0f0f0 !important;
+    color: #000 !important;
+  }
+
 
   </style>
 </head>
@@ -619,13 +658,13 @@
   <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="جوجه کباب بوقلمون"></div>
 </div>
 
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title=" سیخ گوجه کبابی" data-price="۳۲.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/gojehh.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
+<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="سیخ گوجه کبابی" data-price="۳۲.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/gojehh.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
   <div class="info">
     <strong>سیخ گوجه کبابی</strong>
     <span>۳۲.۰۰۰ تومان</span>
   </div>
-  <img src="https://itehsan.github.io/khaneehsan/gojehh.png" alt="سیخ سیخ گوجه" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="سیخ گوجه کبابی"></div>
+  <img src="https://itehsan.github.io/khaneehsan/gojehh.png" alt="سیخ گوجه سیخ گوجه کبابی" />
+  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="سیخ گوجه سیخ گوجه کبابی"></div>
 </div>
 
 <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="دورچین" data-price="۱۰.۰۰۰ تومان" data-img="https://itehsan.github.io/khaneehsan/dorchin.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
@@ -806,14 +845,7 @@
   <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۸.۰۰۰</span> تومان</p>
 </div>
 
-<div id="weightOptions-soup" class="weightOptions" style="display:none; margin-top:1.2rem;">
-  <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب نوع کالا:</h4>
-  <div class="weight-cards" style="display:flex; gap:1rem;">
-    <div class="weight-card" data-price="64000" style="cursor:pointer; ...">با ظرف<br><small>۹۲.۰۰۰ تومان</small></div>
-    <div class="weight-card" data-price="80000" style="cursor:pointer; ...">بدون ظرف<br><small>۸۴.۰۰۰ تومان</small></div>
-  </div>
-  <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
-</div>
+
 
 <!-- بخش امتیازدهی ستاره‌ای -->
      <div class="rating" role="radiogroup" aria-label="امتیازدهی ستاره‌ای">
@@ -1222,5 +1254,33 @@ cards.forEach(card => {
   // شروع اولیه با نمایش همه غذاها
   changeCategory("همه");
 </script>
+
+<!-- ✅ دکمه تغییر حالت شب/روز -->
+<button id="themeToggle" style="position: fixed; top: 1rem; left: 1rem; z-index: 10001; background: #f9c400; color: #000; padding: 0.4rem 0.9rem; border-radius: 10px; border: none; cursor: pointer; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">🌗 حالت شب / روز</button>
+
+<!-- ✅ CSS حالت‌ها -->
+
+
+<!-- ✅ اسکریپت تغییر حالت -->
+<script>
+  function applyTheme(mode) {
+    document.body.classList.remove('day-mode', 'night-mode');
+    document.body.classList.add(`${mode}-mode`);
+    localStorage.setItem('site-theme', mode);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedTheme = localStorage.getItem('site-theme') || 'night';
+    applyTheme(savedTheme);
+
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
+      const newTheme = current === 'night' ? 'day' : 'night';
+      applyTheme(newTheme);
+    });
+  });
+</script>
+
+
 </body>
 </html>
