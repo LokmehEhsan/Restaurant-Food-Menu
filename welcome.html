@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورود به سایت</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    @font-face {
+      font-family: 'AdobeArabic';
+      src: url('https://itehsan.github.io/khaneehsan/AdobeArabic-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      direction: rtl;
+      font-family: 'AdobeArabic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://itehsan.github.io/khaneehsan/back13.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      padding: 35px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .card img {
+      width: 300px;
+      margin-bottom: 25px;
+    }
+
+    .card h2 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      color: #333;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      margin: 12px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1.3rem;
+      background: rgba(255, 255, 255, 0.9);
+      transition: all 0.3s;
+      font-family: 'AdobeArabic', sans-serif;
+    }
+
+    input::placeholder {
+      font-size: 1.2rem;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #f57c00;
+      box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.2);
+    }
+
+    button {
+      width: 100%;
+      background-color: #f57c00;
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1.4rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'AdobeArabic', sans-serif;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #e76c00;
+      transform: translateY(-2px);
+      box-shadow: 0 7px 20px rgba(0,0,0,0.15);
+    }
+    
+    .phone-input {
+      direction: ltr; /* تغییر جهت به چپ به راست */
+      text-align: left; /* تراز متن به چپ */
+      unicode-bidi: plaintext; /* حل مشکل نمایش اعداد */
+    }
+
+    .phone-input::placeholder {
+      direction: ltr;
+      text-align: left;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 25px;
+        max-width: 380px;
+      }
+      
+      .card img {
+        width: 260px;
+      }
+      
+      .card h2 {
+        font-size: 1.8rem;
+      }
+
+      input {
+        font-size: 1.2rem;
+        padding: 13px;
+      }
+      
+      input::placeholder {
+        font-size: 1.1rem;
+      }
+
+      button {
+        font-size: 1.3rem;
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="https://itehsan.github.io/khaneehsan/welcom.png" alt="ورود">
+    <h2>ورود به سایت</h2>
+
+    <input type="text" id="name" placeholder="نام کامل">
+    <input type="tel" id="phone" class="phone-input" placeholder="شماره تماس">
+
+    <button onclick="submitUser()">ورود به سایت</button>
+  </div>
+
+  <script>
+    function submitUser() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+
+      if (!name || !phone) {
+        alert("لطفاً نام و شماره تماس را وارد کنید.");
+        return;
+      }
+
+      fetch("https://khaneehsan.netlify.app/api/submitUser", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone })
+      })
+      .then(res => res.json())
+      .then(() => {
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userPhone', phone);
+        window.location.href = "index.html";
+      })
+      .catch(err => {
+        console.error(err);
+        alert("خطا در ارسال اطلاعات.");
+      });
+    }
+  </script>
+
+</body>
+</html>
