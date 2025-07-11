@@ -1282,5 +1282,32 @@ cards.forEach(card => {
 </script>
 
 
+
+  <!-- نمایش وضعیت موجود/ناموجود -->
+  <script>
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec"; // اینجا لینک Web App واقعی را بگذارید
+
+    fetch(SHEET_URL)
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(item => {
+          const allMenuItems = document.querySelectorAll('.menu-item');
+          allMenuItems.forEach(el => {
+            const title = el.dataset.title;
+            if (title === item.title && (item.available === false || item.available === "FALSE")) {
+              el.classList.add("unavailable");
+              const overlay = document.createElement("div");
+              overlay.className = "overlay";
+              overlay.innerText = "ناموجود";
+              el.appendChild(overlay);
+            }
+          });
+        });
+      })
+      .catch(err => {
+        console.error("خطا در دریافت موجودی منو:", err);
+      });
+  </script>
+
 </body>
 </html>
