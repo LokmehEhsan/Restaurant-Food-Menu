@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>منوی رستوران لقمه احسان</title>
 
-  <!-- ایمپورت فونت وزیرمتن فارسی -->
-  <style>
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>منوی رستوران لقمه احسان</title>
+<!-- ایمپورت فونت وزیرمتن فارسی -->
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
 
     /* تنظیم پایه استایل‌ها */
@@ -546,369 +546,340 @@ body.day-mode .footer {
   color: #7a7a7a !important;
 }
 
-
-  </style>
+.status-light {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 8px; /* فاصله از اسم غذا */
+  vertical-align: middle;
+}
+.status-available {
+  background-color: #28a745; /* سبز */
+  box-shadow: 0 0 6px #28a745;
+}
+.status-unavailable {
+  background-color: #dc3545; /* قرمز */
+  box-shadow: 0 0 6px #dc3545;
+}
+</style>
 </head>
 <body>
-
-  <!-- بخش برندینگ -->
-  <div class="branding" role="banner">
-    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/logo.png" alt="لوگوی رستوران لقمه احسان" />
-    <h1>به خانه طعم‌ها خوش آمدید</h1>
-    <p>تجربه‌ای متفاوت از غذای اصیل ایرانی</p>
-  </div>
-
-  <!-- هدر بالا با عنوان و دکمه منو -->
-  <header class="header" role="banner">
-    <h2>منوی رستوران لقمه احسان</h2>
-    <button class="menu-button" id="menuToggle" aria-label="باز کردن منوی جانبی">&#9776;</button>
-  </header>
-
-  <!-- منوی جانبی که از راست باز می‌شود -->
-  <nav class="side-menu" id="sideMenu" aria-hidden="true" role="navigation" aria-label="منوی جانبی">
-    <p style="font-weight:bold; margin-bottom: 0.5rem;">دسته‌بندی‌ها</p>
-    <div class="tab active" data-category="پیش غذا" tabindex="0" role="button" aria-pressed="true">پیش غذا</div>
-    <div class="tab" data-category="کباب ها" tabindex="0" role="button" aria-pressed="false">کباب ها</div>
-    <div class="tab" data-category="ساندویچ ها" tabindex="0" role="button" aria-pressed="false">ساندویچ ها</div>
-    <div class="tab" data-category="دسر و چاشنی" tabindex="0" role="button" aria-pressed="false">دسر و چاشنی</div>
-    <div class="tab" data-category="نوشیدنی" tabindex="0" role="button" aria-pressed="false">شربت ، نوشیدنی</div>
-    <hr style="border-color:#444; margin: 1rem 0;">
-    <p style="font-weight:bold; margin-bottom: 0.5rem; class="center-link">تماس با ما</p>
-    <a href="http://www.khaneehsan.com" target="_blank" rel="noopener" tabindex="0">خانه احسان</a>
-    <a href="https://socialplatform-khaneehsan.netlify.app/" target="_blank" rel="noopener" tabindex="0">درباره ما</a>
-  </nav>
-
-  <!-- کادر جستجو -->
-  <div class="search-box" role="search" aria-label="جستجوی غذاها">
-    <input type="text" id="search" placeholder="هرچی دوست داری جستجو کن ..." aria-label="جستجوی غذاها" autocomplete="off" />
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.07 5.6 12.47 3 9 3S2.93 5.6 2.93 8.39 5.53 13.78 9 13.78c1.61 0 3.08-.65 4.13-1.7l.27.28v.79l4.25 4.25c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L15.5 14zM9 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
-    </svg>
-  </div>
-
-  <!-- تب‌های دسته‌بندی بالای صفحه -->
-  <div class="tabs" role="tablist" aria-label="دسته‌بندی‌های غذا">
-    <div class="tab active" data-category="همه" role="tab" aria-selected="true" tabindex="0">همه غذاها</div>
-    <div class="tab" data-category="پیش غذا" role="tab" aria-selected="false" tabindex="-1">پیش غذا</div>
-    <div class="tab" data-category="کباب ها" role="tab" aria-selected="false" tabindex="-1">کباب ها</div>
-    <div class="tab" data-category="ساندویچ ها" role="tab" aria-selected="false" tabindex="-1">ساندویچ ها</div>
-    <div class="tab" data-category="دسر و چاشنی" role="tab" aria-selected="false" tabindex="-1">دسر و چاشنی</div>
-    <div class="tab" data-category="نوشیدنی" role="tab" aria-selected="false" tabindex="-1">شربت ، نوشیدنی</div>
-  </div>
-
-  <!-- لیست غذاها -->
-  <main class="menu-container" role="list" aria-label="لیست غذاها">
-    
-    <!-- نمونه غذاها: هر آیتم یک div با داده‌ها -->
-    <div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="سوپ جو"  data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-      <div class="info">
-        <strong>سوپ جو</strong>
-        <span>کیلویی۸۰.۰۰۰ تومان</span>
-      </div>
-      <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" alt="سوپ جو" />
-      <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="سوپ جو"></div>
-    </div>
-
-    <div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="آش جو" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-      <div class="info">
-        <strong>آش جو</strong>
-        <span>کیلویی۱۰۹.۰۰۰ تومان</span>
-      </div>
-      <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg" alt="آش جو" />
-      <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="آش جو"></div>
-    </div>
-
-    <!-- پیش غذا -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="پیش غذا" data-title="حلیم گندم"  data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>حلیم گندم</strong>
-    <span>کیلویی ۱۴۸.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg" alt="حلیم گندم" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="حلیم گندم"></div>
+<!-- بخش برندینگ -->
+<div class="branding" role="banner">
+<img alt="لوگوی رستوران لقمه احسان" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/logo.png"/>
+<h1>به خانه طعم‌ها خوش آمدید</h1>
+<p>تجربه‌ای متفاوت از غذای اصیل ایرانی</p>
 </div>
-
+<!-- هدر بالا با عنوان و دکمه منو -->
+<header class="header" role="banner">
+<h2>منوی رستوران لقمه احسان</h2>
+<button aria-label="باز کردن منوی جانبی" class="menu-button" id="menuToggle">☰</button>
+</header>
+<!-- منوی جانبی که از راست باز می‌شود -->
+<nav aria-hidden="true" aria-label="منوی جانبی" class="side-menu" id="sideMenu" role="navigation">
+<p style="font-weight:bold; margin-bottom: 0.5rem;">دسته‌بندی‌ها</p>
+<div aria-pressed="true" class="tab active" data-category="پیش غذا" role="button" tabindex="0">پیش غذا</div>
+<div aria-pressed="false" class="tab" data-category="کباب ها" role="button" tabindex="0">کباب ها</div>
+<div aria-pressed="false" class="tab" data-category="ساندویچ ها" role="button" tabindex="0">ساندویچ ها</div>
+<div aria-pressed="false" class="tab" data-category="دسر و چاشنی" role="button" tabindex="0">دسر و چاشنی</div>
+<div aria-pressed="false" class="tab" data-category="نوشیدنی" role="button" tabindex="0">شربت ، نوشیدنی</div>
+<hr style="border-color:#444; margin: 1rem 0;"/>
+<p center-link"="" style="font-weight:bold; margin-bottom: 0.5rem; class=">تماس با ما</p>
+<a href="http://www.khaneehsan.com" rel="noopener" tabindex="0" target="_blank">خانه احسان</a>
+<a href="https://socialplatform-khaneehsan.netlify.app/" rel="noopener" tabindex="0" target="_blank">درباره ما</a>
+</nav>
+<!-- کادر جستجو -->
+<div aria-label="جستجوی غذاها" class="search-box" role="search">
+<input aria-label="جستجوی غذاها" autocomplete="off" id="search" placeholder="هرچی دوست داری جستجو کن ..." type="text"/>
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.07 5.6 12.47 3 9 3S2.93 5.6 2.93 8.39 5.53 13.78 9 13.78c1.61 0 3.08-.65 4.13-1.7l.27.28v.79l4.25 4.25c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L15.5 14zM9 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path>
+</svg>
+</div>
+<!-- تب‌های دسته‌بندی بالای صفحه -->
+<div aria-label="دسته‌بندی‌های غذا" class="tabs" role="tablist">
+<div aria-selected="true" class="tab active" data-category="همه" role="tab" tabindex="0">همه غذاها</div>
+<div aria-selected="false" class="tab" data-category="پیش غذا" role="tab" tabindex="-1">پیش غذا</div>
+<div aria-selected="false" class="tab" data-category="کباب ها" role="tab" tabindex="-1">کباب ها</div>
+<div aria-selected="false" class="tab" data-category="ساندویچ ها" role="tab" tabindex="-1">ساندویچ ها</div>
+<div aria-selected="false" class="tab" data-category="دسر و چاشنی" role="tab" tabindex="-1">دسر و چاشنی</div>
+<div aria-selected="false" class="tab" data-category="نوشیدنی" role="tab" tabindex="-1">شربت ، نوشیدنی</div>
+</div>
+<!-- لیست غذاها -->
+<main aria-label="لیست غذاها" class="menu-container" role="list">
+<!-- نمونه غذاها: هر آیتم یک div با داده‌ها -->
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" data-title="سوپ جو" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>سوپ جو</strong>
+<span>کیلویی۸۰.۰۰۰ تومان</span>
+</div>
+<img alt="سوپ جو" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سوپ جو"></div>
+</div>
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg" data-title="آش جو" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>آش جو</strong>
+<span>کیلویی۱۰۹.۰۰۰ تومان</span>
+</div>
+<img alt="آش جو" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آش جو"></div>
+</div>
+<!-- پیش غذا -->
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg" data-title="حلیم گندم" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>حلیم گندم</strong>
+<span>کیلویی ۱۴۸.۰۰۰ تومان</span>
+</div>
+<img alt="حلیم گندم" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="حلیم گندم"></div>
+</div>
 <!-- کباب ها -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده گوسفندی" data-price="۱۱۶.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>کوبیده گوسفندی</strong>
-    <span>۱۱۶.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" alt="کوبیده گوسفندی" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده گوسفندی"></div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" data-price="۱۱۶.۰۰۰ تومان" data-title="کوبیده گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده گوسفندی</strong>
+<span>۱۱۶.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده بوقلمون" data-price="۸۴.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>کوبیده بوقلمون</strong>
-    <span>۸۴.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg" alt="کوبیده بوقلمون" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده بوقلمون"></div>
+<img alt="کوبیده گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده گوسفندی"></div>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده گوسفندی با نان و دورچین" data-price="۱۳۶.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>کوبیده گوسفندی با نان و دورچین</strong>
-    <span>۱۳۶.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg" alt="کوبیده گوسفندی با نان و دورچین" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده گوسفندی با نان و دورچین"></div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg" data-price="۸۴.۰۰۰ تومان" data-title="کوبیده بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده بوقلمون</strong>
+<span>۸۴.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کوبیده بوقلمون با نان و درچین" data-price="۱۰۴.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>کوبیده بوقلمون با نان و درچین</strong>
-    <span>۱۰۴.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg" alt="کوبیده بوقلمون با نان و درچین" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کوبیده بوقلمون با نان و درچین"></div>
+<img alt="کوبیده بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون"></div>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کباب لقمه گوسفندی" data-price="۱۸۴.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>کباب لقمه گوسفندی</strong>
-    <span>۱۸۴.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" alt="کباب لقمه گوسفندی" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کباب لقمه گوسفندی"></div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg" data-price="۱۳۶.۰۰۰ تومان" data-title="کوبیده گوسفندی با نان و دورچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده گوسفندی با نان و دورچین</strong>
+<span>۱۳۶.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="کباب لقمه شتر" data-price="۲۳۰.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>کباب لقمه شتر</strong>
-    <span>۲۳۰.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" alt="کباب لقمه شتر" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="کباب لقمه شتر"></div>
+<img alt="کوبیده گوسفندی با نان و دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده گوسفندی با نان و دورچین"></div>
 </div>
-
-    <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="ساندویچ کباب لقمه شتر" data-price="۲۵۵.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>ساندویچ کباب لقمه شتر</strong>
-    <span>۲۵۵.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" alt="ساندویچ کباب لقمه شتر" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ کباب لقمه شتر"></div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg" data-price="۱۰۴.۰۰۰ تومان" data-title="کوبیده بوقلمون با نان و درچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده بوقلمون با نان و درچین</strong>
+<span>۱۰۴.۰۰۰ تومان</span>
 </div>
-
-    <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="جوجه کباب بوقلمون" data-price="۲۰۸.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>جوجه کباب بوقلمون</strong>
-    <span>۲۰۸.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg" alt="جوجه کباب بوقلمون" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="جوجه کباب بوقلمون"></div>
+<img alt="کوبیده بوقلمون با نان و درچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون با نان و درچین"></div>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="سیخ گوجه کبابی" data-price="۳۲.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>سیخ گوجه کبابی</strong>
-    <span>۳۲.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png" alt="سیخ گوجه سیخ گوجه کبابی" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="سیخ گوجه سیخ گوجه کبابی"></div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۱۸۴.۰۰۰ تومان" data-title="کباب لقمه گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کباب لقمه گوسفندی</strong>
+<span>۱۸۴.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="دورچین" data-price="۱۰.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>دورچین</strong>
-    <span>۱۰.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg" alt="دورچین" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="دورچین"></div>
+<img alt="کباب لقمه گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه گوسفندی"></div>
 </div>
-
-    <div class="menu-item" role="listitem" tabindex="0" data-category="کباب ها" data-title="ظرف یکبار مصرف کباب آلومینیومی" data-price="۸.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>ظرف یکبار مصرف کباب آلومینیومی</strong>
-    <span>۸.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg" alt="ظرف یکبار مصرف کباب آلومینیومی"/>
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ظرف یکبار مصرف کباب آلومینیومی"></div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۳۰.۰۰۰ تومان" data-title="کباب لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کباب لقمه شتر</strong>
+<span>۲۳۰.۰۰۰ تومان</span>
 </div>
-
+<img alt="کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه شتر"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۵۵.۰۰۰ تومان" data-title="ساندویچ کباب لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ کباب لقمه شتر</strong>
+<span>۲۵۵.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کباب لقمه شتر"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg" data-price="۲۰۸.۰۰۰ تومان" data-title="جوجه کباب بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>جوجه کباب بوقلمون</strong>
+<span>۲۰۸.۰۰۰ تومان</span>
+</div>
+<img alt="جوجه کباب بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="جوجه کباب بوقلمون"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png" data-price="۳۲.۰۰۰ تومان" data-title="سیخ گوجه کبابی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>سیخ گوجه کبابی</strong>
+<span>۳۲.۰۰۰ تومان</span>
+</div>
+<img alt="سیخ گوجه سیخ گوجه کبابی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سیخ گوجه سیخ گوجه کبابی"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg" data-price="۱۰.۰۰۰ تومان" data-title="دورچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>دورچین</strong>
+<span>۱۰.۰۰۰ تومان</span>
+</div>
+<img alt="دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دورچین"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg" data-price="۸.۰۰۰ تومان" data-title="ظرف یکبار مصرف کباب آلومینیومی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ظرف یکبار مصرف کباب آلومینیومی</strong>
+<span>۸.۰۰۰ تومان</span>
+</div>
+<img alt="ظرف یکبار مصرف کباب آلومینیومی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ظرف یکبار مصرف کباب آلومینیومی"></div>
+</div>
 <!-- ساندویچ ها -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ کوبیده گوسفندی" data-price="۱۳۰.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>ساندویچ کوبیده گوسفندی</strong>
-    <span>۱۳۰.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" alt="ساندویچ کوبیده گوسفندی" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ کوبیده گوسفندی"></div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" data-price="۱۳۰.۰۰۰ تومان" data-title="ساندویچ کوبیده گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ کوبیده گوسفندی</strong>
+<span>۱۳۰.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ کوبیده بوقلمون" data-price="۹۹.۰۰۰ ریال" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>ساندویچ کوبیده بوقلمون</strong>
-    <span>۹۹.۰۰۰ ریال</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg" alt="ساندویچ کوبیده بوقلمون" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ کوبیده بوقلمون"></div>
+<img alt="ساندویچ کوبیده گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کوبیده گوسفندی"></div>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ لقمه گوسفندی" data-price="۲۰۰.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>ساندویچ لقمه گوسفندی</strong>
-    <span>۲۰۰.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg" alt="ساندویچ لقمه گوسفندی" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ لقمه گوسفندی"></div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg" data-price="۹۹.۰۰۰ ریال" data-title="ساندویچ کوبیده بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ کوبیده بوقلمون</strong>
+<span>۹۹.۰۰۰ ریال</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ لقمه شتر" data-price="۲۴۰.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>ساندویچ لقمه شتر</strong>
-    <span>۲۴۰.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" alt="ساندویچ لقمه شتر" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ لقمه شتر"></div>
+<img alt="ساندویچ کوبیده بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کوبیده بوقلمون"></div>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="ساندویچ ها" data-title="ساندویچ همبرگر بوقلمون" data-price="۹۹.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>ساندویچ همبرگر بوقلمون</strong>
-    <span>۹۹.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg" alt="ساندویچ همبرگر بوقلمون" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="ساندویچ همبرگر بوقلمون"></div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg" data-price="۲۰۰.۰۰۰ تومان" data-title="ساندویچ لقمه گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ لقمه گوسفندی</strong>
+<span>۲۰۰.۰۰۰ تومان</span>
 </div>
-
+<img alt="ساندویچ لقمه گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ لقمه گوسفندی"></div>
+</div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۴۰.۰۰۰ تومان" data-title="ساندویچ لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ لقمه شتر</strong>
+<span>۲۴۰.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ لقمه شتر"></div>
+</div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg" data-price="۹۹.۰۰۰ تومان" data-title="ساندویچ همبرگر بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ همبرگر بوقلمون</strong>
+<span>۹۹.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ همبرگر بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ همبرگر بوقلمون"></div>
+</div>
 <!-- دسر و چاشنی -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="دسر و چاشنی" data-title="نوشانه زرشک" data-price="۱۲۰.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>نوشانه زرشک</strong>
-    <span>۱۲۰.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg" alt="نوشانه زرشک" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="نوشانه زرشک"></div>
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg" data-price="۱۲۰.۰۰۰ تومان" data-title="نوشانه زرشک" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>نوشانه زرشک</strong>
+<span>۱۲۰.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="دسر و چاشنی" data-title="زیتون پرورده ۷۵ گرمی" data-price="۲۵.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>زیتون پرورده</strong>
-    <span>۲۵.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png" alt="زیتون پرورده" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="زیتون پرورده"></div>
+<img alt="نوشانه زرشک" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="نوشانه زرشک"></div>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="دسر و چاشنی" data-title="سبزی خوردن" data-price="۳۸.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>سبزی خوردن</strong>
-    <span>۳۸.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png" alt="سبزی خوردن" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="سبزی خوردن"></div>
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png" data-price="۲۵.۰۰۰ تومان" data-title="زیتون پرورده ۷۵ گرمی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>زیتون پرورده</strong>
+<span>۲۵.۰۰۰ تومان</span>
 </div>
-
+<img alt="زیتون پرورده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="زیتون پرورده"></div>
+</div>
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png" data-price="۳۸.۰۰۰ تومان" data-title="سبزی خوردن" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>سبزی خوردن</strong>
+<span>۳۸.۰۰۰ تومان</span>
+</div>
+<img alt="سبزی خوردن" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سبزی خوردن"></div>
+</div>
 <!-- نوشیدنی -->
-<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="دوغ تلمی نیم لیتری" data-price="۱۹.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>دوغ تلمی نیم لیتری</strong>
-    <span>۱۹.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png" alt="دوغ تلمی نیم لیتری" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="دوغ تلمی نیم لیتری"></div>
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png" data-price="۱۹.۰۰۰ تومان" data-title="دوغ تلمی نیم لیتری" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>دوغ تلمی نیم لیتری</strong>
+<span>۱۹.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="دوغ تلمی خانواده دولیتری" data-price="۶۳.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>دوغ تلمی خانواده دولیتری</strong>
-    <span>۶۳.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg" alt="دوغ تلمی خانواده دولیتری" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="دوغ تلمی خانواده دولیتری"></div>
+<img alt="دوغ تلمی نیم لیتری" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دوغ تلمی نیم لیتری"></div>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="آب معدنی کوچک" data-price="۱۰.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>آب معدنی کوچک</strong>
-    <span>۱۰.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg" alt="آب معدنی کوچک" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="آب معدنی کوچک"></div>
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg" data-price="۶۳.۰۰۰ تومان" data-title="دوغ تلمی خانواده دولیتری" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>دوغ تلمی خانواده دولیتری</strong>
+<span>۶۳.۰۰۰ تومان</span>
 </div>
-
-<div class="menu-item" role="listitem" tabindex="0" data-category="نوشیدنی" data-title="آب معدنی خانواده" data-price="۱۵.۰۰۰ تومان" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}">
-  <div class="info">
-    <strong>آب معدنی خانواده</strong>
-    <span>۱۵.۰۰۰ تومان</span>
-  </div>
-  <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg" alt="آب معدنی خانواده" />
-  <div class="average-rating" aria-label="میانگین امتیاز: 0 از 5" data-title="آب معدنی خانواده"></div>
+<img alt="دوغ تلمی خانواده دولیتری" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دوغ تلمی خانواده دولیتری"></div>
 </div>
-
-    <!-- اینجا میتونی بقیه غذاها رو هم مثل اینها اضافه کنی -->
-
-  </main>
-
-  <!-- مودال نمایش جزئیات غذا و امتیازدهی -->
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
-    <div class="modal-content">
-      <button class="close" id="modalClose" aria-label="بستن">×</button>
-      <img src="" alt="" id="modalImg" />
-      <h2 id="modalTitle"></h2>
-      <p id="modalPrice"></p>
-      <!-- زمان سفارش فقط برای سوپ جو و آش جو نمایش داده می‌شود -->
-      <p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
-
-      
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg" data-price="۱۰.۰۰۰ تومان" data-title="آب معدنی کوچک" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>آب معدنی کوچک</strong>
+<span>۱۰.۰۰۰ تومان</span>
+</div>
+<img alt="آب معدنی کوچک" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی کوچک"></div>
+</div>
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg" data-price="۱۵.۰۰۰ تومان" data-title="آب معدنی خانواده" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>آب معدنی خانواده</strong>
+<span>۱۵.۰۰۰ تومان</span>
+</div>
+<img alt="آب معدنی خانواده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی خانواده"></div>
+</div>
+<!-- اینجا میتونی بقیه غذاها رو هم مثل اینها اضافه کنی -->
+</main>
+<!-- مودال نمایش جزئیات غذا و امتیازدهی -->
+<div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
+<div class="modal-content">
+<button aria-label="بستن" class="close" id="modalClose">×</button>
+<img alt="" id="modalImg" src=""/>
+<h2 id="modalTitle"></h2>
+<p id="modalPrice"></p>
+<!-- زمان سفارش فقط برای سوپ جو و آش جو نمایش داده می‌شود -->
+<p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
 <!-- ✨ بخش انتخاب وزن برای سوپ جو، آش جو و حلیم گندم -->
 <!-- وزن برای سوپ جو -->
-<div id="weightOptions-soup" class="weightOptions" style="display:none; margin-top:1.2rem;">
-  <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن سوپ جو:</h4>
-  <div class="weight-cards" style="display:flex; gap:1rem;">
-    <div class="weight-card active" data-price="24000" style="cursor:pointer; ...">۳۰۰ گرم<br><small>۲۴.۰۰۰ تومان</small></div>
-    <div class="weight-card" data-price="64000" style="cursor:pointer; ...">پرسی<br><small>۶۴.۰۰۰ تومان</small></div>
-    <div class="weight-card" data-price="80000" style="cursor:pointer; ...">۱ کیلو<br><small>۸۰.۰۰۰ تومان</small></div>
-  </div>
-  <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
+<div class="weightOptions" id="weightOptions-soup" style="display:none; margin-top:1.2rem;">
+<h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن سوپ جو:</h4>
+<div class="weight-cards" style="display:flex; gap:1rem;">
+<div class="weight-card active" data-price="24000" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۲۴.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="64000" style="cursor:pointer; ...">پرسی<br/><small>۶۴.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="80000" style="cursor:pointer; ...">۱ کیلو<br/><small>۸۰.۰۰۰ تومان</small></div>
 </div>
-
+<p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
+</div>
 <!-- وزن برای آش جو -->
-<div id="weightOptions-ash" class="weightOptions" style="display:none; margin-top:1.2rem;">
-  <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن آش جو:</h4>
-  <div class="weight-cards" style="display:flex; gap:1rem;">
-    <div class="weight-card active" data-price="22000" style="cursor:pointer; ...">۳۰۰ گرم<br><small>۲۲.۰۰۰ تومان</small></div>
-    <div class="weight-card" data-price="93000" style="cursor:pointer; ...">پرسی<br><small>۹۳.۰۰۰ تومان</small></div>
-    <div class="weight-card" data-price="109000" style="cursor:pointer; ...">۱ کیلو<br><small>۱۰۹.۰۰۰ تومان</small></div>
-  </div>
-  <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۲.۰۰۰</span> تومان</p>
+<div class="weightOptions" id="weightOptions-ash" style="display:none; margin-top:1.2rem;">
+<h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن آش جو:</h4>
+<div class="weight-cards" style="display:flex; gap:1rem;">
+<div class="weight-card active" data-price="22000" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۲۲.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="93000" style="cursor:pointer; ...">پرسی<br/><small>۹۳.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="109000" style="cursor:pointer; ...">۱ کیلو<br/><small>۱۰۹.۰۰۰ تومان</small></div>
 </div>
-
+<p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۲.۰۰۰</span> تومان</p>
+</div>
 <!-- وزن برای حلیم گندم -->
-<div id="weightOptions-halim" class="weightOptions" style="display:none; margin-top:1.2rem;">
-  <h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن حلیم گندم:</h4>
-  <div class="weight-cards" style="display:flex; gap:1rem;">
-    <div class="weight-card active" data-price="44400" style="cursor:pointer; ...">۳۰۰ گرم<br><small>۴۴.۴۰۰ تومان</small></div>
-    <div class="weight-card" data-price="124000" style="cursor:pointer; ...">پرسی<br><small>۱۲۴.۰۰۰ تومان</small></div>
-    <div class="weight-card" data-price="148000" style="cursor:pointer; ...">۱ کیلو<br><small>۱۴۸.۰۰۰ تومان</small></div>
-  </div>
-  <p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۸.۰۰۰</span> تومان</p>
+<div class="weightOptions" id="weightOptions-halim" style="display:none; margin-top:1.2rem;">
+<h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن حلیم گندم:</h4>
+<div class="weight-cards" style="display:flex; gap:1rem;">
+<div class="weight-card active" data-price="44400" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۴۴.۴۰۰ تومان</small></div>
+<div class="weight-card" data-price="124000" style="cursor:pointer; ...">پرسی<br/><small>۱۲۴.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="148000" style="cursor:pointer; ...">۱ کیلو<br/><small>۱۴۸.۰۰۰ تومان</small></div>
 </div>
-
-
-
+<p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۸.۰۰۰</span> تومان</p>
+</div>
 <!-- بخش امتیازدهی ستاره‌ای -->
-     <div class="rating" role="radiogroup" aria-label="امتیازدهی ستاره‌ای">
-  <span class="star" role="radio" aria-checked="false" tabindex="0" data-value="5" aria-label="۵ ستاره">&#9733;</span>
-  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="4" aria-label="۴ ستاره">&#9733;</span>
-  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="3" aria-label="۳ ستاره">&#9733;</span>
-  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="2" aria-label="۲ ستاره">&#9733;</span>
-  <span class="star" role="radio" aria-checked="false" tabindex="-1" data-value="1" aria-label="۱ ستاره">&#9733;</span>
+<div aria-label="امتیازدهی ستاره‌ای" class="rating" role="radiogroup">
+<span aria-checked="false" aria-label="۵ ستاره" class="star" data-value="5" role="radio" tabindex="0">★</span>
+<span aria-checked="false" aria-label="۴ ستاره" class="star" data-value="4" role="radio" tabindex="-1">★</span>
+<span aria-checked="false" aria-label="۳ ستاره" class="star" data-value="3" role="radio" tabindex="-1">★</span>
+<span aria-checked="false" aria-label="۲ ستاره" class="star" data-value="2" role="radio" tabindex="-1">★</span>
+<span aria-checked="false" aria-label="۱ ستاره" class="star" data-value="1" role="radio" tabindex="-1">★</span>
 </div>
 <button id="submit-rating">ارسال امتیاز</button>
 <div id="response-message"></div>
-      <p id="ratingMsg" style="margin-top: 0.5rem; color: #f9c400; font-weight: bold;"></p>
-    </div>
-  </div>
-
-  <!-- فوتر پایین صفحه -->
-  <footer class="footer">
+<p id="ratingMsg" style="margin-top: 0.5rem; color: #f9c400; font-weight: bold;"></p>
+</div>
+</div>
+<!-- فوتر پایین صفحه -->
+<footer class="footer">
     © 2025 رستوران لقمه احسان. همه حقوق محفوظ است.
   </footer>
-
 <script>
   // ======= تعریف متغیرهای اصلی برای المان‌های HTML =======
   const sideMenu = document.getElementById('sideMenu'); // منوی جانبی
@@ -1297,13 +1268,9 @@ cards.forEach(card => {
   // شروع اولیه با نمایش همه غذاها
   changeCategory("همه");
 </script>
-
 <!-- ✅ دکمه تغییر حالت شب/روز -->
 <button id="themeToggle" style="position: fixed; top: 1rem; left: 1rem; z-index: 10001; background: #f9c400; color: #000; padding: 0.4rem 0.9rem; border-radius: 10px; border: none; cursor: pointer; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">🌗</button>
-
 <!-- ✅ CSS حالت‌ها -->
-
-
 <!-- ✅ اسکریپت تغییر حالت -->
 <script>
   function applyTheme(mode) {
@@ -1323,11 +1290,8 @@ cards.forEach(card => {
     });
   });
 </script>
-
-
-
-  <!-- نمایش وضعیت موجود/ناموجود -->
-  <script>
+<!-- نمایش وضعیت موجود/ناموجود -->
+<script>
     const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec"; // اینجا لینک Web App واقعی را بگذارید
 
     fetch(SHEET_URL)
@@ -1337,12 +1301,18 @@ cards.forEach(card => {
           const allMenuItems = document.querySelectorAll('.menu-item');
           allMenuItems.forEach(el => {
             const title = el.dataset.title;
-            if (title === item.title && (item.available === false || item.available === "FALSE")) {
-              el.classList.add("unavailable");
-              const overlay = document.createElement("div");
-              overlay.className = "overlay";
-              overlay.innerText = "ناموجود";
-              el.appendChild(overlay);
+            if (title === item.title) {
+              const infoBox = el.querySelector(".info strong");
+              const light = document.createElement("span");
+              light.classList.add("status-light");
+
+              if (item.available === false || item.available === "FALSE") {
+                light.classList.add("status-unavailable");
+              } else {
+                light.classList.add("status-available");
+              }
+
+              infoBox.prepend(light);
             }
           });
         });
@@ -1350,7 +1320,6 @@ cards.forEach(card => {
       .catch(err => {
         console.error("خطا در دریافت موجودی منو:", err);
       });
-  </script>
-
+        </script>
 </body>
 </html>
