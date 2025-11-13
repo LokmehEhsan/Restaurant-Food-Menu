@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title> لقمه احسان</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: url('https://restaurant-food-menu.khaneehsan.workers.dev/image.txt/42133.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding: 1rem;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 46, 52, 0.4);
+      z-index: -1;
+    }
+
+    body.day-mode {
+      background: url('https://restaurant-food-menu.khaneehsan.workers.dev/image.txt/42133.jpg') no-repeat center center fixed !important;
+      background-size: cover !important;
+      color: #2b2e34 !important;
+    }
+
+    body.day-mode::before {
+      background: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .welcome-message {
+      text-align: center;
+      background: rgba(249, 196, 0, 0.9);
+      color: #000;
+      padding: 1rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255,255,255,0.3);
+      animation: fadeInDown 1s ease-out;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .welcome-message h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .welcome-message p {
+      font-size: 1rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .site-logo {
+      text-align: center;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeInDown 0.8s ease-out;
+    }
+    
+    .site-logo img {
+      width: 120px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      z-index: 2;
+      position: relative;
+    }
+    
+    .header h2 {
+      background: rgba(43, 46, 52, 0.7);
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      flex: 1;
+      margin: 0;
+      animation: fadeInDown 0.8s ease-out 0.2s both;
+    }
+    
+    .menu-button {
+      background: rgba(43, 46, 52, 0.7);
+      border: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .menu-button:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100%;
+      background-color: rgba(43, 46, 52, 0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: -2px 0 6px rgba(0,0,0,0.7);
+      transition: right 0.3s ease;
+      z-index: 10000;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1rem;
+      border-radius: 0 0 0 10px;
+      overflow-y: auto;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+    .side-menu.open { right: 0; }
+
+    .side-menu a, .side-menu .tab {
+      color: #eee;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background-color: rgba(51, 51, 51, 0.6);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .side-menu a:hover, .side-menu .tab:hover {
+      background-color: #f9c400;
+      color: #000;
+      transform: translateY(-2px);
+    }
+    .side-menu .tab.active {
+      background-color: #f9c400;
+      color: #000;
+      font-weight: bold;
+    }
+
+    body.day-mode .side-menu {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      color: #2b2e34 !important;
+      border-left: 1px solid rgba(43, 46, 52, 0.2) !important;
+    }
+
+    body.day-mode .side-menu a,
+    body.day-mode .side-menu .tab {
+      background-color: rgba(255, 255, 255, 0.7) !important;
+      color: #2b2e34 !important;
+      border: 1px solid rgba(43, 46, 52, 0.1) !important;
+    }
+
+    body.day-mode .side-menu a:hover,
+    body.day-mode .side-menu .tab:hover {
+      background-color: #f9c400 !important;
+      color: #000 !important;
+    }
+
+    .search-box {
+      background-color: rgba(51, 51, 51, 0.6);
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      color: #bbb;
+      margin: 0 auto 1rem;
+      width: 300px;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: fadeInDown 0.8s ease-out 0.4s both;
+    }
+    .search-box input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 1rem;
+      padding-right: 30px;
+    }
+    .search-box svg {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      fill: #bbb;
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+      z-index: 2;
+      position: relative;
+      user-select: none;
+      animation: fadeInDown 0.8s ease-out 0.5s both;
+    }
+    .tab {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background-color: rgba(44, 44, 44, 0.6);
+      color: white;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .tab:hover { transform: translateY(-2px); }
+    .tab.active {
+      background-color: #f9c400;
+      color: black;
+      font-weight: bold;
+    }
+
+    .menu-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      z-index: 1;
+      position: relative;
+    }
+    @media (max-width: 600px) {
+      .menu-container { grid-template-columns: 1fr; }
+      .search-box { width: 100%; }
+    }
+
+    .menu-item {
+      background-color: rgba(59, 63, 71, 0.3);
+      border-radius: 16px;
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      transition: all 0.3s ease;
+      position: relative;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      opacity: 0;
+      animation: slideInRight 0.6s ease forwards;
+    }
+
+    .menu-item:nth-child(1) { animation-delay: 0.1s; }
+    .menu-item:nth-child(2) { animation-delay: 0.2s; }
+    .menu-item:nth-child(3) { animation-delay: 0.3s; }
+    .menu-item:nth-child(4) { animation-delay: 0.4s; }
+    .menu-item:nth-child(5) { animation-delay: 0.5s; }
+    .menu-item:nth-child(6) { animation-delay: 0.6s; }
+    .menu-item:nth-child(7) { animation-delay: 0.7s; }
+    .menu-item:nth-child(8) { animation-delay: 0.8s; }
+    .menu-item:nth-child(9) { animation-delay: 0.9s; }
+    .menu-item:nth-child(10) { animation-delay: 1.0s; }
+
+    .menu-item:hover {
+      background-color: rgba(72, 79, 90, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      border-color: rgba(249, 196, 0, 0.4);
+    }
+
+    .menu-item .info {
+      flex: 1;
+      margin-right: 1rem;
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .menu-item .info strong {
+      font-size: 1rem;
+      display: block;
+    }
+    .menu-item .info span {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    .menu-item img {
+      width: 90px;
+      height: 90px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .average-rating {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      font-size: 1rem;
+      color: gold;
+      user-select: none;
+      pointer-events: none;
+      display: flex;
+      gap: 2px;
+    }
+    .average-rating .star {
+      font-size: 1.1rem;
+      color: gold;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(43, 46, 52, 0.95);
+      backdrop-filter: blur(20px);
+      justify-content: center;
+      align-items: center;
+      z-index: 11000;
+    }
+    .modal.show { display: flex; }
+
+    .modal-content {
+      background-color: rgba(31, 36, 48, 0.95);
+      border-radius: 24px;
+      border: 2px solid rgba(244, 196, 48, 0.8);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 1.5rem 2rem 2rem;
+      text-align: center;
+      position: relative;
+      max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      user-select: none;
+      backdrop-filter: blur(20px);
+    }
+
+    body.day-mode .modal {
+      background: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    body.day-mode .modal-content {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      border: 2px solid rgba(213, 232, 196, 0.8) !important;
+      color: #2b2e34 !important;
+    }
+
+    body.day-mode .modal-content h2,
+    body.day-mode .modal-content p {
+      color: #2b2e34 !important;
+    }
+
+    body.day-mode .modal-content h2 {
+      color: #d5e8c4 !important;
+    }
+
+    .modal-content img {
+      width: 100%;
+      max-width: 330px;
+      border-radius: 16px;
+      background: #fff;
+      padding: 8px;
+      margin-bottom: 1rem;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .modal-content h2 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
+      font-size: 35px;
+      margin: 12px 0 4px;
+      color: #f9c400;
+    }
+
+    .modal-content p {
+      margin-bottom: 0.3rem;
+      font-size: 18px;
+      color: #f9c400;
+      margin-bottom: 8px;
+    }
+
+    .modal-content .close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .modal-content .close:hover {
+      background-color: #e74c3c;
+      transform: scale(1.1) rotate(90deg);
+    }
+
+    .rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      user-select: none;
+    }
+    .star {
+      font-size: 2.5rem;
+      color: #888;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .star.hovered, .star.selected {
+      color: gold;
+      transform: scale(1.1);
+    }
+
+    .feedback-form {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      text-align: right;
+    }
+
+    .feedback-form h4 {
+      color: #f9c400;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .feedback-form textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 8px;
+      padding: 0.8rem;
+      color: white;
+      font-family: 'Vazirmatn', sans-serif;
+      resize: vertical;
+      min-height: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-form textarea:focus {
+      outline: none;
+      border-color: #f9c400;
+    }
+
+    body.day-mode .feedback-form textarea {
+      background: rgba(43, 46, 52, 0.1);
+      color: #2b2e34;
+      border: 1px solid rgba(43, 46, 52, 0.3);
+    }
+
+    .submit-feedback {
+      background-color: #f9c400;
+      color: #000;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-feedback:hover {
+      background-color: #e6b800;
+      transform: translateY(-2px);
+    }
+
+    .weight-cards {
+      display: flex;
+      gap: 0.4rem;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+    .weight-card {
+      background-color: rgba(60, 63, 72, 0.7);
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      text-align: center;
+      font-size: 0.85rem;
+      border: 2px solid transparent;
+      font-family: inherit;
+      flex: 1 1 auto;
+      min-width: 80px;
+      max-width: 100px;
+      backdrop-filter: blur(10px);
+    }
+    .weight-card small {
+      color: #ccc;
+      font-size: 0.75rem;
+    }
+    .weight-card:hover {
+      transform: translateY(-3px);
+      background-color: rgba(80, 84, 95, 0.8);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .weight-card.active {
+      background-color: #f9c400;
+      color: black;
+      font-weight: bold;
+      border-color: #f9c400;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #888;
+      font-size: 0.8rem;
+      position: relative;
+      z-index: 2;
+      user-select: none;
+      background: rgba(43, 46, 52, 0.6);
+      padding: 1rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    body.day-mode .header h2 {
+      background: rgba(255, 255, 255, 0.7) !important;
+      color: #2b2e34 !important;
+    }
+
+    body.day-mode .menu-button {
+      background: rgba(255, 255, 255, 0.7) !important;
+      color: #2b2e34 !important;
+    }
+
+    body.day-mode .menu-item {
+      background-color: rgba(255, 255, 255, 0.25) !important;
+      border: 1px solid rgba(43, 46, 52, 0.15) !important;
+      color: #2b2e34 !important;
+    }
+
+    body.day-mode .menu-item:hover {
+      background-color: rgba(255, 255, 255, 0.4) !important;
+      border-color: rgba(249, 196, 0, 0.4) !important;
+    }
+
+    body.day-mode .menu-item .info span {
+      color: #666 !important;
+    }
+
+    body.day-mode .tab,
+    body.day-mode .search-box {
+      background-color: rgba(255, 255, 255, 0.6) !important;
+      color: #2b2e34 !important;
+      border: 1px solid rgba(43, 46, 52, 0.2) !important;
+    }
+
+    body.day-mode .footer {
+      background: rgba(255, 255, 255, 0.6) !important;
+      color: #666 !important;
+      border: 1px solid rgba(43, 46, 52, 0.2) !important;
+    }
+
+    body.day-mode .search-box input {
+      color: #2b2e34 !important;
+    }
+
+    body.day-mode .search-box svg {
+      fill: #666 !important;
+    }
+
+    .status-light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .status-available {
+      background-color: #28a745;
+      box-shadow: 0 0 6px #28a745;
+    }
+    .status-unavailable {
+      background-color: #dc3545;
+      box-shadow: 0 0 6px #dc3545;
+    }
+
+    body.day-mode .rating .star {
+      color: #ccc !important;
+    }
+
+    body.day-mode .rating .star.hovered,
+    body.day-mode .rating .star.selected {
+      color: #f9c400 !important;
+    }
+</style>
+</head>
+<body>
+<!-- پیام خوشامدگویی -->
+<div class="welcome-message">
+  <h1>🌟به لقمه احسان خوش آمدید🌟</h1>
+  <p>لذیذترین طعم‌ها در انتظار شماست... نوش جان!</p>
+</div>
+
+<!-- لوگو -->
+<div class="site-logo" role="banner">
+  <img alt="لوگوی رستوران لقمه احسان" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/logo.png"/>
+</div>
+
+<!-- هدر بالا با عنوان و دکمه منو -->
+<header class="header" role="banner">
+<button aria-label="باز کردن منوی جانبی" class="menu-button" id="menuToggle">☰</button>
+<h2>لقمه احسان</h2>
+</header>
+
+<!-- منوی جانبی که از راست باز می‌شود -->
+<nav aria-hidden="true" aria-label="منوی جانبی" class="side-menu" id="sideMenu" role="navigation">
+<p style="font-weight:bold; margin-bottom: 0.5rem;">دسته‌بندی‌ها</p>
+<div aria-pressed="true" class="tab active" data-category="پیش غذا" role="button" tabindex="0">پیش غذا</div>
+<div aria-pressed="false" class="tab" data-category="کباب ها" role="button" tabindex="0">کباب ها</div>
+<div aria-pressed="false" class="tab" data-category="ساندویچ ها" role="button" tabindex="0">ساندویچ ها</div>
+<div aria-pressed="false" class="tab" data-category="دسر و چاشنی" role="button" tabindex="0">دسر و چاشنی</div>
+<div aria-pressed="false" class="tab" data-category="نوشیدنی" role="button" tabindex="0">شربت ، نوشیدنی</div>
+<hr style="border-color:#444; margin: 1rem 0;"/>
+<p style="font-weight:bold; margin-bottom: 0.5rem;">تماس با ما</p>
+<a href="http://www.khaneehsan.com" rel="noopener" tabindex="0" target="_blank">خانه احسان</a>
+<a href="https://socialplatform-khaneehsan.netlify.app/" rel="noopener" tabindex="0" target="_blank">درباره ما</a>
+</nav>
+
+<!-- کادر جستجو -->
+<div aria-label="جستجوی غذاها" class="search-box" role="search">
+<input aria-label="جستجوی غذاها" autocomplete="off" id="search" placeholder="هرچی دوست داری جستجو کن ..." type="text"/>
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.07 5.6 12.47 3 9 3S2.93 5.6 2.93 8.39 5.53 13.78 9 13.78c1.61 0 3.08-.65 4.13-1.7l.27.28v.79l4.25 4.25c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L15.5 14zM9 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path>
+</svg>
+</div>
+
+<!-- تب‌های دسته‌بندی بالای صفحه -->
+<div aria-label="دسته‌بندی‌های غذا" class="tabs" role="tablist">
+<div aria-selected="true" class="tab active" data-category="همه" role="tab" tabindex="0">همه غذاها</div>
+<div aria-selected="false" class="tab" data-category="پیش غذا" role="tab" tabindex="-1">پیش غذا</div>
+<div aria-selected="false" class="tab" data-category="کباب ها" role="tab" tabindex="-1">کباب ها</div>
+<div aria-selected="false" class="tab" data-category="ساندویچ ها" role="tab" tabindex="-1">ساندویچ ها</div>
+<div aria-selected="false" class="tab" data-category="دسر و چاشنی" role="tab" tabindex="-1">دسر و چاشنی</div>
+<div aria-selected="false" class="tab" data-category="نوشیدنی" role="tab" tabindex="-1">شربت ، نوشیدنی</div>
+</div>
+
+<!-- لیست غذاها -->
+<main aria-label="لیست غذاها" class="menu-container" role="list">
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" data-title="سوپ جو" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>سوپ جو</strong>
+<span>کیلویی۸۰.۰۰۰ تومان</span>
+</div>
+<img alt="سوپ جو" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سوپ جو"></div>
+</div>
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg" data-title="آش جو" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>آش جو</strong>
+<span>کیلویی۱۰۹.۰۰۰ تومان</span>
+</div>
+<img alt="آش جو" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آش جو"></div>
+</div>
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg" data-title="حلیم گندم" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>حلیم گندم</strong>
+<span>کیلویی ۱۴۸.۰۰۰ تومان</span>
+</div>
+<img alt="حلیم گندم" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="حلیم گندم"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" data-price="۱۱۶.۰۰۰ تومان" data-title="کوبیده گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده گوسفندی</strong>
+<span>۱۱۶.۰۰۰ تومان</span>
+</div>
+<img alt="کوبیده گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده گوسفندی"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg" data-price="۸۴.۰۰۰ تومان" data-title="کوبیده بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده بوقلمون</strong>
+<span>۸۴.۰۰۰ تومان</span>
+</div>
+<img alt="کوبیده بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg" data-price="۱۳۶.۰۰۰ تومان" data-title="کوبیده گوسفندی با نان و دورچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده گوسفندی با نان و دورچین</strong>
+<span>۱۳۶.۰۰۰ تومان</span>
+</div>
+<img alt="کوبیده گوسفندی با نان و دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده گوسفندی با نان و دورچین"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg" data-price="۱۰۴.۰۰۰ تومان" data-title="کوبیده بوقلمون با نان و درچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کوبیده بوقلمون با نان و درچین</strong>
+<span>۱۰۴.۰۰۰ تومان</span>
+</div>
+<img alt="کوبیده بوقلمون با نان و درچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون با نان و درچین"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۱۸۴.۰۰۰ تومان" data-title="کباب لقمه گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کباب لقمه گوسفندی</strong>
+<span>۱۸۴.۰۰۰ تومان</span>
+</div>
+<img alt="کباب لقمه گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه گوسفندی"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۳۰.۰۰۰ تومان" data-title="کباب لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>کباب لقمه شتر</strong>
+<span>۲۳۰.۰۰۰ تومان</span>
+</div>
+<img alt="کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه شتر"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۵۵.۰۰۰ تومان" data-title="ساندویچ کباب لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ کباب لقمه شتر</strong>
+<span>۲۵۵.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کباب لقمه شتر"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg" data-price="۲۰۸.۰۰۰ تومان" data-title="جوجه کباب بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>جوجه کباب بوقلمون</strong>
+<span>۲۰۸.۰۰۰ تومان</span>
+</div>
+<img alt="جوجه کباب بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="جوجه کباب بوقلمون"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png" data-price="۳۲.۰۰۰ تومان" data-title="سیخ گوجه کبابی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>سیخ گوجه کبابی</strong>
+<span>۳۲.۰۰۰ تومان</span>
+</div>
+<img alt="سیخ گوجه سیخ گوجه کبابی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سیخ گوجه سیخ گوجه کبابی"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg" data-price="۱۰.۰۰۰ تومان" data-title="دورچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>دورچین</strong>
+<span>۱۰.۰۰۰ تومان</span>
+</div>
+<img alt="دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دورچین"></div>
+</div>
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg" data-price="۸.۰۰۰ تومان" data-title="ظرف یکبار مصرف کباب آلومینیومی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ظرف یکبار مصرف کباب آلومینیومی</strong>
+<span>۸.۰۰۰ تومان</span>
+</div>
+<img alt="ظرف یکبار مصرف کباب آلومینیومی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ظرف یکبار مصرف کباب آلومینیومی"></div>
+</div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" data-price="۱۳۰.۰۰۰ تومان" data-title="ساندویچ کوبیده گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ کوبیده گوسفندی</strong>
+<span>۱۳۰.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ کوبیده گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کوبیده گوسفندی"></div>
+</div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg" data-price="۹۹.۰۰۰ ریال" data-title="ساندویچ کوبیده بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ کوبیده بوقلمون</strong>
+<span>۹۹.۰۰۰ ریال</span>
+</div>
+<img alt="ساندویچ کوبیده بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کوبیده بوقلمون"></div>
+</div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg" data-price="۲۰۰.۰۰۰ تومان" data-title="ساندویچ لقمه گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ لقمه گوسفندی</strong>
+<span>۲۰۰.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ لقمه گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ لقمه گوسفندی"></div>
+</div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۴۰.۰۰۰ تومان" data-title="ساندویچ لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ لقمه شتر</strong>
+<span>۲۴۰.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ لقمه شتر"></div>
+</div>
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg" data-price="۹۹.۰۰۰ تومان" data-title="ساندویچ همبرگر بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>ساندویچ همبرگر بوقلمون</strong>
+<span>۹۹.۰۰۰ تومان</span>
+</div>
+<img alt="ساندویچ همبرگر بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ همبرگر بوقلمون"></div>
+</div>
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg" data-price="۱۲۰.۰۰۰ تومان" data-title="نوشانه زرشک" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>نوشانه زرشک</strong>
+<span>۱۲۰.۰۰۰ تومان</span>
+</div>
+<img alt="نوشانه زرشک" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="نوشانه زرشک"></div>
+</div>
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png" data-price="۲۵.۰۰۰ تومان" data-title="زیتون پرورده ۷۵ گرمی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>زیتون پرورده</strong>
+<span>۲۵.۰۰۰ تومان</span>
+</div>
+<img alt="زیتون پرورده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="زیتون پرورده"></div>
+</div>
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png" data-price="۳۸.۰۰۰ تومان" data-title="سبزی خوردن" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>سبزی خوردن</strong>
+<span>۳۸.۰۰۰ تومان</span>
+</div>
+<img alt="سبزی خوردن" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سبزی خوردن"></div>
+</div>
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png" data-price="۱۹.۰۰۰ تومان" data-title="دوغ تلمی نیم لیتری" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>دوغ تلمی نیم لیتری</strong>
+<span>۱۹.۰۰۰ تومان</span>
+</div>
+<img alt="دوغ تلمی نیم لیتری" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دوغ تلمی نیم لیتری"></div>
+</div>
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg" data-price="۶۳.۰۰۰ تومان" data-title="دوغ تلمی خانواده دولیتری" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>دوغ تلمی خانواده دولیتری</strong>
+<span>۶۳.۰۰۰ تومان</span>
+</div>
+<img alt="دوغ تلمی خانواده دولیتری" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دوغ تلمی خانواده دولیتری"></div>
+</div>
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg" data-price="۱۰.۰۰۰ تومان" data-title="آب معدنی کوچک" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>آب معدنی کوچک</strong>
+<span>۱۰.۰۰۰ تومان</span>
+</div>
+<img alt="آب معدنی کوچک" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی کوچک"></div>
+</div>
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg" data-price="۱۵.۰۰۰ تومان" data-title="آب معدنی خانواده" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<div class="info">
+<strong>آب معدنی خانواده</strong>
+<span>۱۵.۰۰۰ تومان</span>
+</div>
+<img alt="آب معدنی خانواده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg"/>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی خانواده"></div>
+</div>
+</main>
+
+<!-- مودال نمایش جزئیات غذا و امتیازدهی -->
+<div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
+<div class="modal-content">
+<button aria-label="بستن" class="close" id="modalClose">×</button>
+<img alt="" id="modalImg" src=""/>
+<h2 id="modalTitle"></h2>
+<p id="modalPrice"></p>
+<p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
+
+<div class="weightOptions" id="weightOptions-soup" style="display:none; margin-top:1.2rem;">
+<h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن سوپ جو:</h4>
+<div class="weight-cards" style="display:flex; gap:1rem;">
+<div class="weight-card active" data-price="24000" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۲۴.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="64000" style="cursor:pointer; ...">پرسی<br/><small>۶۴.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="80000" style="cursor:pointer; ...">۱ کیلو<br/><small>۸۰.۰۰۰ تومان</small></div>
+</div>
+<p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
+</div>
+
+<div aria-label="امتیازدهی ستاره‌ای" class="rating" role="radiogroup">
+<span aria-checked="false" aria-label="۵ ستاره" class="star" data-value="5" role="radio" tabindex="0">★</span>
+<span aria-checked="false" aria-label="۴ ستاره" class="star" data-value="4" role="radio" tabindex="-1">★</span>
+<span aria-checked="false" aria-label="۳ ستاره" class="star" data-value="3" role="radio" tabindex="-1">★</span>
+<span aria-checked="false" aria-label="۲ ستاره" class="star" data-value="2" role="radio" tabindex="-1">★</span>
+<span aria-checked="false" aria-label="۱ ستاره" class="star" data-value="1" role="radio" tabindex="-1">★</span>
+</div>
+
+<div class="feedback-form">
+  <h4>📝 نظر شما درباره این غذا</h4>
+  <textarea id="userComment" placeholder="نظر خود را درباره این غذا بنویسید..."></textarea>
+  <button class="submit-feedback" onclick="submitFeedback()">ارسال نظر</button>
+</div>
+
+<p id="ratingMsg" style="margin-top: 0.5rem; color: #f9c400; font-weight: bold;"></p>
+</div>
+</div>
+
+<!-- فوتر پایین صفحه -->
+<footer class="footer">
+    © 2025 لقمه احسان. همه حقوق محفوظ است.
+</footer>
+
+<!-- ✅ دکمه تغییر حالت شب/روز -->
+<button id="themeToggle" style="position: fixed; top: 1rem; left: 1rem; z-index: 10001; background: #f9c400; color: #000; padding: 0.4rem 0.9rem; border-radius: 10px; border: none; cursor: pointer; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">🌗</button>
+
+<script>
+  // اسکریپت‌های کامل جاوااسکریپت
+  const sideMenu = document.getElementById('sideMenu');
+  const menuToggle = document.getElementById('menuToggle');
+  const tabs = document.querySelectorAll('.tabs .tab');
+  const sideTabs = document.querySelectorAll('.side-menu .tab');
+  const searchInput = document.getElementById('search');
+  const menuItems = document.querySelectorAll('.menu-item');
+  const modal = document.getElementById('modal');
+  const modalClose = document.getElementById('modalClose');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalPrice = document.getElementById('modalPrice');
+  const modalOrderTime = document.getElementById('modalOrderTime');
+  const stars = modal.querySelectorAll('.star');
+  const ratingMsg = document.getElementById('ratingMsg');
+  
+  const STORAGE_KEY = 'restaurant_ratings';
+
+  function loadRatings() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  }
+
+  function saveRatings(ratings) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ratings));
+  }
+
+  function calculateAverage(arr) {
+    if (!arr || arr.length === 0) return 0;
+    const sum = arr.reduce((a,b) => a+b, 0);
+    return (sum / arr.length);
+  }
+
+  function updateAverageRatingsUI() {
+    const ratings = loadRatings();
+    document.querySelectorAll('.average-rating').forEach(avgDiv => {
+      const title = avgDiv.dataset.title;
+      const scores = ratings[title] || [];
+      const avg = calculateAverage(scores);
+      avgDiv.innerHTML = '';
+      avgDiv.setAttribute('aria-label', `میانگین امتیاز: ${avg.toFixed(1)} از ۵`);
+
+      const fullStars = Math.floor(avg);
+      const halfStar = (avg - fullStars) >= 0.5;
+      for(let i=1; i<=5; i++){
+        let starSpan = document.createElement('span');
+        starSpan.classList.add('star');
+        starSpan.textContent = '★';
+        if(i <= fullStars) starSpan.style.color = 'gold';
+        else if(i === fullStars + 1 && halfStar) starSpan.style.color = 'goldenrod';
+        else starSpan.style.color = '#444';
+        avgDiv.appendChild(starSpan);
+      }
+    });
+  }
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = sideMenu.classList.toggle('open');
+    sideMenu.setAttribute('aria-hidden', !isOpen);
+  });
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      changeCategory(tab.dataset.category);
+      setActiveTab(tab);
+    });
+    tab.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        changeCategory(tab.dataset.category);
+        setActiveTab(tab);
+      }
+    });
+  });
+
+  sideTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      changeCategory(tab.dataset.category);
+      setActiveSideTab(tab);
+      sideMenu.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
+    });
+    tab.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        changeCategory(tab.dataset.category);
+        setActiveSideTab(tab);
+        sideMenu.classList.remove('open');
+        sideMenu.setAttribute('aria-hidden', 'true');
+      }
+    });
+  });
+
+  function setActiveTab(activeTab) {
+    tabs.forEach(tab => {
+      const isActive = tab === activeTab;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive);
+      tab.tabIndex = isActive ? 0 : -1;
+    });
+    sideTabs.forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
+      tab.setAttribute('aria-pressed', tab.dataset.category === activeTab.dataset.category);
+    });
+  }
+
+  function setActiveSideTab(activeTab) {
+    sideTabs.forEach(tab => {
+      const isActive = tab === activeTab;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-pressed', isActive);
+    });
+    tabs.forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
+      tab.setAttribute('aria-selected', tab.dataset.category === activeTab.dataset.category);
+      tab.tabIndex = tab.dataset.category === activeTab.dataset.category ? 0 : -1;
+    });
+  }
+
+  function changeCategory(category) {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    menuItems.forEach(item => {
+      const title = item.dataset.title.toLowerCase();
+      const cat = item.dataset.category;
+      const matchesCategory = category === "همه" || cat === category;
+      const matchesSearch = title.includes(searchTerm);
+      if(matchesCategory && matchesSearch){
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput.addEventListener('input', () => {
+    const activeTab = document.querySelector('.tabs .tab.active');
+    const category = activeTab ? activeTab.dataset.category : "همه";
+    changeCategory(category);
+  });
+
+  let currentItem = null;
+
+  function showModal(element) {
+    currentItem = element;
+    modalImg.src = element.dataset.img;
+    modalImg.alt = element.dataset.title;
+    modalTitle.textContent = element.dataset.title;
+    modalPrice.textContent = element.dataset.price;
+
+    if(element.dataset.title === "سوپ جو"){
+      modalOrderTime.textContent = "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵";
+    } else if(element.dataset.title === "آش جو"){
+      modalOrderTime.textContent = "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵";
+    } else {
+      modalOrderTime.textContent = "";
+    }
+
+    const ratings = loadRatings();
+    const scores = ratings[element.dataset.title] || [];
+    const avg = calculateAverage(scores);
+    ratingMsg.textContent = `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`;
+
+    stars.forEach(star => {
+      star.classList.remove('selected', 'hovered');
+      star.setAttribute('aria-checked', 'false');
+      star.tabIndex = -1;
+    });
+
+    if(scores.length > 0){
+      const roundedAvg = Math.round(avg);
+      stars.forEach(star => {
+        if(parseInt(star.dataset.value) <= roundedAvg) {
+          star.classList.add('selected');
+          star.setAttribute('aria-checked', 'true');
+        }
+      });
+    }
+
+    stars[0].tabIndex = 0;
+    modal.classList.add('show');
+    modal.focus();
+    updateWeightSection(element.dataset.title);
+  }
+
+  modalClose.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
+
+  window.addEventListener('click', (event) => {
+    const isClickInsideMenu = sideMenu.contains(event.target);
+    const isClickOnButton = menuToggle.contains(event.target);
+    if (!isClickInsideMenu && !isClickOnButton) {
+      sideMenu.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+
+  stars.forEach(star => {
+    star.addEventListener('mouseenter', () => {
+      const val = parseInt(star.dataset.value);
+      stars.forEach(s => {
+        s.classList.toggle('hovered', parseInt(s.dataset.value) <= val);
+      });
+    });
+    star.addEventListener('mouseleave', () => {
+      stars.forEach(s => s.classList.remove('hovered'));
+    });
+    star.addEventListener('click', () => {
+      const val = parseInt(star.dataset.value);
+      saveRating(val);
+    });
+    star.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const val = parseInt(star.dataset.value);
+        saveRating(val);
+      }
+      if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+        e.preventDefault();
+        let idx = Array.from(stars).indexOf(e.target);
+        if(e.key === 'ArrowRight'){
+          idx = (idx === 0) ? stars.length -1 : idx -1;
+        } else {
+          idx = (idx === stars.length -1) ? 0 : idx +1;
+        }
+        stars[idx].focus();
+      }
+    });
+  });
+
+  function saveRating(value) {
+    if (!currentItem) return;
+    const title = currentItem.dataset.title;
+    const ratings = loadRatings();
+    if (!ratings[title]) ratings[title] = [];
+    ratings[title].push(value);
+    saveRatings(ratings);
+
+    fetch("https://lokmahkhaneehsan.netlify.app/api/submit-rating", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        rating: value,
+        comment: ""
+      })
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
+      return response.json();
+    })
+    .then(data => {
+      if (data.success) {
+        const avg = data.averageRating || calculateAverage(ratings[title]);
+        ratingMsg.textContent = `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`;
+
+        stars.forEach(star => {
+          star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
+          star.setAttribute('aria-checked', parseInt(star.dataset.value) <= Math.round(avg) ? 'true' : 'false');
+        });
+
+        updateAverageRatingsUI();
+      } else {
+        throw new Error(data.error || "خطا در دریافت پاسخ سرور.");
+      }
+    })
+    .catch(error => {
+      console.error("خطا:", error);
+      alert("خطا در ارسال امتیاز. لطفا دوباره تلاش کنید.");
+    });
+  }
+
+  function submitFeedback() {
+    const comment = document.getElementById('userComment').value;
+    if (!comment.trim()) {
+      alert('لطفا نظر خود را وارد کنید');
+      return;
+    }
+    
+    if (!currentItem) return;
+    
+    // اینجا می‌توانید نظر را به سرور ارسال کنید
+    alert('نظر شما با موفقیت ثبت شد! سپاسگزاریم 🌟');
+    document.getElementById('userComment').value = '';
+  }
+
+  updateAverageRatingsUI();
+
+  const allWeightSections = document.querySelectorAll('.weightOptions');
+
+  function updateWeightSection(title) {
+    allWeightSections.forEach(section => section.style.display = 'none');
+    let sectionId = null;
+    if (title === "سوپ جو") sectionId = "weightOptions-soup";
+    else if (title === "آش جو") sectionId = "weightOptions-ash";
+    else if (title === "حلیم گندم") sectionId = "weightOptions-halim";
+
+    if (sectionId) {
+      const section = document.getElementById(sectionId);
+      section.style.display = "block";
+
+      const cards = section.querySelectorAll('.weight-card');
+      const priceSpan = section.querySelector('.dynamicPrice');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          cards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+
+          const priceStr = card.dataset.price?.replace(/[^0-9.]/g, '');
+          const price = Number(priceStr);
+
+          if (!isNaN(price)) {
+            priceSpan.textContent = price.toLocaleString('fa-IR');
+          } else {
+            priceSpan.textContent = "—";
+          }
+        });
+      });
+    }
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modal.classList.contains('show')) {
+      modal.classList.remove('show');
+    }
+  });
+
+  changeCategory("همه");
+</script>
+
+<script>
+  function applyTheme(mode) {
+    document.body.classList.remove('day-mode', 'night-mode');
+    document.body.classList.add(`${mode}-mode`);
+    localStorage.setItem('site-theme', mode);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedTheme = localStorage.getItem('site-theme') || 'night';
+    applyTheme(savedTheme);
+
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
+      const newTheme = current === 'night' ? 'day' : 'night';
+      applyTheme(newTheme);
+    });
+  });
+
+   const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
+
+    fetch(SHEET_URL)
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(item => {
+          const allMenuItems = document.querySelectorAll('.menu-item');
+          allMenuItems.forEach(el => {
+            const title = el.dataset.title;
+            if (title === item.title) {
+              const infoBox = el.querySelector(".info strong");
+              const light = document.createElement("span");
+              light.classList.add("status-light");
+
+              if (item.available === false || item.available === "FALSE") {
+                light.classList.add("status-unavailable");
+              } else {
+                light.classList.add("status-available");
+              }
+
+              infoBox.prepend(light);
+            }
+          });
+        });
+      })
+      .catch(err => {
+        console.error("خطا در دریافت موجودی منو:", err);
+      });
+</script>
+</body>
+</html>
