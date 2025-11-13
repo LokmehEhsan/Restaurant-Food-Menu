@@ -757,7 +757,6 @@
       color: #f9c400 !important;
     }
 
-    /* استایل برای آیتم‌های غیرفعال */
     .menu-item.unavailable {
       opacity: 0.6;
       cursor: not-allowed;
@@ -769,7 +768,6 @@
       border-color: rgba(255,255,255,0.2);
     }
 
-    /* بهبود استایل‌ها برای حالت انگلیسی */
     body[dir="ltr"] .menu-item .info {
       text-align: right;
     }
@@ -792,7 +790,6 @@
       text-align: left;
     }
 
-    /* دکمه تغییر زبان */
     .language-switcher {
       position: fixed;
       top: 1rem;
@@ -809,7 +806,6 @@
       font-weight: bold;
     }
 
-    /* دکمه تغییر تم */
     .theme-toggle {
       position: fixed;
       top: 1rem;
@@ -837,30 +833,23 @@
 </style>
 </head>
 <body>
-<!-- دکمه تغییر زبان -->
 <button class="language-switcher" id="languageToggle">EN</button>
-
-<!-- دکمه تغییر تم -->
 <button class="theme-toggle" id="themeToggle">🌗</button>
 
-<!-- پیام خوشامدگویی -->
 <div class="welcome-message">
   <h1 data-i18n="welcome.title">🌟 به رستوران لقمه احسان خوش آمدید 🌟</h1>
   <p data-i18n="welcome.subtitle">لذیذترین طعم‌ها در انتظار شماست... نوش جان!</p>
 </div>
 
-<!-- لوگو -->
 <div class="site-logo" role="banner">
   <img alt="لوگوی رستوران لقمه احسان" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/logo.png"/>
 </div>
 
-<!-- هدر بالا با عنوان و دکمه منو -->
 <header class="header" role="banner">
 <button aria-label="باز کردن منوی جانبی" class="menu-button" id="menuToggle">☰</button>
 <h2 data-i18n="header.title">منوی رستوران لقمه احسان</h2>
 </header>
 
-<!-- منوی جانبی که از راست باز می‌شود -->
 <nav aria-hidden="true" aria-label="منوی جانبی" class="side-menu" id="sideMenu" role="navigation">
 <p style="font-weight:bold; margin-bottom: 0.5rem;" data-i18n="sideMenu.categories">دسته‌بندی‌ها</p>
 <div aria-pressed="true" class="tab active" data-category="پیش غذا" role="button" tabindex="0" data-i18n="categories.appetizer">پیش غذا</div>
@@ -874,7 +863,6 @@
 <a href="https://socialplatform-khaneehsan.netlify.app/" rel="noopener" tabindex="0" target="_blank" data-i18n="sideMenu.about">درباره ما</a>
 </nav>
 
-<!-- کادر جستجو -->
 <div aria-label="جستجوی غذاها" class="search-box" role="search">
 <input aria-label="جستجوی غذاها" autocomplete="off" id="search" placeholder="هرچی دوست داری جستجو کن ..." type="text" data-i18n-placeholder="search.placeholder"/>
 <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
@@ -882,7 +870,6 @@
 </svg>
 </div>
 
-<!-- تب‌های دسته‌بندی بالای صفحه -->
 <div aria-label="دسته‌بندی‌های غذا" class="tabs" role="tablist">
 <div aria-selected="true" class="tab active" data-category="همه" role="tab" tabindex="0" data-i18n="categories.all">همه غذاها</div>
 <div aria-selected="false" class="tab" data-category="پیش غذا" role="tab" tabindex="-1" data-i18n="categories.appetizer">پیش غذا</div>
@@ -892,9 +879,7 @@
 <div aria-selected="false" class="tab" data-category="نوشیدنی" role="tab" tabindex="-1" data-i18n="categories.drink">شربت ، نوشیدنی</div>
 </div>
 
-<!-- لیست غذاها -->
 <main aria-label="لیست غذاها" class="menu-container" role="list">
-<!-- آیتم‌های منو -->
 <div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" data-title="سوپ جو" data-i18n-title="items.barleySoup" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
 <strong data-i18n="items.barleySoup">سوپ جو</strong>
@@ -922,7 +907,6 @@
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="حلیم گندم"></div>
 </div>
 
-<!-- بقیه آیتم‌های منو -->
 <div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" data-title="کوبیده گوسفندی" data-i18n-title="items.lambKobideh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
 <strong data-i18n="items.lambKobideh">کوبیده گوسفندی</strong>
@@ -1131,7 +1115,6 @@
 </div>
 </main>
 
-<!-- مودال نمایش جزئیات غذا و امتیازدهی -->
 <div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
 <div class="modal-content">
 <button aria-label="بستن" class="close" id="modalClose" data-i18n="modal.close">×</button>
@@ -1140,35 +1123,32 @@
 <p id="modalPrice"></p>
 <p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
 
-<!-- بخش انتخاب وزن برای سوپ جو -->
 <div class="weightOptions" id="weightOptions-soup" style="display:none; margin-top:1.2rem;">
 <h4 style="color:#f9c400; margin-bottom:1rem;" data-i18n="modal.weightSelectionSoup">انتخاب وزن سوپ جو:</h4>
 <div class="weight-cards" style="display:flex; gap:1rem;">
-<div class="weight-card active" data-price="24000" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۲۴.۰۰۰ تومان</small></div>
-<div class="weight-card" data-price="64000" style="cursor:pointer; ...">پرسی<br/><small>۶۴.۰۰۰ تومان</small></div>
-<div class="weight-card" data-price="80000" style="cursor:pointer; ...">۱ کیلو<br/><small>۸۰.۰۰۰ تومان</small></div>
+<div class="weight-card active" data-price="24000" style="cursor:pointer;">۳۰۰ گرم<br/><small>۲۴.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="64000" style="cursor:pointer;">پرسی<br/><small>۶۴.۰۰۰ تومان</small></div>
+<div class="weight-card" data-price="80000" style="cursor:pointer;">۱ کیلو<br/><small>۸۰.۰۰۰ تومان</small></div>
 </div>
 <p style="margin-top:1rem; font-weight:bold; color:#f9c400;" data-i18n="modal.finalPrice">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
 </div>
 
-<!-- بخش انتخاب وزن برای آش جو -->
 <div class="weightOptions" id="weightOptions-ash" style="display:none; margin-top:1.2rem;">
 <h4 style="color:#f9c400; margin-bottom:1rem;" data-i18n="modal.weightSelectionAsh">انتخاب وزن آش جو:</h4>
 <div class="weight-cards" style="display:flex; gap:1rem;">
-<div class="weight-card active" data-price="32700" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۳۲.۷۰۰ تومان</small></div>
-<div class="weight-card" data-price="87200" style="cursor:pointer; ...">پرسی<br/><small>۸۷.۲۰۰ تومان</small></div>
-<div class="weight-card" data-price="109000" style="cursor:pointer; ...">۱ کیلو<br/><small>۱۰۹.۰۰۰ تومان</small></div>
+<div class="weight-card active" data-price="32700" style="cursor:pointer;">۳۰۰ گرم<br/><small>۳۲.۷۰۰ تومان</small></div>
+<div class="weight-card" data-price="87200" style="cursor:pointer;">پرسی<br/><small>۸۷.۲۰۰ تومان</small></div>
+<div class="weight-card" data-price="109000" style="cursor:pointer;">۱ کیلو<br/><small>۱۰۹.۰۰۰ تومان</small></div>
 </div>
 <p style="margin-top:1rem; font-weight:bold; color:#f9c400;" data-i18n="modal.finalPrice">قیمت نهایی: <span class="dynamicPrice">۳۲.۷۰۰</span> تومان</p>
 </div>
 
-<!-- بخش انتخاب وزن برای حلیم گندم -->
 <div class="weightOptions" id="weightOptions-halim" style="display:none; margin-top:1.2rem;">
 <h4 style="color:#f9c400; margin-bottom:1rem;" data-i18n="modal.weightSelectionHalim">انتخاب وزن حلیم گندم:</h4>
 <div class="weight-cards" style="display:flex; gap:1rem;">
-<div class="weight-card active" data-price="44400" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۴۴.۴۰۰ تومان</small></div>
-<div class="weight-card" data-price="118400" style="cursor:pointer; ...">پرسی<br/><small>۱۱۸.۴۰۰ تومان</small></div>
-<div class="weight-card" data-price="148000" style="cursor:pointer; ...">۱ کیلو<br/><small>۱۴۸.۰۰۰ تومان</small></div>
+<div class="weight-card active" data-price="44400" style="cursor:pointer;">۳۰۰ گرم<br/><small>۴۴.۴۰۰ تومان</small></div>
+<div class="weight-card" data-price="118400" style="cursor:pointer;">پرسی<br/><small>۱۱۸.۴۰۰ تومان</small></div>
+<div class="weight-card" data-price="148000" style="cursor:pointer;">۱ کیلو<br/><small>۱۴۸.۰۰۰ تومان</small></div>
 </div>
 <p style="margin-top:1rem; font-weight:bold; color:#f9c400;" data-i18n="modal.finalPrice">قیمت نهایی: <span class="dynamicPrice">۴۴.۴۰۰</span> تومان</p>
 </div>
@@ -1191,12 +1171,11 @@
 </div>
 </div>
 
-<!-- فوتر پایین صفحه -->
 <footer class="footer">
     <span data-i18n="footer.copyright">© 2025 رستوران لقمه احسان. همه حقوق محفوظ است.</span>
 </footer>
+
 <script>
-  // اسکریپت‌های اصلی جاوااسکریپت
   const sideMenu = document.getElementById('sideMenu');
   const menuToggle = document.getElementById('menuToggle');
   const tabs = document.querySelectorAll('.tabs .tab');
@@ -1214,14 +1193,12 @@
   
   const STORAGE_KEY = 'restaurant_ratings';
 
-  // تابع برای دریافت روز فعلی هفته (بر اساس تقویم فارسی)
   function getCurrentPersianDay() {
     const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
-    const today = new Date().getDay(); // 0=یکشنبه, 1=دوشنبه, ..., 6=شنبه
+    const today = new Date().getDay();
     return days[today];
   }
 
-  // تابع برای بررسی موجودی بر اساس روز هفته
   function isItemAvailable(itemTitle) {
     const today = getCurrentPersianDay();
     
@@ -1233,11 +1210,9 @@
       return ['چهارشنبه'].includes(today);
     }
     
-    // سایر غذاها همیشه موجود هستند
     return true;
   }
 
-  // تابع برای دریافت پیام روزهای موجود
   function getAvailableDaysMessage(itemTitle, lang) {
     if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
       return lang === 'fa' 
@@ -1255,7 +1230,6 @@
     return "";
   }
 
-  // تابع اصلی برای هندل کردن کلیک روی آیتم‌ها
   function handleItemClick(element) {
     const itemTitle = element.dataset.title;
     const currentLang = document.documentElement.lang;
@@ -1270,7 +1244,6 @@
       return;
     }
     
-    // اگر غذا موجود است، مودال نمایش داده شود
     showModal(element);
   }
 
@@ -1332,13 +1305,6 @@
       changeCategory(tab.dataset.category);
       setActiveTab(tab);
     });
-    tab.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        changeCategory(tab.dataset.category);
-        setActiveTab(tab);
-      }
-    });
   });
 
   sideTabs.forEach(tab => {
@@ -1348,27 +1314,15 @@
       sideMenu.classList.remove('open');
       sideMenu.setAttribute('aria-hidden', 'true');
     });
-    tab.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        changeCategory(tab.dataset.category);
-        setActiveSideTab(tab);
-        sideMenu.classList.remove('open');
-        sideMenu.setAttribute('aria-hidden', 'true');
-      }
-    });
   });
 
   function setActiveTab(activeTab) {
     tabs.forEach(tab => {
       const isActive = tab === activeTab;
       tab.classList.toggle('active', isActive);
-      tab.setAttribute('aria-selected', isActive);
-      tab.tabIndex = isActive ? 0 : -1;
     });
     sideTabs.forEach(tab => {
       tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
-      tab.setAttribute('aria-pressed', tab.dataset.category === activeTab.dataset.category);
     });
   }
 
@@ -1376,12 +1330,9 @@
     sideTabs.forEach(tab => {
       const isActive = tab === activeTab;
       tab.classList.toggle('active', isActive);
-      tab.setAttribute('aria-pressed', isActive);
     });
     tabs.forEach(tab => {
       tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
-      tab.setAttribute('aria-selected', tab.dataset.category === activeTab.dataset.category);
-      tab.tabIndex = tab.dataset.category === activeTab.dataset.category ? 0 : -1;
     });
   }
 
@@ -1413,7 +1364,7 @@
     modalImg.src = element.dataset.img;
     modalImg.alt = element.dataset.title;
     modalTitle.textContent = element.dataset.title;
-    modalPrice.textContent = element.dataset.price;
+    modalPrice.textContent = element.querySelector('.info span').textContent;
 
     if(element.dataset.title === "سوپ جو" || element.dataset.title === "Barley Soup"){
       const currentLang = document.documentElement.lang;
@@ -1447,8 +1398,6 @@
 
     stars.forEach(star => {
       star.classList.remove('selected', 'hovered');
-      star.setAttribute('aria-checked', 'false');
-      star.tabIndex = -1;
     });
 
     if(scores.length > 0){
@@ -1456,14 +1405,11 @@
       stars.forEach(star => {
         if(parseInt(star.dataset.value) <= roundedAvg) {
           star.classList.add('selected');
-          star.setAttribute('aria-checked', 'true');
         }
       });
     }
 
-    stars[0].tabIndex = 0;
     modal.classList.add('show');
-    modal.focus();
     updateWeightSection(element.dataset.title);
   }
 
@@ -1479,6 +1425,7 @@
       sideMenu.setAttribute('aria-hidden', 'true');
     }
   });
+
   modal.addEventListener('click', (e) => {
     if(e.target === modal) {
       modal.classList.remove('show');
@@ -1499,23 +1446,6 @@
       const val = parseInt(star.dataset.value);
       saveRating(val);
     });
-    star.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const val = parseInt(star.dataset.value);
-        saveRating(val);
-      }
-      if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
-        e.preventDefault();
-        let idx = Array.from(stars).indexOf(e.target);
-        if(e.key === 'ArrowRight'){
-          idx = (idx === 0) ? stars.length -1 : idx -1;
-        } else {
-          idx = (idx === stars.length -1) ? 0 : idx +1;
-        }
-        stars[idx].focus();
-      }
-    });
   });
 
   function saveRating(value) {
@@ -1526,49 +1456,19 @@
     ratings[title].push(value);
     saveRatings(ratings);
 
-    fetch("https://lokmahkhaneehsan.netlify.app/api/submit-rating", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: title,
-        rating: value,
-        comment: ""
-      })
-    })
-    .then(response => {
-      if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
-      return response.json();
-    })
-    .then(data => {
-      if (data.success) {
-        const avg = data.averageRating || calculateAverage(ratings[title]);
-        const currentLang = document.documentElement.lang;
-        const ratingText = currentLang === 'fa'
-          ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`
-          : `Average rating: ${avg.toFixed(1)} out of 5 (${ratings[title].length} votes)`;
-        
-        ratingMsg.textContent = ratingText;
+    const avg = calculateAverage(ratings[title]);
+    const currentLang = document.documentElement.lang;
+    const ratingText = currentLang === 'fa'
+      ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`
+      : `Average rating: ${avg.toFixed(1)} out of 5 (${ratings[title].length} votes)`;
+    
+    ratingMsg.textContent = ratingText;
 
-        stars.forEach(star => {
-          star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
-          star.setAttribute('aria-checked', parseInt(star.dataset.value) <= Math.round(avg) ? 'true' : 'false');
-        });
-
-        updateAverageRatingsUI();
-      } else {
-        throw new Error(data.error || "خطا در دریافت پاسخ سرور.");
-      }
-    })
-    .catch(error => {
-      console.error("خطا:", error);
-      const currentLang = document.documentElement.lang;
-      alert(currentLang === 'fa' 
-        ? "خطا در ارسال امتیاز. لطفا دوباره تلاش کنید."
-        : "Error submitting rating. Please try again."
-      );
+    stars.forEach(star => {
+      star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
     });
+
+    updateAverageRatingsUI();
   }
 
   function submitFeedback() {
@@ -1582,32 +1482,8 @@
     
     if (!currentItem) return;
     
-    // ارسال نظر به سرور
-    fetch("https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: currentItem.dataset.title,
-        comment: comment,
-        type: "feedback",
-        timestamp: new Date().toISOString()
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        alert(translations[currentLang]["messages.feedbackSuccess"]);
-        document.getElementById('userComment').value = '';
-      } else {
-        alert(translations[currentLang]["messages.feedbackError"]);
-      }
-    })
-    .catch(error => {
-      console.error("خطا:", error);
-      alert(translations[currentLang]["messages.feedbackError"]);
-    });
+    alert(translations[currentLang]["messages.feedbackSuccess"]);
+    document.getElementById('userComment').value = '';
   }
 
   updateAverageRatingsUI();
@@ -1638,8 +1514,6 @@
 
           if (!isNaN(price)) {
             priceSpan.textContent = price.toLocaleString('fa-IR');
-          } else {
-            priceSpan.textContent = "—";
           }
         });
       });
@@ -1653,45 +1527,75 @@
   });
 
   changeCategory("همه");
-  
-  // سیستم دو زبانه
+
   const translations = {
     fa: {
-      // پیام خوشامد
       "welcome.title": "🌟 به رستوران لقمه احسان خوش آمدید 🌟",
       "welcome.subtitle": "لذیذترین طعم‌ها در انتظار شماست... نوش جان!",
-      
-      // هدر
       "header.title": "منوی رستوران لقمه احسان",
-      
-      // منوی جانبی
       "sideMenu.categories": "دسته‌بندی‌ها",
       "sideMenu.contact": "تماس با ما",
       "sideMenu.home": "خانه احسان",
       "sideMenu.about": "درباره ما",
-      
-      // جستجو
       "search.placeholder": "هرچی دوست داری جستجو کن ...",
-      
-      // دسته‌بندی‌ها
       "categories.all": "همه غذاها",
       "categories.appetizer": "پیش غذا",
       "categories.kabab": "کباب ها",
       "categories.sandwich": "ساندویچ ها",
       "categories.dessert": "دسر و چاشنی",
       "categories.drink": "شربت ، نوشیدنی",
-      
-      // آیتم‌های منو
       "items.barleySoup": "سوپ جو",
       "items.barleySoupPrice": "کیلویی۸۰.۰۰۰ تومان",
       "items.barleyStew": "آش جو",
       "items.barleyStewPrice": "کیلویی۱۰۹.۰۰۰ تومان",
       "items.wheatHalim": "حلیم گندم",
       "items.wheatHalimPrice": "کیلویی ۱۴۸.۰۰۰ تومان",
-      
-      // ... سایر آیتم‌ها
-      
-      // مودال
+      "items.lambKobideh": "کوبیده گوسفندی",
+      "items.lambKobidehPrice": "۱۱۶.۰۰۰ تومان",
+      "items.turkeyKobideh": "کوبیده بوقلمون",
+      "items.turkeyKobidehPrice": "۸۴.۰۰۰ تومان",
+      "items.lambKobidehWithBread": "کوبیده گوسفندی با نان و دورچین",
+      "items.lambKobidehWithBreadPrice": "۱۳۶.۰۰۰ تومان",
+      "items.turkeyKobidehWithBread": "کوبیده بوقلمون با نان و درچین",
+      "items.turkeyKobidehWithBreadPrice": "۱۰۴.۰۰۰ تومان",
+      "items.lambBiteKebab": "کباب لقمه گوسفندی",
+      "items.lambBiteKebabPrice": "۱۸۴.۰۰۰ تومان",
+      "items.camelBiteKebab": "کباب لقمه شتر",
+      "items.camelBiteKebabPrice": "۲۳۰.۰۰۰ تومان",
+      "items.camelBiteSandwich": "ساندویچ کباب لقمه شتر",
+      "items.camelBiteSandwichPrice": "۲۵۵.۰۰۰ تومان",
+      "items.turkeyJoojeh": "جوجه کباب بوقلمون",
+      "items.turkeyJoojehPrice": "۲۰۸.۰۰۰ تومان",
+      "items.tomatoSkewer": "سیخ گوجه کبابی",
+      "items.tomatoSkewerPrice": "۳۲.۰۰۰ تومان",
+      "items.sideDish": "دورچین",
+      "items.sideDishPrice": "۱۰.۰۰۰ تومان",
+      "items.aluminumContainer": "ظرف یکبار مصرف کباب آلومینیومی",
+      "items.aluminumContainerPrice": "۸.۰۰۰ تومان",
+      "items.lambSandwich": "ساندویچ کوبیده گوسفندی",
+      "items.lambSandwichPrice": "۱۳۰.۰۰۰ تومان",
+      "items.turkeySandwich": "ساندویچ کوبیده بوقلمون",
+      "items.turkeySandwichPrice": "۹۹.۰۰۰ ریال",
+      "items.lambBiteSandwich": "ساندویچ لقمه گوسفندی",
+      "items.lambBiteSandwichPrice": "۲۰۰.۰۰۰ تومان",
+      "items.camelBiteSandwich2": "ساندویچ لقمه شتر",
+      "items.camelBiteSandwich2Price": "۲۴۰.۰۰۰ تومان",
+      "items.turkeyBurger": "ساندویچ همبرگر بوقلمون",
+      "items.turkeyBurgerPrice": "۹۹.۰۰۰ تومان",
+      "items.barberryNoshaneh": "نوشانه زرشک",
+      "items.barberryNoshanehPrice": "۱۲۰.۰۰۰ تومان",
+      "items.stuffedOlives": "زیتون پرورده",
+      "items.stuffedOlivesPrice": "۲۵.۰۰۰ تومان",
+      "items.freshHerbs": "سبزی خوردن",
+      "items.freshHerbsPrice": "۳۸.۰۰۰ تومان",
+      "items.halfLiterDoogh": "دوغ تلمی نیم لیتری",
+      "items.halfLiterDooghPrice": "۱۹.۰۰۰ تومان",
+      "items.twoLiterDoogh": "دوغ تلمی خانواده دولیتری",
+      "items.twoLiterDooghPrice": "۶۳.۰۰۰ تومان",
+      "items.smallWater": "آب معدنی کوچک",
+      "items.smallWaterPrice": "۱۰.۰۰۰ تومان",
+      "items.familyWater": "آب معدنی خانواده",
+      "items.familyWaterPrice": "۱۵.۰۰۰ تومان",
       "modal.close": "×",
       "modal.weightSelectionSoup": "انتخاب وزن سوپ جو:",
       "modal.weightSelectionAsh": "انتخاب وزن آش جو:",
@@ -1700,53 +1604,78 @@
       "modal.feedbackTitle": "📝 نظر شما درباره این غذا",
       "modal.feedbackPlaceholder": "نظر خود را درباره این غذا بنویسید...",
       "modal.submitFeedback": "ارسال نظر",
-      
-      // فوتر
       "footer.copyright": "© 2025 رستوران لقمه احسان. همه حقوق محفوظ است.",
-      
-      // پیام‌ها
       "messages.unavailable": "⛔ {{item}} امروز موجود نیست!\n\n{{message}}",
       "messages.feedbackSuccess": "نظر شما با موفقیت ثبت شد! سپاسگزاریم 🌟",
-      "messages.feedbackError": "خطا در ثبت نظر. لطفا دوباره تلاش کنید.",
-      "messages.emptyFeedback": "لطفا نظر خود را وارد کنید",
-      "messages.ratingError": "خطا در ارسال امتیاز. لطفا دوباره تلاش کنید."
+      "messages.emptyFeedback": "لطفا نظر خود را وارد کنید"
     },
     en: {
-      // Welcome message
       "welcome.title": "🌟 Welcome to Ehsan's Bite Restaurant 🌟",
       "welcome.subtitle": "The most delicious flavors are waiting for you... Bon Appétit!",
-      
-      // Header
       "header.title": "Ehsan's Bite Restaurant Menu",
-      
-      // Side menu
       "sideMenu.categories": "Categories",
       "sideMenu.contact": "Contact Us",
       "sideMenu.home": "Ehsan's Home",
       "sideMenu.about": "About Us",
-      
-      // Search
       "search.placeholder": "Search for anything you like...",
-      
-      // Categories
       "categories.all": "All Foods",
       "categories.appetizer": "Appetizer",
       "categories.kabab": "Kebabs",
       "categories.sandwich": "Sandwiches",
       "categories.dessert": "Dessert & Condiments",
       "categories.drink": "Drinks & Beverages",
-      
-      // Menu items
       "items.barleySoup": "Barley Soup",
       "items.barleySoupPrice": "Per Kg 80,000 Toman",
       "items.barleyStew": "Barley Stew",
       "items.barleyStewPrice": "Per Kg 109,000 Toman",
       "items.wheatHalim": "Wheat Halim",
       "items.wheatHalimPrice": "Per Kg 148,000 Toman",
-      
-      // ... سایر آیتم‌ها
-      
-      // Modal
+      "items.lambKobideh": "Lamb Kobideh",
+      "items.lambKobidehPrice": "116,000 Toman",
+      "items.turkeyKobideh": "Turkey Kobideh",
+      "items.turkeyKobidehPrice": "84,000 Toman",
+      "items.lambKobidehWithBread": "Lamb Kobideh with Bread & Side",
+      "items.lambKobidehWithBreadPrice": "136,000 Toman",
+      "items.turkeyKobidehWithBread": "Turkey Kobideh with Bread & Side",
+      "items.turkeyKobidehWithBreadPrice": "104,000 Toman",
+      "items.lambBiteKebab": "Lamb Bite Kebab",
+      "items.lambBiteKebabPrice": "184,000 Toman",
+      "items.camelBiteKebab": "Camel Bite Kebab",
+      "items.camelBiteKebabPrice": "230,000 Toman",
+      "items.camelBiteSandwich": "Camel Bite Kebab Sandwich",
+      "items.camelBiteSandwichPrice": "255,000 Toman",
+      "items.turkeyJoojeh": "Turkey Joojeh Kebab",
+      "items.turkeyJoojehPrice": "208,000 Toman",
+      "items.tomatoSkewer": "Tomato Skewer",
+      "items.tomatoSkewerPrice": "32,000 Toman",
+      "items.sideDish": "Side Dish",
+      "items.sideDishPrice": "10,000 Toman",
+      "items.aluminumContainer": "Aluminum Disposable Container",
+      "items.aluminumContainerPrice": "8,000 Toman",
+      "items.lambSandwich": "Lamb Kobideh Sandwich",
+      "items.lambSandwichPrice": "130,000 Toman",
+      "items.turkeySandwich": "Turkey Kobideh Sandwich",
+      "items.turkeySandwichPrice": "99,000 Rial",
+      "items.lambBiteSandwich": "Lamb Bite Sandwich",
+      "items.lambBiteSandwichPrice": "200,000 Toman",
+      "items.camelBiteSandwich2": "Camel Bite Sandwich",
+      "items.camelBiteSandwich2Price": "240,000 Toman",
+      "items.turkeyBurger": "Turkey Burger Sandwich",
+      "items.turkeyBurgerPrice": "99,000 Toman",
+      "items.barberryNoshaneh": "Barberry Noshaneh",
+      "items.barberryNoshanehPrice": "120,000 Toman",
+      "items.stuffedOlives": "Stuffed Olives",
+      "items.stuffedOlivesPrice": "25,000 Toman",
+      "items.freshHerbs": "Fresh Herbs",
+      "items.freshHerbsPrice": "38,000 Toman",
+      "items.halfLiterDoogh": "Half Liter Doogh",
+      "items.halfLiterDooghPrice": "19,000 Toman",
+      "items.twoLiterDoogh": "Two Liter Family Doogh",
+      "items.twoLiterDooghPrice": "63,000 Toman",
+      "items.smallWater": "Small Mineral Water",
+      "items.smallWaterPrice": "10,000 Toman",
+      "items.familyWater": "Family Mineral Water",
+      "items.familyWaterPrice": "15,000 Toman",
       "modal.close": "×",
       "modal.weightSelectionSoup": "Select Barley Soup Weight:",
       "modal.weightSelectionAsh": "Select Barley Stew Weight:",
@@ -1755,29 +1684,19 @@
       "modal.feedbackTitle": "📝 Your Feedback About This Food",
       "modal.feedbackPlaceholder": "Write your opinion about this food...",
       "modal.submitFeedback": "Submit Feedback",
-      
-      // Footer
       "footer.copyright": "© 2025 Ehsan's Bite Restaurant. All rights reserved.",
-      
-      // Messages
       "messages.unavailable": "⛔ {{item}} is not available today!\n\n{{message}}",
       "messages.feedbackSuccess": "Your feedback has been submitted successfully! Thank you 🌟",
-      "messages.feedbackError": "Error submitting feedback. Please try again.",
-      "messages.emptyFeedback": "Please enter your feedback",
-      "messages.ratingError": "Error submitting rating. Please try again."
+      "messages.emptyFeedback": "Please enter your feedback"
     }
   };
 
-  // تابع برای تغییر زبان
   function changeLanguage(lang) {
-    // تغییر جهت صفحه
     document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
     
-    // تغییر دکمه زبان
     document.getElementById('languageToggle').textContent = lang === 'fa' ? 'EN' : 'FA';
     
-    // ترجمه تمام متون
     document.querySelectorAll('[data-i18n]').forEach(element => {
       const key = element.getAttribute('data-i18n');
       if (translations[lang][key]) {
@@ -1785,7 +1704,6 @@
       }
     });
     
-    // ترجمه placeholderها
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
       const key = element.getAttribute('data-i18n-placeholder');
       if (translations[lang][key]) {
@@ -1793,7 +1711,6 @@
       }
     });
     
-    // ترجمه titleها
     document.querySelectorAll('[data-i18n-title]').forEach(element => {
       const key = element.getAttribute('data-i18n-title');
       if (translations[lang][key]) {
@@ -1801,23 +1718,39 @@
       }
     });
     
-    // به‌روزرسانی وضعیت موجودی
-    updateStatusLights();
-    
-    // ذخیره زبان انتخاب شده
     localStorage.setItem('preferred-language', lang);
   }
 
-  // تابع برای به‌روزرسانی وضعیت موجودی
-  function updateStatusLights() {
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
+  function applyTheme(mode) {
+    document.body.classList.remove('day-mode', 'night-mode');
+    document.body.classList.add(`${mode}-mode`);
+    localStorage.setItem('site-theme', mode);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedLanguage = localStorage.getItem('preferred-language') || 'fa';
+    changeLanguage(savedLanguage);
+    
+    const savedTheme = localStorage.getItem('site-theme') || 'night';
+    applyTheme(savedTheme);
+    
+    document.getElementById('languageToggle').addEventListener('click', function() {
+      const currentLang = document.documentElement.lang;
+      const newLang = currentLang === 'fa' ? 'en' : 'fa';
+      changeLanguage(newLang);
+    });
+    
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
+      const newTheme = current === 'night' ? 'day' : 'night';
+      applyTheme(newTheme);
+    });
+  });
+     const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
 
     fetch(SHEET_URL)
       .then(res => res.json())
       .then(data => {
-        // حذف وضعیت‌های قبلی
-        document.querySelectorAll('.status-light').forEach(light => light.remove());
-        
         data.forEach(item => {
           const allMenuItems = document.querySelectorAll('.menu-item');
           allMenuItems.forEach(el => {
@@ -1833,12 +1766,7 @@
                 light.classList.add("status-available");
               }
 
-              // بررسی جهت برای قرار دادن صحیح status-light
-              if (document.documentElement.dir === 'rtl') {
-                infoBox.prepend(light);
-              } else {
-                infoBox.appendChild(light);
-              }
+              infoBox.prepend(light);
             }
           });
         });
@@ -1846,39 +1774,6 @@
       .catch(err => {
         console.error("خطا در دریافت موجودی منو:", err);
       });
-  }
-
-  // تابع برای تغییر تم
-  function applyTheme(mode) {
-    document.body.classList.remove('day-mode', 'night-mode');
-    document.body.classList.add(`${mode}-mode`);
-    localStorage.setItem('site-theme', mode);
-  }
-
-  // مقداردهی اولیه
-  document.addEventListener('DOMContentLoaded', function() {
-    // تنظیم زبان پیش‌فرض
-    const savedLanguage = localStorage.getItem('preferred-language') || 'fa';
-    changeLanguage(savedLanguage);
-    
-    // تنظیم تم پیش‌فرض
-    const savedTheme = localStorage.getItem('site-theme') || 'night';
-    applyTheme(savedTheme);
-    
-    // رویداد کلیک برای دکمه تغییر زبان
-    document.getElementById('languageToggle').addEventListener('click', function() {
-      const currentLang = document.documentElement.lang;
-      const newLang = currentLang === 'fa' ? 'en' : 'fa';
-      changeLanguage(newLang);
-    });
-    
-    // رویداد کلیک برای دکمه تغییر تم
-    document.getElementById('themeToggle').addEventListener('click', function() {
-      const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
-      const newTheme = current === 'night' ? 'day' : 'night';
-      applyTheme(newTheme);
-    });
-  });
 </script>
 </body>
 </html>
