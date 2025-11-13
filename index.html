@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title> لقمه احسان</title>
+<title>منوی رستوران لقمه احسان - Ehsan's Bite Restaurant Menu</title>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
 
@@ -18,6 +18,10 @@
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
+    }
+
+    body[dir="ltr"] {
+      font-family: 'Arial', sans-serif;
     }
 
     body::before {
@@ -47,7 +51,7 @@
       margin-bottom: 1.5rem;
       backdrop-filter: blur(10px);
       border: 2px solid rgba(255,255,255,0.3);
-      animation: fadeInDown 1s ease-out;
+      animation: fadeInDown 1.5s ease-out;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
@@ -78,7 +82,7 @@
       margin-bottom: 1rem;
       position: relative;
       z-index: 2;
-      animation: fadeInDown 0.8s ease-out;
+      animation: fadeInDown 1.2s ease-out;
     }
     
     .site-logo img {
@@ -105,7 +109,7 @@
       text-align: center;
       flex: 1;
       margin: 0;
-      animation: fadeInDown 0.8s ease-out 0.2s both;
+      animation: fadeInDown 1s ease-out 0.3s both;
     }
     
     .menu-button {
@@ -130,8 +134,8 @@
       right: -260px;
       width: 260px;
       height: 100%;
-      background-color: rgba(43, 46, 52, 0.95);
-      backdrop-filter: blur(20px);
+      background-color: rgba(43, 46, 52, 0.85);
+      backdrop-filter: blur(25px);
       box-shadow: -2px 0 6px rgba(0,0,0,0.7);
       transition: right 0.3s ease;
       z-index: 10000;
@@ -144,6 +148,21 @@
       overflow-y: auto;
       border-left: 1px solid rgba(255,255,255,0.1);
     }
+    
+    body[dir="ltr"] .side-menu {
+      right: auto;
+      left: -260px;
+      transition: left 0.3s ease;
+      border-left: none;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0 0 10px 0;
+    }
+    
+    body[dir="ltr"] .side-menu.open {
+      left: 0;
+      right: auto;
+    }
+    
     .side-menu.open { right: 0; }
 
     .side-menu a, .side-menu .tab {
@@ -170,7 +189,7 @@
     }
 
     body.day-mode .side-menu {
-      background-color: rgba(255, 255, 255, 0.95) !important;
+      background-color: rgba(255, 255, 255, 0.85) !important;
       color: #2b2e34 !important;
       border-left: 1px solid rgba(43, 46, 52, 0.2) !important;
     }
@@ -179,7 +198,7 @@
     body.day-mode .side-menu .tab {
       background-color: rgba(255, 255, 255, 0.7) !important;
       color: #2b2e34 !important;
-      border: 1px solid rgba(43, 46, 52, 0.1) !important;
+      border: 1px solid rgba(43, 46, 52, 0.15) !important;
     }
 
     body.day-mode .side-menu a:hover,
@@ -199,8 +218,13 @@
       z-index: 2;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.1);
-      animation: fadeInDown 0.8s ease-out 0.4s both;
+      animation: fadeInDown 1s ease-out 0.5s both;
     }
+    
+    body[dir="ltr"] .search-box {
+      direction: ltr;
+    }
+    
     .search-box input {
       width: 100%;
       background: transparent;
@@ -210,6 +234,12 @@
       font-size: 1rem;
       padding-right: 30px;
     }
+    
+    body[dir="ltr"] .search-box input {
+      padding-right: 1rem;
+      padding-left: 30px;
+    }
+    
     .search-box svg {
       position: absolute;
       right: 10px;
@@ -220,6 +250,11 @@
       height: 18px;
       pointer-events: none;
     }
+    
+    body[dir="ltr"] .search-box svg {
+      right: auto;
+      left: 10px;
+    }
 
     .tabs {
       display: flex;
@@ -229,7 +264,7 @@
       z-index: 2;
       position: relative;
       user-select: none;
-      animation: fadeInDown 0.8s ease-out 0.5s both;
+      animation: fadeInDown 1s ease-out 0.6s both;
     }
     .tab {
       padding: 0.5rem 1rem;
@@ -276,19 +311,47 @@
       border: 1px solid rgba(255,255,255,0.2);
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
       opacity: 0;
-      animation: slideInRight 0.6s ease forwards;
+      animation: slideInRight 0.8s ease forwards;
+    }
+    
+    body[dir="ltr"] .menu-item {
+      flex-direction: row-reverse;
+    }
+    
+    body[dir="ltr"] .menu-item .info {
+      margin-right: 1rem;
+      margin-left: 0;
+      text-align: right;
     }
 
-    .menu-item:nth-child(1) { animation-delay: 0.1s; }
-    .menu-item:nth-child(2) { animation-delay: 0.2s; }
-    .menu-item:nth-child(3) { animation-delay: 0.3s; }
-    .menu-item:nth-child(4) { animation-delay: 0.4s; }
-    .menu-item:nth-child(5) { animation-delay: 0.5s; }
-    .menu-item:nth-child(6) { animation-delay: 0.6s; }
-    .menu-item:nth-child(7) { animation-delay: 0.7s; }
-    .menu-item:nth-child(8) { animation-delay: 0.8s; }
-    .menu-item:nth-child(9) { animation-delay: 0.9s; }
-    .menu-item:nth-child(10) { animation-delay: 1.0s; }
+    .menu-item:nth-child(1) { animation-delay: 0.15s; }
+    .menu-item:nth-child(2) { animation-delay: 0.25s; }
+    .menu-item:nth-child(3) { animation-delay: 0.35s; }
+    .menu-item:nth-child(4) { animation-delay: 0.45s; }
+    .menu-item:nth-child(5) { animation-delay: 0.55s; }
+    .menu-item:nth-child(6) { animation-delay: 0.65s; }
+    .menu-item:nth-child(7) { animation-delay: 0.75s; }
+    .menu-item:nth-child(8) { animation-delay: 0.85s; }
+    .menu-item:nth-child(9) { animation-delay: 0.95s; }
+    .menu-item:nth-child(10) { animation-delay: 1.05s; }
+    .menu-item:nth-child(11) { animation-delay: 1.15s; }
+    .menu-item:nth-child(12) { animation-delay: 1.25s; }
+    .menu-item:nth-child(13) { animation-delay: 1.35s; }
+    .menu-item:nth-child(14) { animation-delay: 1.45s; }
+    .menu-item:nth-child(15) { animation-delay: 1.55s; }
+    .menu-item:nth-child(16) { animation-delay: 1.65s; }
+    .menu-item:nth-child(17) { animation-delay: 1.75s; }
+    .menu-item:nth-child(18) { animation-delay: 1.85s; }
+    .menu-item:nth-child(19) { animation-delay: 1.95s; }
+    .menu-item:nth-child(20) { animation-delay: 2.05s; }
+    .menu-item:nth-child(21) { animation-delay: 2.15s; }
+    .menu-item:nth-child(22) { animation-delay: 2.25s; }
+    .menu-item:nth-child(23) { animation-delay: 2.35s; }
+    .menu-item:nth-child(24) { animation-delay: 2.45s; }
+    .menu-item:nth-child(25) { animation-delay: 2.55s; }
+    .menu-item:nth-child(26) { animation-delay: 2.65s; }
+    .menu-item:nth-child(27) { animation-delay: 2.75s; }
+    .menu-item:nth-child(28) { animation-delay: 2.85s; }
 
     .menu-item:hover {
       background-color: rgba(72, 79, 90, 0.4);
@@ -303,16 +366,30 @@
       margin-left: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0.5rem;
+      text-align: right;
     }
+
     .menu-item .info strong {
       font-size: 1rem;
       display: block;
+      direction: rtl;
     }
+
+    body[dir="ltr"] .menu-item .info strong {
+      direction: ltr;
+    }
+
     .menu-item .info span {
       color: #ccc;
       font-size: 0.9rem;
+      direction: rtl;
     }
+
+    body[dir="ltr"] .menu-item .info span {
+      direction: ltr;
+    }
+
     .menu-item img {
       width: 90px;
       height: 90px;
@@ -333,6 +410,13 @@
       display: flex;
       gap: 2px;
     }
+    
+    body[dir="ltr"] .average-rating {
+      left: 10px;
+      right: auto;
+      flex-direction: row;
+    }
+    
     .average-rating .star {
       font-size: 1.1rem;
       color: gold;
@@ -363,6 +447,10 @@
       overflow-y: auto;
       user-select: none;
       backdrop-filter: blur(20px);
+    }
+    
+    body[dir="ltr"] .modal-content {
+      text-align: center;
     }
 
     body.day-mode .modal {
@@ -434,6 +522,12 @@
       transition: all 0.3s ease;
       border: 2px solid rgba(255,255,255,0.2);
     }
+    
+    body[dir="ltr"] .modal-content .close {
+      right: auto;
+      left: -16px;
+    }
+    
     .modal-content .close:hover {
       background-color: #e74c3c;
       transform: scale(1.1) rotate(90deg);
@@ -447,6 +541,12 @@
       margin-top: 12px;
       user-select: none;
     }
+    
+    body[dir="ltr"] .rating {
+      flex-direction: row-reverse;
+      gap: 8px;
+    }
+    
     .star {
       font-size: 2.5rem;
       color: #888;
@@ -466,6 +566,10 @@
       border-radius: 12px;
       text-align: right;
     }
+    
+    body[dir="ltr"] .feedback-form {
+      text-align: left;
+    }
 
     .feedback-form h4 {
       color: #f9c400;
@@ -484,6 +588,10 @@
       resize: vertical;
       min-height: 100px;
       margin-bottom: 1rem;
+    }
+    
+    body[dir="ltr"] .feedback-form textarea {
+      font-family: 'Arial', sans-serif;
     }
 
     .feedback-form textarea:focus {
@@ -622,7 +730,15 @@
       display: inline-block;
       margin-left: 8px;
       vertical-align: middle;
+      order: -1;
     }
+    
+    body[dir="ltr"] .status-light {
+      margin-left: 0;
+      margin-right: 8px;
+      order: -1;
+    }
+    
     .status-available {
       background-color: #28a745;
       box-shadow: 0 0 6px #28a745;
@@ -640,13 +756,97 @@
     body.day-mode .rating .star.selected {
       color: #f9c400 !important;
     }
+
+    /* استایل برای آیتم‌های غیرفعال */
+    .menu-item.unavailable {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .menu-item.unavailable:hover {
+      transform: none;
+      background-color: rgba(59, 63, 71, 0.3);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    /* بهبود استایل‌ها برای حالت انگلیسی */
+    body[dir="ltr"] .menu-item .info {
+      text-align: right;
+    }
+
+    body[dir="ltr"] .tabs {
+      justify-content: flex-start;
+    }
+
+    body[dir="ltr"] .search-box input {
+      text-align: left;
+      direction: ltr;
+    }
+
+    body[dir="ltr"] .side-menu {
+      text-align: left;
+    }
+
+    body[dir="ltr"] .side-menu a,
+    body[dir="ltr"] .side-menu .tab {
+      text-align: left;
+    }
+
+    /* دکمه تغییر زبان */
+    .language-switcher {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 10001;
+      background: #f9c400;
+      color: #000;
+      padding: 0.4rem 0.9rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font-weight: bold;
+    }
+
+    /* دکمه تغییر تم */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 5rem;
+      z-index: 10001;
+      background: #f9c400;
+      color: #000;
+      padding: 0.4rem 0.9rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    
+    body[dir="ltr"] .language-switcher {
+      left: auto;
+      right: 1rem;
+    }
+    
+    body[dir="ltr"] .theme-toggle {
+      left: auto;
+      right: 5rem;
+    }
 </style>
 </head>
 <body>
+<!-- دکمه تغییر زبان -->
+<button class="language-switcher" id="languageToggle">EN</button>
+
+<!-- دکمه تغییر تم -->
+<button class="theme-toggle" id="themeToggle">🌗</button>
+
 <!-- پیام خوشامدگویی -->
 <div class="welcome-message">
-  <h1>🌟به لقمه احسان خوش آمدید🌟</h1>
-  <p>لذیذترین طعم‌ها در انتظار شماست... نوش جان!</p>
+  <h1 data-i18n="welcome.title">🌟 به رستوران لقمه احسان خوش آمدید 🌟</h1>
+  <p data-i18n="welcome.subtitle">لذیذترین طعم‌ها در انتظار شماست... نوش جان!</p>
 </div>
 
 <!-- لوگو -->
@@ -657,26 +857,26 @@
 <!-- هدر بالا با عنوان و دکمه منو -->
 <header class="header" role="banner">
 <button aria-label="باز کردن منوی جانبی" class="menu-button" id="menuToggle">☰</button>
-<h2>لقمه احسان</h2>
+<h2 data-i18n="header.title">منوی رستوران لقمه احسان</h2>
 </header>
 
 <!-- منوی جانبی که از راست باز می‌شود -->
 <nav aria-hidden="true" aria-label="منوی جانبی" class="side-menu" id="sideMenu" role="navigation">
-<p style="font-weight:bold; margin-bottom: 0.5rem;">دسته‌بندی‌ها</p>
-<div aria-pressed="true" class="tab active" data-category="پیش غذا" role="button" tabindex="0">پیش غذا</div>
-<div aria-pressed="false" class="tab" data-category="کباب ها" role="button" tabindex="0">کباب ها</div>
-<div aria-pressed="false" class="tab" data-category="ساندویچ ها" role="button" tabindex="0">ساندویچ ها</div>
-<div aria-pressed="false" class="tab" data-category="دسر و چاشنی" role="button" tabindex="0">دسر و چاشنی</div>
-<div aria-pressed="false" class="tab" data-category="نوشیدنی" role="button" tabindex="0">شربت ، نوشیدنی</div>
+<p style="font-weight:bold; margin-bottom: 0.5rem;" data-i18n="sideMenu.categories">دسته‌بندی‌ها</p>
+<div aria-pressed="true" class="tab active" data-category="پیش غذا" role="button" tabindex="0" data-i18n="categories.appetizer">پیش غذا</div>
+<div aria-pressed="false" class="tab" data-category="کباب ها" role="button" tabindex="0" data-i18n="categories.kabab">کباب ها</div>
+<div aria-pressed="false" class="tab" data-category="ساندویچ ها" role="button" tabindex="0" data-i18n="categories.sandwich">ساندویچ ها</div>
+<div aria-pressed="false" class="tab" data-category="دسر و چاشنی" role="button" tabindex="0" data-i18n="categories.dessert">دسر و چاشنی</div>
+<div aria-pressed="false" class="tab" data-category="نوشیدنی" role="button" tabindex="0" data-i18n="categories.drink">شربت ، نوشیدنی</div>
 <hr style="border-color:#444; margin: 1rem 0;"/>
-<p style="font-weight:bold; margin-bottom: 0.5rem;">تماس با ما</p>
-<a href="http://www.khaneehsan.com" rel="noopener" tabindex="0" target="_blank">خانه احسان</a>
-<a href="https://socialplatform-khaneehsan.netlify.app/" rel="noopener" tabindex="0" target="_blank">درباره ما</a>
+<p style="font-weight:bold; margin-bottom: 0.5rem;" data-i18n="sideMenu.contact">تماس با ما</p>
+<a href="http://www.khaneehsan.com" rel="noopener" tabindex="0" target="_blank" data-i18n="sideMenu.home">خانه احسان</a>
+<a href="https://socialplatform-khaneehsan.netlify.app/" rel="noopener" tabindex="0" target="_blank" data-i18n="sideMenu.about">درباره ما</a>
 </nav>
 
 <!-- کادر جستجو -->
 <div aria-label="جستجوی غذاها" class="search-box" role="search">
-<input aria-label="جستجوی غذاها" autocomplete="off" id="search" placeholder="هرچی دوست داری جستجو کن ..." type="text"/>
+<input aria-label="جستجوی غذاها" autocomplete="off" id="search" placeholder="هرچی دوست داری جستجو کن ..." type="text" data-i18n-placeholder="search.placeholder"/>
 <svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
 <path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 001.48-5.34C15.07 5.6 12.47 3 9 3S2.93 5.6 2.93 8.39 5.53 13.78 9 13.78c1.61 0 3.08-.65 4.13-1.7l.27.28v.79l4.25 4.25c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L15.5 14zM9 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path>
 </svg>
@@ -684,220 +884,247 @@
 
 <!-- تب‌های دسته‌بندی بالای صفحه -->
 <div aria-label="دسته‌بندی‌های غذا" class="tabs" role="tablist">
-<div aria-selected="true" class="tab active" data-category="همه" role="tab" tabindex="0">همه غذاها</div>
-<div aria-selected="false" class="tab" data-category="پیش غذا" role="tab" tabindex="-1">پیش غذا</div>
-<div aria-selected="false" class="tab" data-category="کباب ها" role="tab" tabindex="-1">کباب ها</div>
-<div aria-selected="false" class="tab" data-category="ساندویچ ها" role="tab" tabindex="-1">ساندویچ ها</div>
-<div aria-selected="false" class="tab" data-category="دسر و چاشنی" role="tab" tabindex="-1">دسر و چاشنی</div>
-<div aria-selected="false" class="tab" data-category="نوشیدنی" role="tab" tabindex="-1">شربت ، نوشیدنی</div>
+<div aria-selected="true" class="tab active" data-category="همه" role="tab" tabindex="0" data-i18n="categories.all">همه غذاها</div>
+<div aria-selected="false" class="tab" data-category="پیش غذا" role="tab" tabindex="-1" data-i18n="categories.appetizer">پیش غذا</div>
+<div aria-selected="false" class="tab" data-category="کباب ها" role="tab" tabindex="-1" data-i18n="categories.kabab">کباب ها</div>
+<div aria-selected="false" class="tab" data-category="ساندویچ ها" role="tab" tabindex="-1" data-i18n="categories.sandwich">ساندویچ ها</div>
+<div aria-selected="false" class="tab" data-category="دسر و چاشنی" role="tab" tabindex="-1" data-i18n="categories.dessert">دسر و چاشنی</div>
+<div aria-selected="false" class="tab" data-category="نوشیدنی" role="tab" tabindex="-1" data-i18n="categories.drink">شربت ، نوشیدنی</div>
 </div>
 
 <!-- لیست غذاها -->
 <main aria-label="لیست غذاها" class="menu-container" role="list">
-<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" data-title="سوپ جو" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+<!-- آیتم‌های منو -->
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" data-title="سوپ جو" data-i18n-title="items.barleySoup" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>سوپ جو</strong>
-<span>کیلویی۸۰.۰۰۰ تومان</span>
+<strong data-i18n="items.barleySoup">سوپ جو</strong>
+<span data-i18n="items.barleySoupPrice">کیلویی۸۰.۰۰۰ تومان</span>
 </div>
 <img alt="سوپ جو" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سوپ جو"></div>
 </div>
-<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg" data-title="آش جو" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg" data-title="آش جو" data-i18n-title="items.barleyStew" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>آش جو</strong>
-<span>کیلویی۱۰۹.۰۰۰ تومان</span>
+<strong data-i18n="items.barleyStew">آش جو</strong>
+<span data-i18n="items.barleyStewPrice">کیلویی۱۰۹.۰۰۰ تومان</span>
 </div>
 <img alt="آش جو" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آش جو"></div>
 </div>
-<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg" data-title="حلیم گندم" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg" data-title="حلیم گندم" data-i18n-title="items.wheatHalim" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>حلیم گندم</strong>
-<span>کیلویی ۱۴۸.۰۰۰ تومان</span>
+<strong data-i18n="items.wheatHalim">حلیم گندم</strong>
+<span data-i18n="items.wheatHalimPrice">کیلویی ۱۴۸.۰۰۰ تومان</span>
 </div>
 <img alt="حلیم گندم" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="حلیم گندم"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" data-price="۱۱۶.۰۰۰ تومان" data-title="کوبیده گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<!-- بقیه آیتم‌های منو -->
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" data-title="کوبیده گوسفندی" data-i18n-title="items.lambKobideh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>کوبیده گوسفندی</strong>
-<span>۱۱۶.۰۰۰ تومان</span>
+<strong data-i18n="items.lambKobideh">کوبیده گوسفندی</strong>
+<span data-i18n="items.lambKobidehPrice">۱۱۶.۰۰۰ تومان</span>
 </div>
 <img alt="کوبیده گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده گوسفندی"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg" data-price="۸۴.۰۰۰ تومان" data-title="کوبیده بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg" data-title="کوبیده بوقلمون" data-i18n-title="items.turkeyKobideh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>کوبیده بوقلمون</strong>
-<span>۸۴.۰۰۰ تومان</span>
+<strong data-i18n="items.turkeyKobideh">کوبیده بوقلمون</strong>
+<span data-i18n="items.turkeyKobidehPrice">۸۴.۰۰۰ تومان</span>
 </div>
 <img alt="کوبیده بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg" data-price="۱۳۶.۰۰۰ تومان" data-title="کوبیده گوسفندی با نان و دورچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg" data-title="کوبیده گوسفندی با نان و دورچین" data-i18n-title="items.lambKobidehWithBread" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>کوبیده گوسفندی با نان و دورچین</strong>
-<span>۱۳۶.۰۰۰ تومان</span>
+<strong data-i18n="items.lambKobidehWithBread">کوبیده گوسفندی با نان و دورچین</strong>
+<span data-i18n="items.lambKobidehWithBreadPrice">۱۳۶.۰۰۰ تومان</span>
 </div>
 <img alt="کوبیده گوسفندی با نان و دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده گوسفندی با نان و دورچین"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg" data-price="۱۰۴.۰۰۰ تومان" data-title="کوبیده بوقلمون با نان و درچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg" data-title="کوبیده بوقلمون با نان و درچین" data-i18n-title="items.turkeyKobidehWithBread" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>کوبیده بوقلمون با نان و درچین</strong>
-<span>۱۰۴.۰۰۰ تومان</span>
+<strong data-i18n="items.turkeyKobidehWithBread">کوبیده بوقلمون با نان و درچین</strong>
+<span data-i18n="items.turkeyKobidehWithBreadPrice">۱۰۴.۰۰۰ تومان</span>
 </div>
 <img alt="کوبیده بوقلمون با نان و درچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون با نان و درچین"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۱۸۴.۰۰۰ تومان" data-title="کباب لقمه گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-title="کباب لقمه گوسفندی" data-i18n-title="items.lambBiteKebab" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>کباب لقمه گوسفندی</strong>
-<span>۱۸۴.۰۰۰ تومان</span>
+<strong data-i18n="items.lambBiteKebab">کباب لقمه گوسفندی</strong>
+<span data-i18n="items.lambBiteKebabPrice">۱۸۴.۰۰۰ تومان</span>
 </div>
 <img alt="کباب لقمه گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه گوسفندی"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۳۰.۰۰۰ تومان" data-title="کباب لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-title="کباب لقمه شتر" data-i18n-title="items.camelBiteKebab" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>کباب لقمه شتر</strong>
-<span>۲۳۰.۰۰۰ تومان</span>
+<strong data-i18n="items.camelBiteKebab">کباب لقمه شتر</strong>
+<span data-i18n="items.camelBiteKebabPrice">۲۳۰.۰۰۰ تومان</span>
 </div>
 <img alt="کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه شتر"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۵۵.۰۰۰ تومان" data-title="ساندویچ کباب لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-title="ساندویچ کباب لقمه شتر" data-i18n-title="items.camelBiteSandwich" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>ساندویچ کباب لقمه شتر</strong>
-<span>۲۵۵.۰۰۰ تومان</span>
+<strong data-i18n="items.camelBiteSandwich">ساندویچ کباب لقمه شتر</strong>
+<span data-i18n="items.camelBiteSandwichPrice">۲۵۵.۰۰۰ تومان</span>
 </div>
 <img alt="ساندویچ کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کباب لقمه شتر"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg" data-price="۲۰۸.۰۰۰ تومان" data-title="جوجه کباب بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg" data-title="جوجه کباب بوقلمون" data-i18n-title="items.turkeyJoojeh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>جوجه کباب بوقلمون</strong>
-<span>۲۰۸.۰۰۰ تومان</span>
+<strong data-i18n="items.turkeyJoojeh">جوجه کباب بوقلمون</strong>
+<span data-i18n="items.turkeyJoojehPrice">۲۰۸.۰۰۰ تومان</span>
 </div>
 <img alt="جوجه کباب بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="جوجه کباب بوقلمون"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png" data-price="۳۲.۰۰۰ تومان" data-title="سیخ گوجه کبابی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png" data-title="سیخ گوجه کبابی" data-i18n-title="items.tomatoSkewer" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>سیخ گوجه کبابی</strong>
-<span>۳۲.۰۰۰ تومان</span>
+<strong data-i18n="items.tomatoSkewer">سیخ گوجه کبابی</strong>
+<span data-i18n="items.tomatoSkewerPrice">۳۲.۰۰۰ تومان</span>
 </div>
 <img alt="سیخ گوجه سیخ گوجه کبابی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سیخ گوجه سیخ گوجه کبابی"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg" data-price="۱۰.۰۰۰ تومان" data-title="دورچین" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg" data-title="دورچین" data-i18n-title="items.sideDish" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>دورچین</strong>
-<span>۱۰.۰۰۰ تومان</span>
+<strong data-i18n="items.sideDish">دورچین</strong>
+<span data-i18n="items.sideDishPrice">۱۰.۰۰۰ تومان</span>
 </div>
 <img alt="دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دورچین"></div>
 </div>
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg" data-price="۸.۰۰۰ تومان" data-title="ظرف یکبار مصرف کباب آلومینیومی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg" data-title="ظرف یکبار مصرف کباب آلومینیومی" data-i18n-title="items.aluminumContainer" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>ظرف یکبار مصرف کباب آلومینیومی</strong>
-<span>۸.۰۰۰ تومان</span>
+<strong data-i18n="items.aluminumContainer">ظرف یکبار مصرف کباب آلومینیومی</strong>
+<span data-i18n="items.aluminumContainerPrice">۸.۰۰۰ تومان</span>
 </div>
 <img alt="ظرف یکبار مصرف کباب آلومینیومی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ظرف یکبار مصرف کباب آلومینیومی"></div>
 </div>
-<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" data-price="۱۳۰.۰۰۰ تومان" data-title="ساندویچ کوبیده گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" data-title="ساندویچ کوبیده گوسفندی" data-i18n-title="items.lambSandwich" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>ساندویچ کوبیده گوسفندی</strong>
-<span>۱۳۰.۰۰۰ تومان</span>
+<strong data-i18n="items.lambSandwich">ساندویچ کوبیده گوسفندی</strong>
+<span data-i18n="items.lambSandwichPrice">۱۳۰.۰۰۰ تومان</span>
 </div>
 <img alt="ساندویچ کوبیده گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کوبیده گوسفندی"></div>
 </div>
-<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg" data-price="۹۹.۰۰۰ ریال" data-title="ساندویچ کوبیده بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg" data-title="ساندویچ کوبیده بوقلمون" data-i18n-title="items.turkeySandwich" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>ساندویچ کوبیده بوقلمون</strong>
-<span>۹۹.۰۰۰ ریال</span>
+<strong data-i18n="items.turkeySandwich">ساندویچ کوبیده بوقلمون</strong>
+<span data-i18n="items.turkeySandwichPrice">۹۹.۰۰۰ ریال</span>
 </div>
 <img alt="ساندویچ کوبیده بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کوبیده بوقلمون"></div>
 </div>
-<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg" data-price="۲۰۰.۰۰۰ تومان" data-title="ساندویچ لقمه گوسفندی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg" data-title="ساندویچ لقمه گوسفندی" data-i18n-title="items.lambBiteSandwich" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>ساندویچ لقمه گوسفندی</strong>
-<span>۲۰۰.۰۰۰ تومان</span>
+<strong data-i18n="items.lambBiteSandwich">ساندویچ لقمه گوسفندی</strong>
+<span data-i18n="items.lambBiteSandwichPrice">۲۰۰.۰۰۰ تومان</span>
 </div>
 <img alt="ساندویچ لقمه گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gosfandy.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ لقمه گوسفندی"></div>
 </div>
-<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-price="۲۴۰.۰۰۰ تومان" data-title="ساندویچ لقمه شتر" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-title="ساندویچ لقمه شتر" data-i18n-title="items.camelBiteSandwich2" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>ساندویچ لقمه شتر</strong>
-<span>۲۴۰.۰۰۰ تومان</span>
+<strong data-i18n="items.camelBiteSandwich2">ساندویچ لقمه شتر</strong>
+<span data-i18n="items.camelBiteSandwich2Price">۲۴۰.۰۰۰ تومان</span>
 </div>
 <img alt="ساندویچ لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ لقمه شتر"></div>
 </div>
-<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg" data-price="۹۹.۰۰۰ تومان" data-title="ساندویچ همبرگر بوقلمون" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg" data-title="ساندویچ همبرگر بوقلمون" data-i18n-title="items.turkeyBurger" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>ساندویچ همبرگر بوقلمون</strong>
-<span>۹۹.۰۰۰ تومان</span>
+<strong data-i18n="items.turkeyBurger">ساندویچ همبرگر بوقلمون</strong>
+<span data-i18n="items.turkeyBurgerPrice">۹۹.۰۰۰ تومان</span>
 </div>
 <img alt="ساندویچ همبرگر بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/hamberger.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ همبرگر بوقلمون"></div>
 </div>
-<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg" data-price="۱۲۰.۰۰۰ تومان" data-title="نوشانه زرشک" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg" data-title="نوشانه زرشک" data-i18n-title="items.barberryNoshaneh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>نوشانه زرشک</strong>
-<span>۱۲۰.۰۰۰ تومان</span>
+<strong data-i18n="items.barberryNoshaneh">نوشانه زرشک</strong>
+<span data-i18n="items.barberryNoshanehPrice">۱۲۰.۰۰۰ تومان</span>
 </div>
 <img alt="نوشانه زرشک" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/noshaneh.jpeg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="نوشانه زرشک"></div>
 </div>
-<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png" data-price="۲۵.۰۰۰ تومان" data-title="زیتون پرورده ۷۵ گرمی" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png" data-title="زیتون پرورده ۷۵ گرمی" data-i18n-title="items.stuffedOlives" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>زیتون پرورده</strong>
-<span>۲۵.۰۰۰ تومان</span>
+<strong data-i18n="items.stuffedOlives">زیتون پرورده</strong>
+<span data-i18n="items.stuffedOlivesPrice">۲۵.۰۰۰ تومان</span>
 </div>
 <img alt="زیتون پرورده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="زیتون پرورده"></div>
 </div>
-<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png" data-price="۳۸.۰۰۰ تومان" data-title="سبزی خوردن" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png" data-title="سبزی خوردن" data-i18n-title="items.freshHerbs" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>سبزی خوردن</strong>
-<span>۳۸.۰۰۰ تومان</span>
+<strong data-i18n="items.freshHerbs">سبزی خوردن</strong>
+<span data-i18n="items.freshHerbsPrice">۳۸.۰۰۰ تومان</span>
 </div>
 <img alt="سبزی خوردن" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzii.png"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سبزی خوردن"></div>
 </div>
-<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png" data-price="۱۹.۰۰۰ تومان" data-title="دوغ تلمی نیم لیتری" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png" data-title="دوغ تلمی نیم لیتری" data-i18n-title="items.halfLiterDoogh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>دوغ تلمی نیم لیتری</strong>
-<span>۱۹.۰۰۰ تومان</span>
+<strong data-i18n="items.halfLiterDoogh">دوغ تلمی نیم لیتری</strong>
+<span data-i18n="items.halfLiterDooghPrice">۱۹.۰۰۰ تومان</span>
 </div>
 <img alt="دوغ تلمی نیم لیتری" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dooooq.png"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دوغ تلمی نیم لیتری"></div>
 </div>
-<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg" data-price="۶۳.۰۰۰ تومان" data-title="دوغ تلمی خانواده دولیتری" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg" data-title="دوغ تلمی خانواده دولیتری" data-i18n-title="items.twoLiterDoogh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>دوغ تلمی خانواده دولیتری</strong>
-<span>۶۳.۰۰۰ تومان</span>
+<strong data-i18n="items.twoLiterDoogh">دوغ تلمی خانواده دولیتری</strong>
+<span data-i18n="items.twoLiterDooghPrice">۶۳.۰۰۰ تومان</span>
 </div>
 <img alt="دوغ تلمی خانواده دولیتری" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/doq2.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دوغ تلمی خانواده دولیتری"></div>
 </div>
-<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg" data-price="۱۰.۰۰۰ تومان" data-title="آب معدنی کوچک" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg" data-title="آب معدنی کوچک" data-i18n-title="items.smallWater" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>آب معدنی کوچک</strong>
-<span>۱۰.۰۰۰ تومان</span>
+<strong data-i18n="items.smallWater">آب معدنی کوچک</strong>
+<span data-i18n="items.smallWaterPrice">۱۰.۰۰۰ تومان</span>
 </div>
 <img alt="آب معدنی کوچک" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/vata.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی کوچک"></div>
 </div>
-<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg" data-price="۱۵.۰۰۰ تومان" data-title="آب معدنی خانواده" onclick="showModal(this)" onkeydown="if(event.key==='Enter'){showModal(this)}" role="listitem" tabindex="0">
+
+<div class="menu-item" data-category="نوشیدنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg" data-title="آب معدنی خانواده" data-i18n-title="items.familyWater" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong>آب معدنی خانواده</strong>
-<span>۱۵.۰۰۰ تومان</span>
+<strong data-i18n="items.familyWater">آب معدنی خانواده</strong>
+<span data-i18n="items.familyWaterPrice">۱۵.۰۰۰ تومان</span>
 </div>
 <img alt="آب معدنی خانواده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی خانواده"></div>
@@ -907,20 +1134,43 @@
 <!-- مودال نمایش جزئیات غذا و امتیازدهی -->
 <div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
 <div class="modal-content">
-<button aria-label="بستن" class="close" id="modalClose">×</button>
+<button aria-label="بستن" class="close" id="modalClose" data-i18n="modal.close">×</button>
 <img alt="" id="modalImg" src=""/>
 <h2 id="modalTitle"></h2>
 <p id="modalPrice"></p>
 <p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
 
+<!-- بخش انتخاب وزن برای سوپ جو -->
 <div class="weightOptions" id="weightOptions-soup" style="display:none; margin-top:1.2rem;">
-<h4 style="color:#f9c400; margin-bottom:1rem;">انتخاب وزن سوپ جو:</h4>
+<h4 style="color:#f9c400; margin-bottom:1rem;" data-i18n="modal.weightSelectionSoup">انتخاب وزن سوپ جو:</h4>
 <div class="weight-cards" style="display:flex; gap:1rem;">
 <div class="weight-card active" data-price="24000" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۲۴.۰۰۰ تومان</small></div>
 <div class="weight-card" data-price="64000" style="cursor:pointer; ...">پرسی<br/><small>۶۴.۰۰۰ تومان</small></div>
 <div class="weight-card" data-price="80000" style="cursor:pointer; ...">۱ کیلو<br/><small>۸۰.۰۰۰ تومان</small></div>
 </div>
-<p style="margin-top:1rem; font-weight:bold; color:#f9c400;">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
+<p style="margin-top:1rem; font-weight:bold; color:#f9c400;" data-i18n="modal.finalPrice">قیمت نهایی: <span class="dynamicPrice">۲۴.۰۰۰</span> تومان</p>
+</div>
+
+<!-- بخش انتخاب وزن برای آش جو -->
+<div class="weightOptions" id="weightOptions-ash" style="display:none; margin-top:1.2rem;">
+<h4 style="color:#f9c400; margin-bottom:1rem;" data-i18n="modal.weightSelectionAsh">انتخاب وزن آش جو:</h4>
+<div class="weight-cards" style="display:flex; gap:1rem;">
+<div class="weight-card active" data-price="32700" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۳۲.۷۰۰ تومان</small></div>
+<div class="weight-card" data-price="87200" style="cursor:pointer; ...">پرسی<br/><small>۸۷.۲۰۰ تومان</small></div>
+<div class="weight-card" data-price="109000" style="cursor:pointer; ...">۱ کیلو<br/><small>۱۰۹.۰۰۰ تومان</small></div>
+</div>
+<p style="margin-top:1rem; font-weight:bold; color:#f9c400;" data-i18n="modal.finalPrice">قیمت نهایی: <span class="dynamicPrice">۳۲.۷۰۰</span> تومان</p>
+</div>
+
+<!-- بخش انتخاب وزن برای حلیم گندم -->
+<div class="weightOptions" id="weightOptions-halim" style="display:none; margin-top:1.2rem;">
+<h4 style="color:#f9c400; margin-bottom:1rem;" data-i18n="modal.weightSelectionHalim">انتخاب وزن حلیم گندم:</h4>
+<div class="weight-cards" style="display:flex; gap:1rem;">
+<div class="weight-card active" data-price="44400" style="cursor:pointer; ...">۳۰۰ گرم<br/><small>۴۴.۴۰۰ تومان</small></div>
+<div class="weight-card" data-price="118400" style="cursor:pointer; ...">پرسی<br/><small>۱۱۸.۴۰۰ تومان</small></div>
+<div class="weight-card" data-price="148000" style="cursor:pointer; ...">۱ کیلو<br/><small>۱۴۸.۰۰۰ تومان</small></div>
+</div>
+<p style="margin-top:1rem; font-weight:bold; color:#f9c400;" data-i18n="modal.finalPrice">قیمت نهایی: <span class="dynamicPrice">۴۴.۴۰۰</span> تومان</p>
 </div>
 
 <div aria-label="امتیازدهی ستاره‌ای" class="rating" role="radiogroup">
@@ -932,9 +1182,9 @@
 </div>
 
 <div class="feedback-form">
-  <h4>📝 نظر شما درباره این غذا</h4>
-  <textarea id="userComment" placeholder="نظر خود را درباره این غذا بنویسید..."></textarea>
-  <button class="submit-feedback" onclick="submitFeedback()">ارسال نظر</button>
+  <h4 data-i18n="modal.feedbackTitle">📝 نظر شما درباره این غذا</h4>
+  <textarea id="userComment" placeholder="نظر خود را درباره این غذا بنویسید..." data-i18n-placeholder="modal.feedbackPlaceholder"></textarea>
+  <button class="submit-feedback" onclick="submitFeedback()" data-i18n="modal.submitFeedback">ارسال نظر</button>
 </div>
 
 <p id="ratingMsg" style="margin-top: 0.5rem; color: #f9c400; font-weight: bold;"></p>
@@ -943,14 +1193,10 @@
 
 <!-- فوتر پایین صفحه -->
 <footer class="footer">
-    © 2025 لقمه احسان. همه حقوق محفوظ است.
+    <span data-i18n="footer.copyright">© 2025 رستوران لقمه احسان. همه حقوق محفوظ است.</span>
 </footer>
-
-<!-- ✅ دکمه تغییر حالت شب/روز -->
-<button id="themeToggle" style="position: fixed; top: 1rem; left: 1rem; z-index: 10001; background: #f9c400; color: #000; padding: 0.4rem 0.9rem; border-radius: 10px; border: none; cursor: pointer; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">🌗</button>
-
 <script>
-  // اسکریپت‌های کامل جاوااسکریپت
+  // اسکریپت‌های اصلی جاوااسکریپت
   const sideMenu = document.getElementById('sideMenu');
   const menuToggle = document.getElementById('menuToggle');
   const tabs = document.querySelectorAll('.tabs .tab');
@@ -967,6 +1213,66 @@
   const ratingMsg = document.getElementById('ratingMsg');
   
   const STORAGE_KEY = 'restaurant_ratings';
+
+  // تابع برای دریافت روز فعلی هفته (بر اساس تقویم فارسی)
+  function getCurrentPersianDay() {
+    const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
+    const today = new Date().getDay(); // 0=یکشنبه, 1=دوشنبه, ..., 6=شنبه
+    return days[today];
+  }
+
+  // تابع برای بررسی موجودی بر اساس روز هفته
+  function isItemAvailable(itemTitle) {
+    const today = getCurrentPersianDay();
+    
+    if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
+      return ['شنبه', 'دوشنبه', 'چهارشنبه'].includes(today);
+    } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
+      return ['یکشنبه', 'سه‌شنبه', 'پنجشنبه'].includes(today);
+    } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
+      return ['چهارشنبه'].includes(today);
+    }
+    
+    // سایر غذاها همیشه موجود هستند
+    return true;
+  }
+
+  // تابع برای دریافت پیام روزهای موجود
+  function getAvailableDaysMessage(itemTitle, lang) {
+    if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
+      return lang === 'fa' 
+        ? "این غذا فقط در روزهای شنبه، دوشنبه و چهارشنبه موجود است."
+        : "This food is only available on Saturday, Monday and Wednesday.";
+    } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
+      return lang === 'fa'
+        ? "این غذا فقط در روزهای یکشنبه، سه‌شنبه و پنجشنبه موجود است."
+        : "This food is only available on Sunday, Tuesday and Thursday.";
+    } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
+      return lang === 'fa'
+        ? "این غذا فقط در روزهای چهارشنبه موجود است."
+        : "This food is only available on Wednesday.";
+    }
+    return "";
+  }
+
+  // تابع اصلی برای هندل کردن کلیک روی آیتم‌ها
+  function handleItemClick(element) {
+    const itemTitle = element.dataset.title;
+    const currentLang = document.documentElement.lang;
+    
+    if (!isItemAvailable(itemTitle)) {
+      const message = getAvailableDaysMessage(itemTitle, currentLang);
+      const alertMessage = translations[currentLang]["messages.unavailable"]
+        .replace("{{item}}", itemTitle)
+        .replace("{{message}}", message);
+      
+      alert(alertMessage);
+      return;
+    }
+    
+    // اگر غذا موجود است، مودال نمایش داده شود
+    showModal(element);
+  }
 
   function loadRatings() {
     try {
@@ -994,7 +1300,13 @@
       const scores = ratings[title] || [];
       const avg = calculateAverage(scores);
       avgDiv.innerHTML = '';
-      avgDiv.setAttribute('aria-label', `میانگین امتیاز: ${avg.toFixed(1)} از ۵`);
+      
+      const currentLang = document.documentElement.lang;
+      const ariaLabel = currentLang === 'fa' 
+        ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵`
+        : `Average rating: ${avg.toFixed(1)} out of 5`;
+      
+      avgDiv.setAttribute('aria-label', ariaLabel);
 
       const fullStars = Math.floor(avg);
       const halfStar = (avg - fullStars) >= 0.5;
@@ -1103,10 +1415,21 @@
     modalTitle.textContent = element.dataset.title;
     modalPrice.textContent = element.dataset.price;
 
-    if(element.dataset.title === "سوپ جو"){
-      modalOrderTime.textContent = "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵";
-    } else if(element.dataset.title === "آش جو"){
-      modalOrderTime.textContent = "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵";
+    if(element.dataset.title === "سوپ جو" || element.dataset.title === "Barley Soup"){
+      const currentLang = document.documentElement.lang;
+      modalOrderTime.textContent = currentLang === 'fa' 
+        ? "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵"
+        : "Order time: Saturday, Monday, Wednesday 12-15";
+    } else if(element.dataset.title === "آش جو" || element.dataset.title === "Barley Stew"){
+      const currentLang = document.documentElement.lang;
+      modalOrderTime.textContent = currentLang === 'fa'
+        ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵"
+        : "Order time: Sunday, Tuesday, Thursday 12-15";
+    } else if(element.dataset.title === "حلیم گندم" || element.dataset.title === "Wheat Halim"){
+      const currentLang = document.documentElement.lang;
+      modalOrderTime.textContent = currentLang === 'fa'
+        ? "زمان سفارش: چهارشنبه ۱۳:۳۰ تا اتمام موجودی"
+        : "Order time: Wednesday 13:30 until stock lasts";
     } else {
       modalOrderTime.textContent = "";
     }
@@ -1114,7 +1437,13 @@
     const ratings = loadRatings();
     const scores = ratings[element.dataset.title] || [];
     const avg = calculateAverage(scores);
-    ratingMsg.textContent = `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`;
+    
+    const currentLang = document.documentElement.lang;
+    const ratingText = currentLang === 'fa' 
+      ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`
+      : `Average rating: ${avg.toFixed(1)} out of 5 (${scores.length} votes)`;
+    
+    ratingMsg.textContent = ratingText;
 
     stars.forEach(star => {
       star.classList.remove('selected', 'hovered');
@@ -1215,7 +1544,12 @@
     .then(data => {
       if (data.success) {
         const avg = data.averageRating || calculateAverage(ratings[title]);
-        ratingMsg.textContent = `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`;
+        const currentLang = document.documentElement.lang;
+        const ratingText = currentLang === 'fa'
+          ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`
+          : `Average rating: ${avg.toFixed(1)} out of 5 (${ratings[title].length} votes)`;
+        
+        ratingMsg.textContent = ratingText;
 
         stars.forEach(star => {
           star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
@@ -1229,22 +1563,51 @@
     })
     .catch(error => {
       console.error("خطا:", error);
-      alert("خطا در ارسال امتیاز. لطفا دوباره تلاش کنید.");
+      const currentLang = document.documentElement.lang;
+      alert(currentLang === 'fa' 
+        ? "خطا در ارسال امتیاز. لطفا دوباره تلاش کنید."
+        : "Error submitting rating. Please try again."
+      );
     });
   }
 
   function submitFeedback() {
     const comment = document.getElementById('userComment').value;
+    const currentLang = document.documentElement.lang;
+    
     if (!comment.trim()) {
-      alert('لطفا نظر خود را وارد کنید');
+      alert(translations[currentLang]["messages.emptyFeedback"]);
       return;
     }
     
     if (!currentItem) return;
     
-    // اینجا می‌توانید نظر را به سرور ارسال کنید
-    alert('نظر شما با موفقیت ثبت شد! سپاسگزاریم 🌟');
-    document.getElementById('userComment').value = '';
+    // ارسال نظر به سرور
+    fetch("https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: currentItem.dataset.title,
+        comment: comment,
+        type: "feedback",
+        timestamp: new Date().toISOString()
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert(translations[currentLang]["messages.feedbackSuccess"]);
+        document.getElementById('userComment').value = '';
+      } else {
+        alert(translations[currentLang]["messages.feedbackError"]);
+      }
+    })
+    .catch(error => {
+      console.error("خطا:", error);
+      alert(translations[currentLang]["messages.feedbackError"]);
+    });
   }
 
   updateAverageRatingsUI();
@@ -1254,9 +1617,9 @@
   function updateWeightSection(title) {
     allWeightSections.forEach(section => section.style.display = 'none');
     let sectionId = null;
-    if (title === "سوپ جو") sectionId = "weightOptions-soup";
-    else if (title === "آش جو") sectionId = "weightOptions-ash";
-    else if (title === "حلیم گندم") sectionId = "weightOptions-halim";
+    if (title === "سوپ جو" || title === "Barley Soup") sectionId = "weightOptions-soup";
+    else if (title === "آش جو" || title === "Barley Stew") sectionId = "weightOptions-ash";
+    else if (title === "حلیم گندم" || title === "Wheat Halim") sectionId = "weightOptions-halim";
 
     if (sectionId) {
       const section = document.getElementById(sectionId);
@@ -1290,31 +1653,171 @@
   });
 
   changeCategory("همه");
-</script>
+  
+  // سیستم دو زبانه
+  const translations = {
+    fa: {
+      // پیام خوشامد
+      "welcome.title": "🌟 به رستوران لقمه احسان خوش آمدید 🌟",
+      "welcome.subtitle": "لذیذترین طعم‌ها در انتظار شماست... نوش جان!",
+      
+      // هدر
+      "header.title": "منوی رستوران لقمه احسان",
+      
+      // منوی جانبی
+      "sideMenu.categories": "دسته‌بندی‌ها",
+      "sideMenu.contact": "تماس با ما",
+      "sideMenu.home": "خانه احسان",
+      "sideMenu.about": "درباره ما",
+      
+      // جستجو
+      "search.placeholder": "هرچی دوست داری جستجو کن ...",
+      
+      // دسته‌بندی‌ها
+      "categories.all": "همه غذاها",
+      "categories.appetizer": "پیش غذا",
+      "categories.kabab": "کباب ها",
+      "categories.sandwich": "ساندویچ ها",
+      "categories.dessert": "دسر و چاشنی",
+      "categories.drink": "شربت ، نوشیدنی",
+      
+      // آیتم‌های منو
+      "items.barleySoup": "سوپ جو",
+      "items.barleySoupPrice": "کیلویی۸۰.۰۰۰ تومان",
+      "items.barleyStew": "آش جو",
+      "items.barleyStewPrice": "کیلویی۱۰۹.۰۰۰ تومان",
+      "items.wheatHalim": "حلیم گندم",
+      "items.wheatHalimPrice": "کیلویی ۱۴۸.۰۰۰ تومان",
+      
+      // ... سایر آیتم‌ها
+      
+      // مودال
+      "modal.close": "×",
+      "modal.weightSelectionSoup": "انتخاب وزن سوپ جو:",
+      "modal.weightSelectionAsh": "انتخاب وزن آش جو:",
+      "modal.weightSelectionHalim": "انتخاب وزن حلیم گندم:",
+      "modal.finalPrice": "قیمت نهایی:",
+      "modal.feedbackTitle": "📝 نظر شما درباره این غذا",
+      "modal.feedbackPlaceholder": "نظر خود را درباره این غذا بنویسید...",
+      "modal.submitFeedback": "ارسال نظر",
+      
+      // فوتر
+      "footer.copyright": "© 2025 رستوران لقمه احسان. همه حقوق محفوظ است.",
+      
+      // پیام‌ها
+      "messages.unavailable": "⛔ {{item}} امروز موجود نیست!\n\n{{message}}",
+      "messages.feedbackSuccess": "نظر شما با موفقیت ثبت شد! سپاسگزاریم 🌟",
+      "messages.feedbackError": "خطا در ثبت نظر. لطفا دوباره تلاش کنید.",
+      "messages.emptyFeedback": "لطفا نظر خود را وارد کنید",
+      "messages.ratingError": "خطا در ارسال امتیاز. لطفا دوباره تلاش کنید."
+    },
+    en: {
+      // Welcome message
+      "welcome.title": "🌟 Welcome to Ehsan's Bite Restaurant 🌟",
+      "welcome.subtitle": "The most delicious flavors are waiting for you... Bon Appétit!",
+      
+      // Header
+      "header.title": "Ehsan's Bite Restaurant Menu",
+      
+      // Side menu
+      "sideMenu.categories": "Categories",
+      "sideMenu.contact": "Contact Us",
+      "sideMenu.home": "Ehsan's Home",
+      "sideMenu.about": "About Us",
+      
+      // Search
+      "search.placeholder": "Search for anything you like...",
+      
+      // Categories
+      "categories.all": "All Foods",
+      "categories.appetizer": "Appetizer",
+      "categories.kabab": "Kebabs",
+      "categories.sandwich": "Sandwiches",
+      "categories.dessert": "Dessert & Condiments",
+      "categories.drink": "Drinks & Beverages",
+      
+      // Menu items
+      "items.barleySoup": "Barley Soup",
+      "items.barleySoupPrice": "Per Kg 80,000 Toman",
+      "items.barleyStew": "Barley Stew",
+      "items.barleyStewPrice": "Per Kg 109,000 Toman",
+      "items.wheatHalim": "Wheat Halim",
+      "items.wheatHalimPrice": "Per Kg 148,000 Toman",
+      
+      // ... سایر آیتم‌ها
+      
+      // Modal
+      "modal.close": "×",
+      "modal.weightSelectionSoup": "Select Barley Soup Weight:",
+      "modal.weightSelectionAsh": "Select Barley Stew Weight:",
+      "modal.weightSelectionHalim": "Select Wheat Halim Weight:",
+      "modal.finalPrice": "Final Price:",
+      "modal.feedbackTitle": "📝 Your Feedback About This Food",
+      "modal.feedbackPlaceholder": "Write your opinion about this food...",
+      "modal.submitFeedback": "Submit Feedback",
+      
+      // Footer
+      "footer.copyright": "© 2025 Ehsan's Bite Restaurant. All rights reserved.",
+      
+      // Messages
+      "messages.unavailable": "⛔ {{item}} is not available today!\n\n{{message}}",
+      "messages.feedbackSuccess": "Your feedback has been submitted successfully! Thank you 🌟",
+      "messages.feedbackError": "Error submitting feedback. Please try again.",
+      "messages.emptyFeedback": "Please enter your feedback",
+      "messages.ratingError": "Error submitting rating. Please try again."
+    }
+  };
 
-<script>
-  function applyTheme(mode) {
-    document.body.classList.remove('day-mode', 'night-mode');
-    document.body.classList.add(`${mode}-mode`);
-    localStorage.setItem('site-theme', mode);
+  // تابع برای تغییر زبان
+  function changeLanguage(lang) {
+    // تغییر جهت صفحه
+    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+    document.documentElement.lang = lang;
+    
+    // تغییر دکمه زبان
+    document.getElementById('languageToggle').textContent = lang === 'fa' ? 'EN' : 'FA';
+    
+    // ترجمه تمام متون
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+    
+    // ترجمه placeholderها
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+      const key = element.getAttribute('data-i18n-placeholder');
+      if (translations[lang][key]) {
+        element.placeholder = translations[lang][key];
+      }
+    });
+    
+    // ترجمه titleها
+    document.querySelectorAll('[data-i18n-title]').forEach(element => {
+      const key = element.getAttribute('data-i18n-title');
+      if (translations[lang][key]) {
+        element.dataset.title = translations[lang][key];
+      }
+    });
+    
+    // به‌روزرسانی وضعیت موجودی
+    updateStatusLights();
+    
+    // ذخیره زبان انتخاب شده
+    localStorage.setItem('preferred-language', lang);
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const savedTheme = localStorage.getItem('site-theme') || 'night';
-    applyTheme(savedTheme);
-
-    document.getElementById('themeToggle').addEventListener('click', function () {
-      const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
-      const newTheme = current === 'night' ? 'day' : 'night';
-      applyTheme(newTheme);
-    });
-  });
-
-   const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
+  // تابع برای به‌روزرسانی وضعیت موجودی
+  function updateStatusLights() {
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
 
     fetch(SHEET_URL)
       .then(res => res.json())
       .then(data => {
+        // حذف وضعیت‌های قبلی
+        document.querySelectorAll('.status-light').forEach(light => light.remove());
+        
         data.forEach(item => {
           const allMenuItems = document.querySelectorAll('.menu-item');
           allMenuItems.forEach(el => {
@@ -1330,7 +1833,12 @@
                 light.classList.add("status-available");
               }
 
-              infoBox.prepend(light);
+              // بررسی جهت برای قرار دادن صحیح status-light
+              if (document.documentElement.dir === 'rtl') {
+                infoBox.prepend(light);
+              } else {
+                infoBox.appendChild(light);
+              }
             }
           });
         });
@@ -1338,6 +1846,39 @@
       .catch(err => {
         console.error("خطا در دریافت موجودی منو:", err);
       });
+  }
+
+  // تابع برای تغییر تم
+  function applyTheme(mode) {
+    document.body.classList.remove('day-mode', 'night-mode');
+    document.body.classList.add(`${mode}-mode`);
+    localStorage.setItem('site-theme', mode);
+  }
+
+  // مقداردهی اولیه
+  document.addEventListener('DOMContentLoaded', function() {
+    // تنظیم زبان پیش‌فرض
+    const savedLanguage = localStorage.getItem('preferred-language') || 'fa';
+    changeLanguage(savedLanguage);
+    
+    // تنظیم تم پیش‌فرض
+    const savedTheme = localStorage.getItem('site-theme') || 'night';
+    applyTheme(savedTheme);
+    
+    // رویداد کلیک برای دکمه تغییر زبان
+    document.getElementById('languageToggle').addEventListener('click', function() {
+      const currentLang = document.documentElement.lang;
+      const newLang = currentLang === 'fa' ? 'en' : 'fa';
+      changeLanguage(newLang);
+    });
+    
+    // رویداد کلیک برای دکمه تغییر تم
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
+      const newTheme = current === 'night' ? 'day' : 'night';
+      applyTheme(newTheme);
+    });
+  });
 </script>
 </body>
 </html>
