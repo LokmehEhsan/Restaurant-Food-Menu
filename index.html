@@ -56,16 +56,16 @@
     }
 
     .welcome-message h1 {
-  font-size: 1.2rem; /* تغییر از 1.5rem به 1.2rem */
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
 
-.welcome-message p {
-  font-size: 0.9rem; /* تغییر از 1rem به 0.9rem */
-  margin: 0;
-  opacity: 0.9;
-}
+    .welcome-message p {
+      font-size: 0.9rem;
+      margin: 0;
+      opacity: 0.9;
+    }
 
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
@@ -91,23 +91,23 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
-   .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  z-index: 2;
-  position: relative;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      z-index: 2;
+      position: relative;
+    }
 
-/* برای حالت انگلیسی */
-body[dir="ltr"] .header {
-  flex-direction: row; /* اطمینان از جهت صحیح */
-}
+    /* برای حالت انگلیسی */
+    body[dir="ltr"] .header {
+      flex-direction: row;
+    }
 
-body[dir="ltr"] .menu-button {
-  margin-left: auto; /* دکمه منو به سمت راست برود */
-}
+    body[dir="ltr"] .menu-button {
+      margin-left: auto;
+    }
     
     .header h2 {
       background: rgba(43, 46, 52, 0.7);
@@ -121,126 +121,127 @@ body[dir="ltr"] .menu-button {
       animation: fadeInDown 1s ease-out 0.3s both;
     }
     
-.menu-button {
-  background: rgba(43, 46, 52, 0.7);
-  border: none;
-  font-size: 1.8rem;
-  color: #fff;
-  cursor: pointer;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
-}
+    .menu-button {
+      background: rgba(43, 46, 52, 0.7);
+      border: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
 
-/* برای حالت انگلیسی دکمه منو در سمت راست قرار بگیرد */
-body[dir="ltr"] .header {
-  flex-direction: row; /* تغییر جهت flex */
-}
+    /* برای حالت انگلیسی دکمه منو در سمت راست قرار بگیرد */
+    body[dir="ltr"] .header {
+      flex-direction: row;
+    }
 
-body[dir="ltr"] .menu-button {
-  order: 2; /* دکمه منو به انتها برود (سمت راست) */
-}
+    body[dir="ltr"] .menu-button {
+      order: 2;
+    }
 
-body[dir="ltr"] .header h2 {
-  order: 1; /* عنوان به ابتدا برود (سمت چپ) */
-}
- .side-menu {
-    position: fixed;
-    top: 0;
-    right: -260px;
-    width: 260px;
-    height: 100%;
-    background-color: rgba(43, 46, 52, 0.25); /* شفافیت بیشتر */
-    backdrop-filter: blur(20px) saturate(180%); /* افکت شیشه‌ای */
-    -webkit-backdrop-filter: blur(20px) saturate(180%); /* برای مرورگرهای مبتنی بر Webkit */
-    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
-    transition: right 0.3s ease;
-    z-index: 10000;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    font-size: 1rem;
-    border-radius: 0 0 0 20px;
-    overflow-y: auto;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-	body[dir="ltr"] 
-	.side-menu {
-    right: auto;
-    left: -260px;
-    transition: left 0.3s ease;
-    border-left: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0 0 20px 0;
-}
+    body[dir="ltr"] .header h2 {
+      order: 1;
+    }
 
-body[dir="ltr"] .side-menu.open {
-    left: 0;
-    right: auto;
-}
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -260px;
+      width: 260px;
+      height: 100%;
+      background-color: rgba(43, 46, 52, 0.25);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+      transition: right 0.3s ease;
+      z-index: 10000;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1rem;
+      border-radius: 0 0 0 20px;
+      overflow-y: auto;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-.side-menu.open { 
-    right: 0; 
-}
+    body[dir="ltr"] .side-menu {
+      right: auto;
+      left: -260px;
+      transition: left 0.3s ease;
+      border-left: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0 0 20px 0;
+    }
 
-/* استایل‌های آیتم‌های منو */
-.side-menu a, .side-menu .tab {
-    color: #eee;
-    text-decoration: none;
-    padding: 0.7rem 1rem;
-    border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    user-select: none;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    body[dir="ltr"] .side-menu.open {
+      left: 0;
+      right: auto;
+    }
 
-.side-menu a:hover, .side-menu .tab:hover {
-    background-color: rgba(249, 196, 0, 0.3);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    border-color: rgba(249, 196, 0, 0.4);
-}
+    .side-menu.open { 
+      right: 0; 
+    }
 
-.side-menu .tab.active {
-    background-color: rgba(249, 196, 0, 0.4);
-    color: #000;
-    font-weight: bold;
-    border-color: rgba(249, 196, 0, 0.6);
-}
+    /* استایل‌های آیتم‌های منو */
+    .side-menu a, .side-menu .tab {
+      color: #eee;
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-/* حالت روز */
-body.day-mode .side-menu {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-}
+    .side-menu a:hover, .side-menu .tab:hover {
+      background-color: rgba(249, 196, 0, 0.3);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      border-color: rgba(249, 196, 0, 0.4);
+    }
 
-body.day-mode .side-menu a,
-body.day-mode .side-menu .tab {
-    background-color: rgba(255, 255, 255, 0.25);
-    color: #2b2e34;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
+    .side-menu .tab.active {
+      background-color: rgba(249, 196, 0, 0.4);
+      color: #000;
+      font-weight: bold;
+      border-color: rgba(249, 196, 0, 0.6);
+    }
 
-body.day-mode .side-menu a:hover,
-body.day-mode .side-menu .tab:hover {
-    background-color: rgba(249, 196, 0, 0.4);
-    color: #000;
-}
+    /* حالت روز */
+    body.day-mode .side-menu {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border-left: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
-body.day-mode .side-menu .tab.active {
-    background-color: rgba(249, 196, 0, 0.6);
-    color: #000;
-}
+    body.day-mode .side-menu a,
+    body.day-mode .side-menu .tab {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: #2b2e34;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    body.day-mode .side-menu a:hover,
+    body.day-mode .side-menu .tab:hover {
+      background-color: rgba(249, 196, 0, 0.4);
+      color: #000;
+    }
+
+    body.day-mode .side-menu .tab.active {
+      background-color: rgba(249, 196, 0, 0.6);
+      color: #000;
+    }
 
     .search-box {
       background-color: rgba(51, 51, 51, 0.6);
@@ -1105,7 +1106,7 @@ body.day-mode .side-menu .tab.active {
 
 <!-- دکمه غذاهای امروز -->
 <button class="todays-food-btn" onclick="showTodaysFood()">
-    <span id="todaysFoodText">غذاهای امروز لقمه احسان</span>
+    <span id="todaysFoodText" data-i18n="todaysFood.button">غذاهای امروز لقمه احسان</span>
 </button>
 
 <div class="welcome-message">
@@ -1304,8 +1305,8 @@ body.day-mode .side-menu .tab.active {
 </div>
 <img alt="آب معدنی خانواده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی خانواده"></div>
-</div></main>
-
+</div>
+</main>
 <!-- مودال اصلی (موجود) -->
 <div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
 <div class="modal-content">
@@ -1427,7 +1428,6 @@ body.day-mode .side-menu .tab.active {
 <footer class="footer">
     <span data-i18n="footer.copyright">© 2025 لقمه احسان. همه حقوق محفوظ است.</span>
 </footer>
-
 <script>
   // کدهای اصلی موجود...
   const sideMenu = document.getElementById('sideMenu');
@@ -1469,21 +1469,33 @@ body.day-mode .side-menu .tab.active {
       'ساندویچ کوبیده بوقلمون'
   ];
 
-  // برنامه غذایی هفتگی
+  // برنامه غذایی هفتگی - به دو زبان
   const weeklyMenu = {
-      'شنبه': ['سوپ جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
-      'یکشنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
-      'دوشنبه': ['سوپ جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
-      'سه‌شنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
-      'چهارشنبه': ['حلیم گندم', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
-      'پنجشنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
-      'جمعه': ['کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون']
+      'fa': {
+          'شنبه': ['سوپ جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+          'یکشنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+          'دوشنبه': ['سوپ جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+          'سه‌شنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+          'چهارشنبه': ['حلیم گندم', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+          'پنجشنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+          'جمعه': ['کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون']
+      },
+      'en': {
+          'Saturday': ['Barley Soup', 'Lamb Kobideh', 'Turkey Kobideh', 'Lamb Kobideh Sandwich', 'Turkey Kobideh Sandwich'],
+          'Sunday': ['Barley Stew', 'Lamb Kobideh', 'Turkey Kobideh', 'Lamb Kobideh Sandwich', 'Turkey Kobideh Sandwich'],
+          'Monday': ['Barley Soup', 'Lamb Kobideh', 'Turkey Kobideh', 'Lamb Kobideh Sandwich', 'Turkey Kobideh Sandwich'],
+          'Tuesday': ['Barley Stew', 'Lamb Kobideh', 'Turkey Kobideh', 'Lamb Kobideh Sandwich', 'Turkey Kobideh Sandwich'],
+          'Wednesday': ['Wheat Halim', 'Lamb Kobideh', 'Turkey Kobideh', 'Lamb Kobideh Sandwich', 'Turkey Kobideh Sandwich'],
+          'Thursday': ['Barley Stew', 'Lamb Kobideh', 'Turkey Kobideh', 'Lamb Kobideh Sandwich', 'Turkey Kobideh Sandwich'],
+          'Friday': ['Lamb Kobideh', 'Turkey Kobideh', 'Lamb Kobideh Sandwich', 'Turkey Kobideh Sandwich']
+      }
   };
 
-  // نمایش غذاهای امروز
+  // نمایش غذاهای امروز - اصلاح شده برای پشتیبانی از دو زبان
   function showTodaysFood() {
-      const today = getCurrentPersianDay();
-      const todaysFood = weeklyMenu[today] || [];
+      const currentLang = document.documentElement.lang;
+      const today = getCurrentPersianDay(currentLang);
+      const todaysFood = weeklyMenu[currentLang][today] || [];
       
       // پنهان کردن همه آیتم‌ها
       document.querySelectorAll('.menu-item').forEach(item => {
@@ -1493,7 +1505,10 @@ body.day-mode .side-menu .tab.active {
       // نمایش فقط غذاهای امروز
       document.querySelectorAll('.menu-item').forEach(item => {
           const title = item.dataset.title;
-          if (todaysFood.includes(title)) {
+          // چک کردن هم نام فارسی و هم انگلیسی
+          if (todaysFood.includes(title) || 
+              (currentLang === 'en' && todaysFood.includes(getEnglishTitle(title))) ||
+              (currentLang === 'fa' && todaysFood.includes(getPersianTitle(title)))) {
               item.style.display = 'flex';
           }
       });
@@ -1502,9 +1517,46 @@ body.day-mode .side-menu .tab.active {
       setActiveTab(document.querySelector('.tabs .tab[data-category="همه"]'));
       
       // به‌روزرسانی متن دکمه
-      document.getElementById('todaysFoodText').textContent = `غذاهای امروز (${today})`;
+      const buttonText = currentLang === 'fa' 
+          ? `غذاهای امروز (${today})`
+          : `Today's Food (${today})`;
       
-      alert(`امروز ${today} است\nغذاهای موجود: ${todaysFood.join('، ')}`);
+      document.getElementById('todaysFoodText').textContent = buttonText;
+      
+      // نمایش پیام
+      const alertMessage = currentLang === 'fa'
+          ? `امروز ${today} است\nغذاهای موجود: ${todaysFood.join('، ')}`
+          : `Today is ${today}\nAvailable foods: ${todaysFood.join(', ')}`;
+      
+      alert(alertMessage);
+  }
+
+  // تابع برای گرفتن عنوان انگلیسی
+  function getEnglishTitle(persianTitle) {
+      const titleMap = {
+          'سوپ جو': 'Barley Soup',
+          'آش جو': 'Barley Stew',
+          'حلیم گندم': 'Wheat Halim',
+          'کوبیده گوسفندی': 'Lamb Kobideh',
+          'کوبیده بوقلمون': 'Turkey Kobideh',
+          'ساندویچ کوبیده گوسفندی': 'Lamb Kobideh Sandwich',
+          'ساندویچ کوبیده بوقلمون': 'Turkey Kobideh Sandwich'
+      };
+      return titleMap[persianTitle] || persianTitle;
+  }
+
+  // تابع برای گرفتن عنوان فارسی
+  function getPersianTitle(englishTitle) {
+      const titleMap = {
+          'Barley Soup': 'سوپ جو',
+          'Barley Stew': 'آش جو',
+          'Wheat Halim': 'حلیم گندم',
+          'Lamb Kobideh': 'کوبیده گوسفندی',
+          'Turkey Kobideh': 'کوبیده بوقلمون',
+          'Lamb Kobideh Sandwich': 'ساندویچ کوبیده گوسفندی',
+          'Turkey Kobideh Sandwich': 'ساندویچ کوبیده بوقلمون'
+      };
+      return titleMap[englishTitle] || englishTitle;
   }
 
   // باز کردن مودال محصولات
@@ -1527,7 +1579,8 @@ body.day-mode .side-menu .tab.active {
       // به‌روزرسانی وضعیت فعال تامبنیل‌ها
       const thumbnails = document.querySelectorAll('.thumbnail');
       thumbnails.forEach((thumb, index) => {
-          if (thumb.onclick.toString().includes(imageSrc)) {
+          const thumbImg = thumb.querySelector('img');
+          if (thumbImg.src === imageSrc) {
               thumb.classList.add('active');
               currentImageIndex = index;
           } else {
@@ -1554,9 +1607,13 @@ body.day-mode .side-menu .tab.active {
 
   // به‌روزرسانی اطلاعات محصول فعلی
   function updateCurrentProductInfo() {
+      const currentLang = document.documentElement.lang;
       const currentProduct = productTitles[currentImageIndex];
-      document.getElementById('currentProductInfo').textContent = 
-          `محصول فعلی: ${currentProduct} - برای مشاهده جزئیات کلیک کنید`;
+      const infoText = currentLang === 'fa'
+          ? `محصول فعلی: ${currentProduct} - برای مشاهده جزئیات کلیک کنید`
+          : `Current product: ${getEnglishTitle(currentProduct)} - Click to view details`;
+      
+      document.getElementById('currentProductInfo').textContent = infoText;
   }
 
   // تصویر قبلی
@@ -1597,313 +1654,326 @@ body.day-mode .side-menu .tab.active {
   });
 
   // کدهای اصلی موجود...
-  function getCurrentPersianDay() {
-    const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
-    const today = new Date().getDay();
-    return days[today];
+  function getCurrentPersianDay(lang) {
+      if (lang === 'fa') {
+          const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
+          const today = new Date().getDay();
+          return days[today];
+      } else {
+          const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+          const today = new Date().getDay();
+          return days[today];
+      }
   }
 
   function isItemAvailable(itemTitle) {
-    const today = getCurrentPersianDay();
-    
-    if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
-      return ['شنبه', 'دوشنبه' ].includes(today);
-    } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
-      return ['یکشنبه', 'سه‌شنبه', 'پنجشنبه'].includes(today);
-    } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
-      return ['چهارشنبه'].includes(today);
-    }
-    
-    return true;
+      const currentLang = document.documentElement.lang;
+      const today = getCurrentPersianDay(currentLang);
+      
+      if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
+          return currentLang === 'fa' 
+              ? ['شنبه', 'دوشنبه'].includes(today)
+              : ['Saturday', 'Monday'].includes(today);
+      } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
+          return currentLang === 'fa'
+              ? ['یکشنبه', 'سه‌شنبه', 'پنجشنبه'].includes(today)
+              : ['Sunday', 'Tuesday', 'Thursday'].includes(today);
+      } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
+          return currentLang === 'fa'
+              ? ['چهارشنبه'].includes(today)
+              : ['Wednesday'].includes(today);
+      }
+      
+      return true;
   }
 
   function getAvailableDaysMessage(itemTitle, lang) {
-    if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
-      return lang === 'fa' 
-        ? "این غذا فقط در روزهای شنبه، دوشنبه و چهارشنبه موجود است."
-        : "This food is only available on Saturday, Monday and Wednesday.";
-    } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
-      return lang === 'fa'
-        ? "این غذا فقط در روزهای یکشنبه، سه‌شنبه و پنجشنبه موجود است."
-        : "This food is only available on Sunday, Tuesday and Thursday.";
-    } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
-      return lang === 'fa'
-        ? "این غذا فقط در روزهای چهارشنبه موجود است."
-        : "This food is only available on Wednesday.";
-    }
-    return "";
+      if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
+          return lang === 'fa' 
+              ? "این غذا فقط در روزهای شنبه، دوشنبه و چهارشنبه موجود است."
+              : "This food is only available on Saturday, Monday and Wednesday.";
+      } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
+          return lang === 'fa'
+              ? "این غذا فقط در روزهای یکشنبه، سه‌شنبه و پنجشنبه موجود است."
+              : "This food is only available on Sunday, Tuesday and Thursday.";
+      } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
+          return lang === 'fa'
+              ? "این غذا فقط در روزهای چهارشنبه موجود است."
+              : "This food is only available on Wednesday.";
+      }
+      return "";
   }
 
   function handleItemClick(element) {
-    const itemTitle = element.dataset.title;
-    const currentLang = document.documentElement.lang;
-    
-    if (!isItemAvailable(itemTitle)) {
-      const message = getAvailableDaysMessage(itemTitle, currentLang);
-      const alertMessage = translations[currentLang]["messages.unavailable"]
-        .replace("{{item}}", itemTitle)
-        .replace("{{message}}", message);
+      const itemTitle = element.dataset.title;
+      const currentLang = document.documentElement.lang;
       
-      alert(alertMessage);
-      return;
-    }
-    
-    showModal(element);
+      if (!isItemAvailable(itemTitle)) {
+          const message = getAvailableDaysMessage(itemTitle, currentLang);
+          const alertMessage = translations[currentLang]["messages.unavailable"]
+              .replace("{{item}}", itemTitle)
+              .replace("{{message}}", message);
+          
+          alert(alertMessage);
+          return;
+      }
+      
+      showModal(element);
   }
 
   function loadRatings() {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch {
-      return {};
-    }
+      try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          return raw ? JSON.parse(raw) : {};
+      } catch {
+          return {};
+      }
   }
 
   function saveRatings(ratings) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(ratings));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(ratings));
   }
 
   function calculateAverage(arr) {
-    if (!arr || arr.length === 0) return 0;
-    const sum = arr.reduce((a,b) => a+b, 0);
-    return (sum / arr.length);
+      if (!arr || arr.length === 0) return 0;
+      const sum = arr.reduce((a,b) => a+b, 0);
+      return (sum / arr.length);
   }
 
   function updateAverageRatingsUI() {
-    const ratings = loadRatings();
-    document.querySelectorAll('.average-rating').forEach(avgDiv => {
-      const title = avgDiv.dataset.title;
-      const scores = ratings[title] || [];
-      const avg = calculateAverage(scores);
-      avgDiv.innerHTML = '';
-      
-      const currentLang = document.documentElement.lang;
-      const ariaLabel = currentLang === 'fa' 
-        ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵`
-        : `Average rating: ${avg.toFixed(1)} out of 5`;
-      
-      avgDiv.setAttribute('aria-label', ariaLabel);
+      const ratings = loadRatings();
+      document.querySelectorAll('.average-rating').forEach(avgDiv => {
+          const title = avgDiv.dataset.title;
+          const scores = ratings[title] || [];
+          const avg = calculateAverage(scores);
+          avgDiv.innerHTML = '';
+          
+          const currentLang = document.documentElement.lang;
+          const ariaLabel = currentLang === 'fa' 
+              ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵`
+              : `Average rating: ${avg.toFixed(1)} out of 5`;
+          
+          avgDiv.setAttribute('aria-label', ariaLabel);
 
-      const fullStars = Math.floor(avg);
-      const halfStar = (avg - fullStars) >= 0.5;
-      for(let i=1; i<=5; i++){
-        let starSpan = document.createElement('span');
-        starSpan.classList.add('star');
-        starSpan.textContent = '★';
-        if(i <= fullStars) starSpan.style.color = 'gold';
-        else if(i === fullStars + 1 && halfStar) starSpan.style.color = 'goldenrod';
-        else starSpan.style.color = '#444';
-        avgDiv.appendChild(starSpan);
-      }
-    });
+          const fullStars = Math.floor(avg);
+          const halfStar = (avg - fullStars) >= 0.5;
+          for(let i=1; i<=5; i++){
+              let starSpan = document.createElement('span');
+              starSpan.classList.add('star');
+              starSpan.textContent = '★';
+              if(i <= fullStars) starSpan.style.color = 'gold';
+              else if(i === fullStars + 1 && halfStar) starSpan.style.color = 'goldenrod';
+              else starSpan.style.color = '#444';
+              avgDiv.appendChild(starSpan);
+          }
+      });
   }
 
   menuToggle.addEventListener('click', () => {
-    const isOpen = sideMenu.classList.toggle('open');
-    sideMenu.setAttribute('aria-hidden', !isOpen);
+      const isOpen = sideMenu.classList.toggle('open');
+      sideMenu.setAttribute('aria-hidden', !isOpen);
   });
 
   tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      changeCategory(tab.dataset.category);
-      setActiveTab(tab);
-    });
+      tab.addEventListener('click', () => {
+          changeCategory(tab.dataset.category);
+          setActiveTab(tab);
+      });
   });
 
   sideTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      changeCategory(tab.dataset.category);
-      setActiveSideTab(tab);
-      sideMenu.classList.remove('open');
-      sideMenu.setAttribute('aria-hidden', 'true');
-    });
+      tab.addEventListener('click', () => {
+          changeCategory(tab.dataset.category);
+          setActiveSideTab(tab);
+          sideMenu.classList.remove('open');
+          sideMenu.setAttribute('aria-hidden', 'true');
+      });
   });
 
   function setActiveTab(activeTab) {
-    tabs.forEach(tab => {
-      const isActive = tab === activeTab;
-      tab.classList.toggle('active', isActive);
-    });
-    sideTabs.forEach(tab => {
-      tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
-    });
+      tabs.forEach(tab => {
+          const isActive = tab === activeTab;
+          tab.classList.toggle('active', isActive);
+      });
+      sideTabs.forEach(tab => {
+          tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
+      });
   }
 
   function setActiveSideTab(activeTab) {
-    sideTabs.forEach(tab => {
-      const isActive = tab === activeTab;
-      tab.classList.toggle('active', isActive);
-    });
-    tabs.forEach(tab => {
-      tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
-    });
+      sideTabs.forEach(tab => {
+          const isActive = tab === activeTab;
+          tab.classList.toggle('active', isActive);
+      });
+      tabs.forEach(tab => {
+          tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
+      });
   }
 
   function changeCategory(category) {
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    menuItems.forEach(item => {
-      const title = item.dataset.title.toLowerCase();
-      const cat = item.dataset.category;
-      const matchesCategory = category === "همه" || cat === category;
-      const matchesSearch = title.includes(searchTerm);
-      if(matchesCategory && matchesSearch){
-        item.style.display = 'flex';
-      } else {
-        item.style.display = 'none';
-      }
-    });
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      menuItems.forEach(item => {
+          const title = item.dataset.title.toLowerCase();
+          const cat = item.dataset.category;
+          const matchesCategory = category === "همه" || cat === category;
+          const matchesSearch = title.includes(searchTerm);
+          if(matchesCategory && matchesSearch){
+              item.style.display = 'flex';
+          } else {
+              item.style.display = 'none';
+          }
+      });
   }
 
   searchInput.addEventListener('input', () => {
-    const activeTab = document.querySelector('.tabs .tab.active');
-    const category = activeTab ? activeTab.dataset.category : "همه";
-    changeCategory(category);
+      const activeTab = document.querySelector('.tabs .tab.active');
+      const category = activeTab ? activeTab.dataset.category : "همه";
+      changeCategory(category);
   });
 
   let currentItem = null;
 
   function showModal(element) {
-    currentItem = element;
-    modalImg.src = element.dataset.img;
-    modalImg.alt = element.dataset.title;
-    modalTitle.textContent = element.dataset.title;
-    modalPrice.textContent = element.querySelector('.info span').textContent;
+      currentItem = element;
+      modalImg.src = element.dataset.img;
+      modalImg.alt = element.dataset.title;
+      modalTitle.textContent = element.dataset.title;
+      modalPrice.textContent = element.querySelector('.info span').textContent;
 
-    if(element.dataset.title === "سوپ جو" || element.dataset.title === "Barley Soup"){
+      if(element.dataset.title === "سوپ جو" || element.dataset.title === "Barley Soup"){
+          const currentLang = document.documentElement.lang;
+          modalOrderTime.textContent = currentLang === 'fa' 
+              ? "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵"
+              : "Order time: Saturday, Monday, Wednesday 12-15";
+      } else if(element.dataset.title === "آش جو" || element.dataset.title === "Barley Stew"){
+          const currentLang = document.documentElement.lang;
+          modalOrderTime.textContent = currentLang === 'fa'
+              ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵"
+              : "Order time: Sunday, Tuesday, Thursday 12-15";
+      } else if(element.dataset.title === "حلیم گندم" || element.dataset.title === "Wheat Halim"){
+          const currentLang = document.documentElement.lang;
+          modalOrderTime.textContent = currentLang === 'fa'
+              ? "زمان سفارش: چهارشنبه ۱۳:۳۰ تا اتمام موجودی"
+              : "Order time: Wednesday 13:30 until stock lasts";
+      } else {
+          modalOrderTime.textContent = "";
+      }
+
+      const ratings = loadRatings();
+      const scores = ratings[element.dataset.title] || [];
+      const avg = calculateAverage(scores);
+      
       const currentLang = document.documentElement.lang;
-      modalOrderTime.textContent = currentLang === 'fa' 
-        ? "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵"
-        : "Order time: Saturday, Monday, Wednesday 12-15";
-    } else if(element.dataset.title === "آش جو" || element.dataset.title === "Barley Stew"){
-      const currentLang = document.documentElement.lang;
-      modalOrderTime.textContent = currentLang === 'fa'
-        ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵"
-        : "Order time: Sunday, Tuesday, Thursday 12-15";
-    } else if(element.dataset.title === "حلیم گندم" || element.dataset.title === "Wheat Halim"){
-      const currentLang = document.documentElement.lang;
-      modalOrderTime.textContent = currentLang === 'fa'
-        ? "زمان سفارش: چهارشنبه ۱۳:۳۰ تا اتمام موجودی"
-        : "Order time: Wednesday 13:30 until stock lasts";
-    } else {
-      modalOrderTime.textContent = "";
-    }
+      const ratingText = currentLang === 'fa' 
+          ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`
+          : `Average rating: ${avg.toFixed(1)} out of 5 (${scores.length} votes)`;
+      
+      ratingMsg.textContent = ratingText;
 
-    const ratings = loadRatings();
-    const scores = ratings[element.dataset.title] || [];
-    const avg = calculateAverage(scores);
-    
-    const currentLang = document.documentElement.lang;
-    const ratingText = currentLang === 'fa' 
-      ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`
-      : `Average rating: ${avg.toFixed(1)} out of 5 (${scores.length} votes)`;
-    
-    ratingMsg.textContent = ratingText;
-
-    stars.forEach(star => {
-      star.classList.remove('selected', 'hovered');
-    });
-
-    if(scores.length > 0){
-      const roundedAvg = Math.round(avg);
       stars.forEach(star => {
-        if(parseInt(star.dataset.value) <= roundedAvg) {
-          star.classList.add('selected');
-        }
+          star.classList.remove('selected', 'hovered');
       });
-    }
 
-    modal.classList.add('show');
-    updateWeightSection(element.dataset.title);
+      if(scores.length > 0){
+          const roundedAvg = Math.round(avg);
+          stars.forEach(star => {
+              if(parseInt(star.dataset.value) <= roundedAvg) {
+                  star.classList.add('selected');
+              }
+          });
+      }
+
+      modal.classList.add('show');
+      updateWeightSection(element.dataset.title);
   }
 
   modalClose.addEventListener('click', () => {
-    modal.classList.remove('show');
+      modal.classList.remove('show');
   });
 
   window.addEventListener('click', (event) => {
-    const isClickInsideMenu = sideMenu.contains(event.target);
-    const isClickOnButton = menuToggle.contains(event.target);
-    if (!isClickInsideMenu && !isClickOnButton) {
-      sideMenu.classList.remove('open');
-      sideMenu.setAttribute('aria-hidden', 'true');
-    }
+      const isClickInsideMenu = sideMenu.contains(event.target);
+      const isClickOnButton = menuToggle.contains(event.target);
+      if (!isClickInsideMenu && !isClickOnButton) {
+          sideMenu.classList.remove('open');
+          sideMenu.setAttribute('aria-hidden', 'true');
+      }
   });
 
   modal.addEventListener('click', (e) => {
-    if(e.target === modal) {
-      modal.classList.remove('show');
-    }
+      if(e.target === modal) {
+          modal.classList.remove('show');
+      }
   });
 
   stars.forEach(star => {
-    star.addEventListener('mouseenter', () => {
-      const val = parseInt(star.dataset.value);
-      stars.forEach(s => {
-        s.classList.toggle('hovered', parseInt(s.dataset.value) <= val);
+      star.addEventListener('mouseenter', () => {
+          const val = parseInt(star.dataset.value);
+          stars.forEach(s => {
+              s.classList.toggle('hovered', parseInt(s.dataset.value) <= val);
+          });
       });
-    });
-    star.addEventListener('mouseleave', () => {
-      stars.forEach(s => s.classList.remove('hovered'));
-    });
-    star.addEventListener('click', () => {
-      const val = parseInt(star.dataset.value);
-      saveRating(val);
-    });
+      star.addEventListener('mouseleave', () => {
+          stars.forEach(s => s.classList.remove('hovered'));
+      });
+      star.addEventListener('click', () => {
+          const val = parseInt(star.dataset.value);
+          saveRating(val);
+      });
   });
 
   function saveRating(value) {
-    if (!currentItem) return;
-    const title = currentItem.dataset.title;
-    const ratings = loadRatings();
-    if (!ratings[title]) ratings[title] = [];
-    ratings[title].push(value);
-    saveRatings(ratings);
-	
-	fetch("https://lokmahkhaneehsan.netlify.app/api/submit-rating", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        title: title,
-        rating: value,
-        comment: ""
+      if (!currentItem) return;
+      const title = currentItem.dataset.title;
+      const ratings = loadRatings();
+      if (!ratings[title]) ratings[title] = [];
+      ratings[title].push(value);
+      saveRatings(ratings);
+  
+      fetch("https://lokmahkhaneehsan.netlify.app/api/submit-rating", {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              title: title,
+              rating: value,
+              comment: ""
+          })
       })
-    })
-    .then(response => {
-      if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
-      return response.json();
-    })
+      .then(response => {
+          if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
+          return response.json();
+      })
 
-    const avg = calculateAverage(ratings[title]);
-    const currentLang = document.documentElement.lang;
-    const ratingText = currentLang === 'fa'
-      ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`
-      : `Average rating: ${avg.toFixed(1)} out of 5 (${ratings[title].length} votes)`;
-    
-    ratingMsg.textContent = ratingText;
+      const avg = calculateAverage(ratings[title]);
+      const currentLang = document.documentElement.lang;
+      const ratingText = currentLang === 'fa'
+          ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`
+          : `Average rating: ${avg.toFixed(1)} out of 5 (${ratings[title].length} votes)`;
+      
+      ratingMsg.textContent = ratingText;
 
-    stars.forEach(star => {
-      star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
-    });
+      stars.forEach(star => {
+          star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
+      });
 
-    updateAverageRatingsUI();
+      updateAverageRatingsUI();
   }
 
   function submitFeedback() {
-    const comment = document.getElementById('userComment').value;
-    const currentLang = document.documentElement.lang;
-    
-    if (!comment.trim()) {
-      alert(translations[currentLang]["messages.emptyFeedback"]);
-      return;
-    }
-    
-    if (!currentItem) return;
-    
-    alert(translations[currentLang]["messages.feedbackSuccess"]);
-    document.getElementById('userComment').value = '';
+      const comment = document.getElementById('userComment').value;
+      const currentLang = document.documentElement.lang;
+      
+      if (!comment.trim()) {
+          alert(translations[currentLang]["messages.emptyFeedback"]);
+          return;
+      }
+      
+      if (!currentItem) return;
+      
+      alert(translations[currentLang]["messages.feedbackSuccess"]);
+      document.getElementById('userComment').value = '';
   }
 
   updateAverageRatingsUI();
@@ -1911,291 +1981,256 @@ body.day-mode .side-menu .tab.active {
   const allWeightSections = document.querySelectorAll('.weightOptions');
 
   function updateWeightSection(title) {
-    allWeightSections.forEach(section => section.style.display = 'none');
-    let sectionId = null;
-    if (title === "سوپ جو" || title === "Barley Soup") sectionId = "weightOptions-soup";
-    else if (title === "آش جو" || title === "Barley Stew") sectionId = "weightOptions-ash";
-    else if (title === "حلیم گندم" || title === "Wheat Halim") sectionId = "weightOptions-halim";
+      allWeightSections.forEach(section => section.style.display = 'none');
+      let sectionId = null;
+      if (title === "سوپ جو" || title === "Barley Soup") sectionId = "weightOptions-soup";
+      else if (title === "آش جو" || title === "Barley Stew") sectionId = "weightOptions-ash";
+      else if (title === "حلیم گندم" || title === "Wheat Halim") sectionId = "weightOptions-halim";
 
-    if (sectionId) {
-      const section = document.getElementById(sectionId);
-      section.style.display = "block";
+      if (sectionId) {
+          const section = document.getElementById(sectionId);
+          section.style.display = "block";
 
-      const cards = section.querySelectorAll('.weight-card');
-      const priceSpan = section.querySelector('.dynamicPrice');
+          const cards = section.querySelectorAll('.weight-card');
+          const priceSpan = section.querySelector('.dynamicPrice');
 
-      cards.forEach(card => {
-        card.addEventListener('click', () => {
-          cards.forEach(c => c.classList.remove('active'));
-          card.classList.add('active');
+          cards.forEach(card => {
+              card.addEventListener('click', () => {
+                  cards.forEach(c => c.classList.remove('active'));
+                  card.classList.add('active');
 
-          const priceStr = card.dataset.price?.replace(/[^0-9.]/g, '');
-          const price = Number(priceStr);
+                  const priceStr = card.dataset.price?.replace(/[^0-9.]/g, '');
+                  const price = Number(priceStr);
 
-          if (!isNaN(price)) {
-            priceSpan.textContent = price.toLocaleString('fa-IR');
-          }
-        });
-      });
-    }
+                  if (!isNaN(price)) {
+                      priceSpan.textContent = price.toLocaleString('fa-IR');
+                  }
+              });
+          });
+      }
   }
 
   window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && modal.classList.contains('show')) {
-      modal.classList.remove('show');
-    }
+      if(e.key === 'Escape' && modal.classList.contains('show')) {
+          modal.classList.remove('show');
+      }
   });
 
   changeCategory("همه");
 
   const translations = {
-    fa: {
-        "welcome.title": "🌟 به لقمه احسان خوش آمدید 🌟",
-        "welcome.subtitle": "لذیذترین طعم‌ها در انتظار شماست... نوش جان!",
-        "header.title": " لقمه احسان",
-        "sideMenu.categories": "دسته‌بندی‌ها",
-        "sideMenu.contact": "راه های ارتباطی با ما",
-        "sideMenu.home": "سایت خانه احسان",
-        "sideMenu.about": "شبکه های اجتماعی",
-        "search.placeholder": "هرچی دوست داری جستجو کن ...",
-        "categories.all": "همه غذاها",
-        "categories.appetizer": "پیش غذا",
-        "categories.kabab": "کباب ها",
-        "categories.sandwich": "ساندویچ ها",
-        "categories.dessert": "دسر و چاشنی",
-        "categories.drink": "شربت ، نوشیدنی",
-        "items.barleySoup": "سوپ جو",
-        "items.barleySoupPrice": "کیلویی۸۰.۰۰۰ تومان",
-        "items.barleyStew": "آش جو",
-        "items.barleyStewPrice": "کیلویی۱۰۹.۰۰۰ تومان",
-        "items.wheatHalim": "حلیم گندم",
-        "items.wheatHalimPrice": "کیلویی ۲۵۰.۰۰۰ تومان",
-        "items.lambKobideh": "کوبیده گوسفندی",
-        "items.lambKobidehPrice": "۱۱۶.۰۰۰ تومان",
-        "items.turkeyKobideh": "کوبیده بوقلمون",
-        "items.turkeyKobidehPrice": "۸۴.۰۰۰ تومان",
-        "items.lambKobidehWithBread": "کوبیده گوسفندی با نان و دورچین",
-        "items.lambKobidehWithBreadPrice": "۱۳۶.۰۰۰ تومان",
-        "items.turkeyKobidehWithBread": "کوبیده بوقلمون با نان و درچین",
-        "items.turkeyKobidehWithBreadPrice": "۱۰۴.۰۰۰ تومان",
-        "items.lambBiteKebab": "کباب لقمه گوسفندی",
-        "items.lambBiteKebabPrice": "۱۸۴.۰۰۰ تومان",
-        "items.camelBiteKebab": "کباب لقمه شتر",
-        "items.camelBiteKebabPrice": "۲۳۰.۰۰۰ تومان",
-        "items.camelBiteSandwich": "ساندویچ کباب لقمه شتر",
-        "items.camelBiteSandwichPrice": "۲۵۵.۰۰۰ تومان",
-        "items.turkeyJoojeh": "جوجه کباب بوقلمون",
-        "items.turkeyJoojehPrice": "۲۰۸.۰۰۰ تومان",
-        "items.tomatoSkewer": "سیخ گوجه کبابی",
-        "items.tomatoSkewerPrice": "۳۲.۰۰۰ تومان",
-        "items.sideDish": "دورچین",
-        "items.sideDishPrice": "۱۰.۰۰۰ تومان",
-        "items.aluminumContainer": "ظرف یکبار مصرف کباب آلومینیومی",
-        "items.aluminumContainerPrice": "۸.۰۰۰ تومان",
-        "items.lambSandwich": "ساندویچ کوبیده گوسفندی",
-        "items.lambSandwichPrice": "۱۴۵.۰۰۰ تومان",
-        "items.turkeySandwich": "ساندویچ کوبیده بوقلمون",
-        "items.turkeySandwichPrice": "۱۰۵.۰۰۰ ریال",
-        "items.lambBiteSandwich": "ساندویچ لقمه گوسفندی",
-        "items.lambBiteSandwichPrice": "۲۰۰.۰۰۰ تومان",
-        "items.camelBiteSandwich2": "ساندویچ لقمه شتر",
-        "items.camelBiteSandwich2Price": "۲۴۰.۰۰۰ تومان",
-        "items.turkeyBurger": "ساندویچ همبرگر بوقلمون",
-        "items.turkeyBurgerPrice": "۹۹.۰۰۰ تومان",
-        "items.barberryNoshaneh": "نوشانه زرشک",
-        "items.barberryNoshanehPrice": "۱۲۰.۰۰۰ تومان",
-        "items.stuffedOlives": "زیتون پرورده",
-        "items.stuffedOlivesPrice": "۲۵.۰۰۰ تومان",
-        "items.freshHerbs": "سبزی خوردن",
-        "items.freshHerbsPrice": "۳۸.۰۰۰ تومان",
-        "items.halfLiterDoogh": "دوغ تلمی نیم لیتری",
-        "items.halfLiterDooghPrice": "۱۹.۰۰۰ تومان",
-        "items.twoLiterDoogh": "دوغ تلمی خانواده دولیتری",
-        "items.twoLiterDooghPrice": "۶۳.۰۰۰ تومان",
-        "items.smallWater": "آب معدنی کوچک",
-        "items.smallWaterPrice": "۱۰.۰۰۰ تومان",
-        "items.familyWater": "آب معدنی خانواده",
-        "items.familyWaterPrice": "۱۵.۰۰۰ تومان",
-        "modal.close": "×",
-        "modal.weightSelectionSoup": "انتخاب وزن سوپ جو:",
-        "modal.weightSelectionAsh": "انتخاب وزن آش جو:",
-        "modal.weightSelectionHalim": "انتخاب وزن حلیم گندم:",
-        "modal.finalPrice": "قیمت نهایی:",
-        "modal.feedbackTitle": "📝 نظر شما درباره این غذا",
-        "modal.feedbackPlaceholder": "نظر خود را درباره این غذا بنویسید...",
-        "modal.submitFeedback": "ارسال نظر",
-        "footer.copyright": "© 2025 لقمه احسان. همه حقوق محفوظ است.",
-        "messages.unavailable": "⛔ {{item}} امروز موجود نیست!\n\n{{message}}",
-        "messages.feedbackSuccess": "نظر شما با موفقیت ثبت شد! سپاسگزاریم 🌟",
-        "messages.emptyFeedback": "لطفا نظر خود را وارد کنید"
-    },
-    en: {
-        "welcome.title": "🌟 Welcome to Ehsan's Bite 🌟",
-        "welcome.subtitle": "The most delicious flavors are waiting for you... Bon Appétit!",
-        "header.title": "Ehsan's Bite",
-        "sideMenu.categories": "Categories",
-        "sideMenu.contact": "Contact Us",
-        "sideMenu.home": "Ehsan's Home",
-        "sideMenu.about": "About Us",
-        "search.placeholder": "Search for anything you like...",
-        "categories.all": "All Foods",
-        "categories.appetizer": "Appetizer",
-        "categories.kabab": "Kebabs",
-        "categories.sandwich": "Sandwiches",
-        "categories.dessert": "Dessert & Condiments",
-        "categories.drink": "Drinks & Beverages",
-        "items.barleySoup": "Barley Soup",
-        "items.barleySoupPrice": "Per Kg 80,000 Toman",
-        "items.barleyStew": "Barley Stew",
-        "items.barleyStewPrice": "Per Kg 109,000 Toman",
-        "items.wheatHalim": "Wheat Halim",
-        "items.wheatHalimPrice": "Per Kg 250,000 Toman",
-        "items.lambKobideh": "Lamb Kobideh",
-        "items.lambKobidehPrice": "116,000 Toman",
-        "items.turkeyKobideh": "Turkey Kobideh",
-        "items.turkeyKobidehPrice": "84,000 Toman",
-        "items.lambKobidehWithBread": "Lamb Kobideh with Bread & Side",
-        "items.lambKobidehWithBreadPrice": "136,000 Toman",
-        "items.turkeyKobidehWithBread": "Turkey Kobideh with Bread & Side",
-        "items.turkeyKobidehWithBreadPrice": "104,000 Toman",
-        "items.lambBiteKebab": "Lamb Bite Kebab",
-        "items.lambBiteKebabPrice": "184,000 Toman",
-        "items.camelBiteKebab": "Camel Bite Kebab",
-        "items.camelBiteKebabPrice": "230,000 Toman",
-        "items.camelBiteSandwich": "Camel Bite Kebab Sandwich",
-        "items.camelBiteSandwichPrice": "255,000 Toman",
-        "items.turkeyJoojeh": "Turkey Joojeh Kebab",
-        "items.turkeyJoojehPrice": "208,000 Toman",
-        "items.tomatoSkewer": "Tomato Skewer",
-        "items.tomatoSkewerPrice": "32,000 Toman",
-        "items.sideDish": "Side Dish",
-        "items.sideDishPrice": "10,000 Toman",
-        "items.aluminumContainer": "Aluminum Disposable Container",
-        "items.aluminumContainerPrice": "8,000 Toman",
-        "items.lambSandwich": "Lamb Kobideh Sandwich",
-        "items.lambSandwichPrice": "145,000 Toman",
-        "items.turkeySandwich": "Turkey Kobideh Sandwich",
-        "items.turkeySandwichPrice": "105,000 Rial",
-        "items.lambBiteSandwich": "Lamb Bite Sandwich",
-        "items.lambBiteSandwichPrice": "200,000 Toman",
-        "items.camelBiteSandwich2": "Camel Bite Sandwich",
-        "items.camelBiteSandwich2Price": "240,000 Toman",
-        "items.turkeyBurger": "Turkey Burger Sandwich",
-        "items.turkeyBurgerPrice": "99,000 Toman",
-        "items.barberryNoshaneh": "Barberry Noshaneh",
-        "items.barberryNoshanehPrice": "120,000 Toman",
-        "items.stuffedOlives": "Stuffed Olives",
-        "items.stuffedOlivesPrice": "25,000 Toman",
-        "items.freshHerbs": "Fresh Herbs",
-        "items.freshHerbsPrice": "38,000 Toman",
-        "items.halfLiterDoogh": "Half Liter Doogh",
-        "items.halfLiterDooghPrice": "19,000 Toman",
-        "items.twoLiterDoogh": "Two Liter Family Doogh",
-        "items.twoLiterDooghPrice": "63,000 Toman",
-        "items.smallWater": "Small Mineral Water",
-        "items.smallWaterPrice": "10,000 Toman",
-        "items.familyWater": "Family Mineral Water",
-        "items.familyWaterPrice": "15,000 Toman",
-        "modal.close": "×",
-        "modal.weightSelectionSoup": "Select Barley Soup Weight:",
-        "modal.weightSelectionAsh": "Select Barley Stew Weight:",
-        "modal.weightSelectionHalim": "Select Wheat Halim Weight:",
-        "modal.finalPrice": "Final Price:",
-        "modal.feedbackTitle": "📝 Your Feedback About This Food",
-        "modal.feedbackPlaceholder": "Write your opinion about this food...",
-        "modal.submitFeedback": "Submit Feedback",
-        "footer.copyright": "© 2025 Ehsan's Bite . All rights reserved.",
-        "messages.unavailable": "⛔ {{item}} is not available today!\n\n{{message}}",
-        "messages.feedbackSuccess": "Your feedback has been submitted successfully! Thank you 🌟",
-        "messages.emptyFeedback": "Please enter your feedback"
-    }
-};
-
+      fa: {
+          "todaysFood.button": "غذاهای امروز لقمه احسان",
+          "welcome.title": "🌟 به لقمه احسان خوش آمدید 🌟",
+          "welcome.subtitle": "لذیذترین طعم‌ها در انتظار شماست... نوش جان!",
+          "header.title": " لقمه احسان",
+          "sideMenu.categories": "دسته‌بندی‌ها",
+          "sideMenu.contact": "راه های ارتباطی با ما",
+          "sideMenu.home": "سایت خانه احسان",
+          "sideMenu.about": "شبکه های اجتماعی",
+          "search.placeholder": "هرچی دوست داری جستجو کن ...",
+          "categories.all": "همه غذاها",
+          "categories.appetizer": "پیش غذا",
+          "categories.kabab": "کباب ها",
+          "categories.sandwich": "ساندویچ ها",
+          "categories.dessert": "دسر و چاشنی",
+          "categories.drink": "شربت ، نوشیدنی",
+          "items.barleySoup": "سوپ جو",
+          "items.barleySoupPrice": "کیلویی۸۰.۰۰۰ تومان",
+          "items.barleyStew": "آش جو",
+          "items.barleyStewPrice": "کیلویی۱۰۹.۰۰۰ تومان",
+          "items.wheatHalim": "حلیم گندم",
+          "items.wheatHalimPrice": "کیلویی ۲۵۰.۰۰۰ تومان",
+          "items.lambKobideh": "کوبیده گوسفندی",
+          "items.lambKobidehPrice": "۱۱۶.۰۰۰ تومان",
+          "items.turkeyKobideh": "کوبیده بوقلمون",
+          "items.turkeyKobidehPrice": "۸۴.۰۰۰ تومان",
+          "items.lambSandwich": "ساندویچ کوبیده گوسفندی",
+          "items.lambSandwichPrice": "۱۴۵.۰۰۰ تومان",
+          "items.turkeySandwich": "ساندویچ کوبیده بوقلمون",
+          "items.turkeySandwichPrice": "۱۰۵.۰۰۰ ریال",
+          "items.lambBiteSandwich": "ساندویچ لقمه گوسفندی",
+          "items.lambBiteSandwichPrice": "۲۰۰.۰۰۰ تومان",
+          "items.camelBiteSandwich2": "ساندویچ لقمه شتر",
+          "items.camelBiteSandwich2Price": "۲۴۰.۰۰۰ تومان",
+          "items.turkeyBurger": "ساندویچ همبرگر بوقلمون",
+          "items.turkeyBurgerPrice": "۹۹.۰۰۰ تومان",
+          "items.barberryNoshaneh": "نوشانه زرشک",
+          "items.barberryNoshanehPrice": "۱۲۰.۰۰۰ تومان",
+          "items.stuffedOlives": "زیتون پرورده",
+          "items.stuffedOlivesPrice": "۲۵.۰۰۰ تومان",
+          "items.freshHerbs": "سبزی خوردن",
+          "items.freshHerbsPrice": "۳۸.۰۰۰ تومان",
+          "items.halfLiterDoogh": "دوغ تلمی نیم لیتری",
+          "items.halfLiterDooghPrice": "۱۹.۰۰۰ تومان",
+          "items.twoLiterDoogh": "دوغ تلمی خانواده دولیتری",
+          "items.twoLiterDooghPrice": "۶۳.۰۰۰ تومان",
+          "items.smallWater": "آب معدنی کوچک",
+          "items.smallWaterPrice": "۱۰.۰۰۰ تومان",
+          "items.familyWater": "آب معدنی خانواده",
+          "items.familyWaterPrice": "۱۵.۰۰۰ تومان",
+          "modal.close": "×",
+          "modal.weightSelectionSoup": "انتخاب وزن سوپ جو:",
+          "modal.weightSelectionAsh": "انتخاب وزن آش جو:",
+          "modal.weightSelectionHalim": "انتخاب وزن حلیم گندم:",
+          "modal.finalPrice": "قیمت نهایی:",
+          "modal.feedbackTitle": "📝 نظر شما درباره این غذا",
+          "modal.feedbackPlaceholder": "نظر خود را درباره این غذا بنویسید...",
+          "modal.submitFeedback": "ارسال نظر",
+          "footer.copyright": "© 2025 لقمه احسان. همه حقوق محفوظ است.",
+          "messages.unavailable": "⛔ {{item}} امروز موجود نیست!\n\n{{message}}",
+          "messages.feedbackSuccess": "نظر شما با موفقیت ثبت شد! سپاسگزاریم 🌟",
+          "messages.emptyFeedback": "لطفا نظر خود را وارد کنید"
+      },
+      en: {
+          "todaysFood.button": "Today's Food - Ehsan's Bite",
+          "welcome.title": "🌟 Welcome to Ehsan's Bite 🌟",
+          "welcome.subtitle": "The most delicious flavors are waiting for you... Bon Appétit!",
+          "header.title": "Ehsan's Bite",
+          "sideMenu.categories": "Categories",
+          "sideMenu.contact": "Contact Us",
+          "sideMenu.home": "Ehsan's Home",
+          "sideMenu.about": "About Us",
+          "search.placeholder": "Search for anything you like...",
+          "categories.all": "All Foods",
+          "categories.appetizer": "Appetizer",
+          "categories.kabab": "Kebabs",
+          "categories.sandwich": "Sandwiches",
+          "categories.dessert": "Dessert & Condiments",
+          "categories.drink": "Drinks & Beverages",
+          "items.barleySoup": "Barley Soup",
+          "items.barleySoupPrice": "Per Kg 80,000 Toman",
+          "items.barleyStew": "Barley Stew",
+          "items.barleyStewPrice": "Per Kg 109,000 Toman",
+          "items.wheatHalim": "Wheat Halim",
+          "items.wheatHalimPrice": "Per Kg 250,000 Toman",
+          "items.lambKobideh": "Lamb Kobideh",
+          "items.lambKobidehPrice": "116,000 Toman",
+          "items.turkeyKobideh": "Turkey Kobideh",
+          "items.turkeyKobidehPrice": "84,000 Toman",
+          "items.lambSandwich": "Lamb Kobideh Sandwich",
+          "items.lambSandwichPrice": "145,000 Toman",
+          "items.turkeySandwich": "Turkey Kobideh Sandwich",
+          "items.turkeySandwichPrice": "105,000 Rial",
+          "items.lambBiteSandwich": "Lamb Bite Sandwich",
+          "items.lambBiteSandwichPrice": "200,000 Toman",
+          "items.camelBiteSandwich2": "Camel Bite Sandwich",
+          "items.camelBiteSandwich2Price": "240,000 Toman",
+          "items.turkeyBurger": "Turkey Burger Sandwich",
+          "items.turkeyBurgerPrice": "99,000 Toman",
+          "items.barberryNoshaneh": "Barberry Noshaneh",
+          "items.barberryNoshanehPrice": "120,000 Toman",
+          "items.stuffedOlives": "Stuffed Olives",
+          "items.stuffedOlivesPrice": "25,000 Toman",
+          "items.freshHerbs": "Fresh Herbs",
+          "items.freshHerbsPrice": "38,000 Toman",
+          "items.halfLiterDoogh": "Half Liter Doogh",
+          "items.halfLiterDooghPrice": "19,000 Toman",
+          "items.twoLiterDoogh": "Two Liter Family Doogh",
+          "items.twoLiterDooghPrice": "63,000 Toman",
+          "items.smallWater": "Small Mineral Water",
+          "items.smallWaterPrice": "10,000 Toman",
+          "items.familyWater": "Family Mineral Water",
+          "items.familyWaterPrice": "15,000 Toman",
+          "modal.close": "×",
+          "modal.weightSelectionSoup": "Select Barley Soup Weight:",
+          "modal.weightSelectionAsh": "Select Barley Stew Weight:",
+          "modal.weightSelectionHalim": "Select Wheat Halim Weight:",
+          "modal.finalPrice": "Final Price:",
+          "modal.feedbackTitle": "📝 Your Feedback About This Food",
+          "modal.feedbackPlaceholder": "Write your opinion about this food...",
+          "modal.submitFeedback": "Submit Feedback",
+          "footer.copyright": "© 2025 Ehsan's Bite . All rights reserved.",
+          "messages.unavailable": "⛔ {{item}} is not available today!\n\n{{message}}",
+          "messages.feedbackSuccess": "Your feedback has been submitted successfully! Thank you 🌟",
+          "messages.emptyFeedback": "Please enter your feedback"
+      }
+  };
 
   function changeLanguage(lang) {
-    document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
-    document.documentElement.lang = lang;
-    
-    document.getElementById('languageToggle').textContent = lang === 'fa' ? 'EN' : 'FA';
-    
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-      const key = element.getAttribute('data-i18n');
-      if (translations[lang][key]) {
-        element.textContent = translations[lang][key];
-      }
-    });
-    
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-      const key = element.getAttribute('data-i18n-placeholder');
-      if (translations[lang][key]) {
-        element.placeholder = translations[lang][key];
-      }
-    });
-    
-    document.querySelectorAll('[data-i18n-title]').forEach(element => {
-      const key = element.getAttribute('data-i18n-title');
-      if (translations[lang][key]) {
-        element.dataset.title = translations[lang][key];
-      }
-    });
-    
-    localStorage.setItem('preferred-language', lang);
+      document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+      
+      document.getElementById('languageToggle').textContent = lang === 'fa' ? 'EN' : 'FA';
+      
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          if (translations[lang][key]) {
+              element.textContent = translations[lang][key];
+          }
+      });
+      
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+          const key = element.getAttribute('data-i18n-placeholder');
+          if (translations[lang][key]) {
+              element.placeholder = translations[lang][key];
+          }
+      });
+      
+      document.querySelectorAll('[data-i18n-title]').forEach(element => {
+          const key = element.getAttribute('data-i18n-title');
+          if (translations[lang][key]) {
+              element.dataset.title = translations[lang][key];
+          }
+      });
+      
+      localStorage.setItem('preferred-language', lang);
   }
 
   function applyTheme(mode) {
-    document.body.classList.remove('day-mode', 'night-mode');
-    document.body.classList.add(`${mode}-mode`);
-    localStorage.setItem('site-theme', mode);
+      document.body.classList.remove('day-mode', 'night-mode');
+      document.body.classList.add(`${mode}-mode`);
+      localStorage.setItem('site-theme', mode);
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    const savedLanguage = localStorage.getItem('preferred-language') || 'fa';
-    changeLanguage(savedLanguage);
-    
-    const savedTheme = localStorage.getItem('site-theme') || 'night';
-    applyTheme(savedTheme);
-    
-    document.getElementById('languageToggle').addEventListener('click', function() {
-      const currentLang = document.documentElement.lang;
-      const newLang = currentLang === 'fa' ? 'en' : 'fa';
-      changeLanguage(newLang);
-    });
-    
-    document.getElementById('themeToggle').addEventListener('click', function() {
-      const current = document.body.classList.contains('day-mode') ? 'day' : 'night';
-      const newTheme = current === 'night' ? 'day' : 'night';
-      applyTheme(newTheme);
-    });
+      const savedLanguage = localStorage.getItem('preferred-language') || 'fa';
+      changeLanguage(savedLanguage);
+      
+      const savedTheme = localStorage.getItem('site-theme') || 'night';
+      applyTheme(savedTheme);
+      
+      document.getElementById('languageToggle').addEventListener('click', function() {
+          const currentLang = document.documentElement.lang;
+          const newLang = currentLang === 'fa' ? 'en' : 'fa';
+          changeLanguage(newLang);
+      });
+      
+      document.getElementById('themeToggle').addEventListener('click', function() {
+          const current = document.body.classList.contains('day-mode') ? 'day' : 'night';
+          const newTheme = current === 'night' ? 'day' : 'night';
+          applyTheme(newTheme);
+      });
   });
   
   const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
 
   fetch(SHEET_URL)
-    .then(res => res.json())
-    .then(data => {
-      data.forEach(item => {
-        const allMenuItems = document.querySelectorAll('.menu-item');
-        allMenuItems.forEach(el => {
-          const title = el.dataset.title;
-          if (title === item.title) {
-            const infoBox = el.querySelector(".info strong");
-            const light = document.createElement("span");
-            light.classList.add("status-light");
+      .then(res => res.json())
+      .then(data => {
+          data.forEach(item => {
+              const allMenuItems = document.querySelectorAll('.menu-item');
+              allMenuItems.forEach(el => {
+                  const title = el.dataset.title;
+                  if (title === item.title) {
+                      const infoBox = el.querySelector(".info strong");
+                      const light = document.createElement("span");
+                      light.classList.add("status-light");
 
-            if (item.available === false || item.available === "FALSE") {
-              light.classList.add("status-unavailable");
-            } else {
-              light.classList.add("status-available");
-            }
+                      if (item.available === false || item.available === "FALSE") {
+                          light.classList.add("status-unavailable");
+                      } else {
+                          light.classList.add("status-available");
+                      }
 
-            infoBox.prepend(light);
-          }
-        });
+                      infoBox.prepend(light);
+                  }
+              });
+          });
+      })
+      .catch(err => {
+          console.error("خطا در دریافت موجودی منو:", err);
       });
-    })
-    .catch(err => {
-      console.error("خطا در دریافت موجودی منو:", err);
-    });
 </script>
 </body>
 </html>
