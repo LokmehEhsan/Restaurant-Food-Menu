@@ -1255,11 +1255,11 @@
 
 <div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png" data-title="زیتون پرورده ۷۵ گرمی" data-i18n-title="items.stuffedOlives" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
-<strong data-i18n="items.stuffedOlives">زیتون پرورده</strong>
+<strong data-i18n="items.stuffedOlives">زیتون پرورده ۷۵ گرمی</strong>
 <span data-i18n="items.stuffedOlivesPrice">۲۵.۰۰۰ تومان</span>
 </div>
 <img alt="زیتون پرورده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zeytonnnnn.png"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="زیتون پرورده"></div>
+<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="زیتون پرورده ۷۵ گرمی"></div>
 </div>
 
 <div class="menu-item" data-category="دسر و چاشنی" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sabzi.png" data-title="سبزی خوردن" data-i18n-title="items.freshHerbs" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
@@ -1690,7 +1690,7 @@
   function getAvailableDaysMessage(itemTitle, lang) {
       if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
           return lang === 'fa' 
-              ? "این غذا فقط در روزهای شنبه، دوشنبه موجود است."
+              ? "این غذا فقط در روزهای شنبه، دوشنبه و چهارشنبه موجود است."
               : "This food is only available on Saturday, Monday and Wednesday.";
       } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
           return lang === 'fa'
@@ -1843,12 +1843,12 @@
       if(element.dataset.title === "سوپ جو" || element.dataset.title === "Barley Soup"){
           const currentLang = document.documentElement.lang;
           modalOrderTime.textContent = currentLang === 'fa' 
-              ? "زمان سفارش: شنبه، دوشنبه، ۱۲ تا اتمام موجودی"
+              ? "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵"
               : "Order time: Saturday, Monday, Wednesday 12-15";
       } else if(element.dataset.title === "آش جو" || element.dataset.title === "Barley Stew"){
           const currentLang = document.documentElement.lang;
           modalOrderTime.textContent = currentLang === 'fa'
-              ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا اتمام موجودی"
+              ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵"
               : "Order time: Sunday, Tuesday, Thursday 12-15";
       } else if(element.dataset.title === "حلیم گندم" || element.dataset.title === "Wheat Halim"){
           const currentLang = document.documentElement.lang;
