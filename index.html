@@ -1195,9 +1195,6 @@ const STORAGE_KEY = 'restaurant_ratings';
 const FEEDBACK_STORAGE_KEY = 'restaurant_feedbacks';
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
 
-// اضافه کردن URL شیت نظرات
-const FEEDBACK_SHEET_URL = "https://script.google.com/macros/s/AKfycbz0-oVOhSYS733KJl_vfS6a8IMqg43BxJK_dJq3iNluQNvfrYES5t_khoJiTJIldFN_Ng/exec";
-
 // توابع مربوط به زبان و تاریخ
 function getCurrentPersianDay() {
     const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
@@ -1317,18 +1314,6 @@ function saveFeedbacks(feedbacks) {
     localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify(feedbacks));
 }
 
-// تابع ارسال نظر به گوگل شیت
-function submitFeedbackToSheet(feedbackData) {
-    return fetch(FEEDBACK_SHEET_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(feedbackData)
-    });
-}
-
-// تابع اصلی ارسال نظر - به‌روز شده
 function submitFeedback() {
     const comment = document.getElementById('userComment').value.trim();
     const currentLang = document.documentElement.lang;
@@ -1347,35 +1332,38 @@ function submitFeedback() {
         feedbacks[title] = [];
     }
     
-    // داده نظر
-    const feedbackData = {
-        title: title,
+    // اضافه کردن بازخورد جدید
+    feedbacks[title].push({
         comment: comment,
-        language: currentLang,
-        timestamp: new Date().toISOString()
-    };
+        date: new Date().toISOString(),
+        language: currentLang
+    });
     
-    // اضافه کردن به localStorage
-    feedbacks[title].push(feedbackData);
     saveFeedbacks(feedbacks);
     
-    // ارسال به گوگل شیت نظرات
-    submitFeedbackToSheet(feedbackData)
+    // ارسال به سرور (اختیاری)
+    fetch("https://lokmahkhaneehsan.netlify.app/api/submit-feedback", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            title: title,
+            comment: comment,
+            language: currentLang,
+            timestamp: new Date().toISOString()
+        })
+    })
     .then(response => {
-        if (!response.ok) throw new Error("خطا در ارسال نظر به سرور.");
+        if (!response.ok) throw new Error("خطا در ارسال بازخورد به سرور.");
         return response.json();
     })
-    .then(data => {
-        console.log("نظر با موفقیت به گوگل شیت ارسال شد:", data);
-        alert(translations[currentLang]["messages.feedbackSuccess"]);
-        document.getElementById('userComment').value = '';
-    })
     .catch(error => {
-        console.error("Error submitting feedback to sheet:", error);
-        // حتی اگر ارسال به شیت失败 شد، باز هم در localStorage ذخیره می‌شود
-        alert('نظر در سیستم ذخیره شد اما ممکن است به شیت ارسال نشده باشد.');
-        document.getElementById('userComment').value = '';
+        console.error("Error submitting feedback:", error);
     });
+    
+    alert(translations[currentLang]["messages.feedbackSuccess"]);
+    document.getElementById('userComment').value = '';
 }
 
 function displayPreviousFeedbacks(itemTitle) {
@@ -1881,7 +1869,6 @@ window.addEventListener('keydown', (e) => {
         modal.classList.remove('show');
     }
 });
-</script>
 </script>
 </body>
 </html>
