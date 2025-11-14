@@ -146,28 +146,29 @@ body[dir="ltr"] .menu-button {
 body[dir="ltr"] .header h2 {
   order: 1; /* عنوان به ابتدا برود (سمت چپ) */
 }
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -260px;
-  width: 260px;
-  height: 100%;
-  background-color: rgba(43, 46, 52, 0.85);
-backdrop-filter: blur(20px) saturate(180%); /* افکت شیشه‌ای */
-  -webkit-backdrop-filter: blur(20px) saturate(180%); /* برای مرورگرهای مبتنی بر Webkit */
-	box-shadow: -2px 0 6px rgba(0,0,0,0.7);
-  transition: right 0.3s ease;
-  z-index: 10000;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  font-size: 1rem;
-  border-radius: 0 0 0 20px;
-  overflow-y: auto;
-  border-left: 1px solid rgba(255,255,255,0.1);
+ .side-menu {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background-color: rgba(43, 46, 52, 0.25); /* شفافیت بیشتر */
+    backdrop-filter: blur(20px) saturate(180%); /* افکت شیشه‌ای */
+    -webkit-backdrop-filter: blur(20px) saturate(180%); /* برای مرورگرهای مبتنی بر Webkit */
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 10000;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1rem;
+    border-radius: 0 0 0 20px;
+    overflow-y: auto;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
-body[dir="ltr"] .side-menu {
+	body[dir="ltr"] 
+	.side-menu {
     right: auto;
     left: -260px;
     transition: left 0.3s ease;
