@@ -128,84 +128,101 @@
       background-color: rgba(255,255,255,0.2);
     }
 
-    .side-menu {
-      position: fixed;
-      top: 0;
-      right: -260px;
-      width: 260px;
-      height: 100%;
-      background-color: rgba(43, 46, 52, 0.85);
-      backdrop-filter: blur(25px);
-      box-shadow: -2px 0 6px rgba(0,0,0,0.7);
-      transition: right 0.3s ease;
-      z-index: 10000;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      font-size: 1rem;
-      border-radius: 0 0 0 10px;
-      overflow-y: auto;
-      border-left: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    body[dir="ltr"] .side-menu {
-      right: auto;
-      left: -260px;
-      transition: left 0.3s ease;
-      border-left: none;
-      border-right: 1px solid rgba(255,255,255,0.1);
-      border-radius: 0 0 10px 0;
-    }
-    
-    body[dir="ltr"] .side-menu.open {
-      left: 0;
-      right: auto;
-    }
-    
-    .side-menu.open { right: 0; }
+   .side-menu {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background-color: rgba(43, 46, 52, 0.25); /* شفافیت بیشتر */
+    backdrop-filter: blur(20px) saturate(180%); /* افکت شیشه‌ای */
+    -webkit-backdrop-filter: blur(20px) saturate(180%); /* برای مرورگرهای مبتنی بر Webkit */
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 10000;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1rem;
+    border-radius: 0 0 0 20px;
+    overflow-y: auto;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    .side-menu a, .side-menu .tab {
-      color: #eee;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      background-color: rgba(51, 51, 51, 0.6);
-      transition: all 0.3s ease;
-      cursor: pointer;
-      user-select: none;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .side-menu a:hover, .side-menu .tab:hover {
-      background-color: #f9c400;
-      color: #000;
-      transform: translateY(-2px);
-    }
-    .side-menu .tab.active {
-      background-color: #f9c400;
-      color: #000;
-      font-weight: bold;
-    }
+body[dir="ltr"] .side-menu {
+    right: auto;
+    left: -260px;
+    transition: left 0.3s ease;
+    border-left: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 20px 0;
+}
 
-    body.day-mode .side-menu {
-      background-color: rgba(255, 255, 255, 0.85) !important;
-      color: #2b2e34 !important;
-      border-left: 1px solid rgba(43, 46, 52, 0.2) !important;
-    }
+body[dir="ltr"] .side-menu.open {
+    left: 0;
+    right: auto;
+}
 
-    body.day-mode .side-menu a,
-    body.day-mode .side-menu .tab {
-      background-color: rgba(255, 255, 255, 0.7) !important;
-      color: #2b2e34 !important;
-      border: 1px solid rgba(43, 46, 52, 0.15) !important;
-    }
+.side-menu.open { 
+    right: 0; 
+}
 
-    body.day-mode .side-menu a:hover,
-    body.day-mode .side-menu .tab:hover {
-      background-color: #f9c400 !important;
-      color: #000 !important;
-    }
+/* استایل‌های آیتم‌های منو */
+.side-menu a, .side-menu .tab {
+    color: #eee;
+    text-decoration: none;
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.side-menu a:hover, .side-menu .tab:hover {
+    background-color: rgba(249, 196, 0, 0.3);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: rgba(249, 196, 0, 0.4);
+}
+
+.side-menu .tab.active {
+    background-color: rgba(249, 196, 0, 0.4);
+    color: #000;
+    font-weight: bold;
+    border-color: rgba(249, 196, 0, 0.6);
+}
+
+/* حالت روز */
+body.day-mode .side-menu {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.day-mode .side-menu a,
+body.day-mode .side-menu .tab {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #2b2e34;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+body.day-mode .side-menu a:hover,
+body.day-mode .side-menu .tab:hover {
+    background-color: rgba(249, 196, 0, 0.4);
+    color: #000;
+}
+
+body.day-mode .side-menu .tab.active {
+    background-color: rgba(249, 196, 0, 0.6);
+    color: #000;
+}
 
     .search-box {
       background-color: rgba(51, 51, 51, 0.6);
@@ -422,6 +439,209 @@
       color: gold;
     }
 
+    /* استایل‌های جدید برای مودال محصولات */
+    .product-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 11000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-modal-content {
+      background-color: rgba(31, 36, 48, 0.95);
+      border-radius: 24px;
+      border: 2px solid rgba(244, 196, 48, 0.8);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 1.5rem 2rem 2rem;
+      text-align: center;
+      position: relative;
+      max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      user-select: none;
+      backdrop-filter: blur(20px);
+      width: 800px;
+    }
+    
+    body[dir="ltr"] .product-modal-content {
+      text-align: center;
+    }
+
+    body.day-mode .product-modal {
+      background: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    body.day-mode .product-modal-content {
+      background-color: rgba(255, 255, 255, 0.95) !important;
+      border: 2px solid rgba(213, 232, 196, 0.8) !important;
+      color: #2b2e34 !important;
+    }
+
+    .product-modal-content .close-btn {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: #ff4d4d;
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    
+    body[dir="ltr"] .product-modal-content .close-btn {
+      right: auto;
+      left: -16px;
+    }
+    
+    .product-modal-content .close-btn:hover {
+      background-color: #e74c3c;
+      transform: scale(1.1) rotate(90deg);
+    }
+
+    .product-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .main-image {
+      width: 100%;
+      text-align: center;
+    }
+
+    .main-image img {
+      max-width: 100%;
+      max-height: 400px;
+      border-radius: 16px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 8px;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .thumbnail-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumbnail.active {
+      border-color: #f9c400;
+      transform: scale(1.1);
+    }
+
+    .thumbnail:hover {
+      border-color: #f9c400;
+      transform: scale(1.05);
+    }
+
+    .thumbnail-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: white;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 5px;
+    }
+
+    .thumbnail:hover .thumbnail-overlay {
+      opacity: 1;
+    }
+
+    .product-info {
+      padding: 15px 0;
+    }
+
+    .product-info h2 {
+      color: #f9c400;
+      margin-bottom: 10px;
+      font-size: 35px;
+    }
+
+    .product-info p {
+      color: #f9c400;
+      line-height: 1.6;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .control-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .control-btn {
+      padding: 8px 15px;
+      background-color: #f9c400;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-weight: bold;
+    }
+
+    .control-btn:hover {
+      background-color: #e6b800;
+      transform: translateY(-2px);
+    }
+
+    .view-gallery-btn {
+      background-color: #28a745;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .view-gallery-btn:hover {
+      background-color: #218838;
+    }
+
+    /* استایل‌های مودال اصلی (موجود) */
     .modal {
       display: none;
       position: fixed;
@@ -830,11 +1050,45 @@
       left: auto;
       right: 5rem;
     }
+
+    .gallery-btn {
+      background-color: #17a2b8;
+      margin-top: 10px;
+    }
+
+    .gallery-btn:hover {
+      background-color: #138496;
+    }
+
+    .todays-food-btn {
+      background: linear-gradient(135deg, #f9c400, #ff6b6b);
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 20px auto;
+      display: block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .todays-food-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
 </style>
 </head>
 <body>
 <button class="language-switcher" id="languageToggle">EN</button>
 <button class="theme-toggle" id="themeToggle">🌗</button>
+
+<!-- دکمه غذاهای امروز -->
+<button class="todays-food-btn" onclick="showTodaysFood()">
+    <span id="todaysFoodText">غذاهای امروز لقمه احسان</span>
+</button>
 
 <div class="welcome-message">
   <h1 data-i18n="welcome.title">🌟 به رستوران لقمه احسان خوش آمدید 🌟</h1>
@@ -880,6 +1134,7 @@
 </div>
 
 <main aria-label="لیست غذاها" class="menu-container" role="list">
+<!-- آیتم‌های منو -->
 <div class="menu-item" data-category="پیش غذا" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" data-title="سوپ جو" data-i18n-title="items.barleySoup" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
 <div class="info">
 <strong data-i18n="items.barleySoup">سوپ جو</strong>
@@ -923,87 +1178,6 @@
 </div>
 <img alt="کوبیده بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg" data-title="کوبیده گوسفندی با نان و دورچین" data-i18n-title="items.lambKobidehWithBread" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.lambKobidehWithBread">کوبیده گوسفندی با نان و دورچین</strong>
-<span data-i18n="items.lambKobidehWithBreadPrice">۱۳۶.۰۰۰ تومان</span>
-</div>
-<img alt="کوبیده گوسفندی با نان و دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/kabab gosfandi.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده گوسفندی با نان و دورچین"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg" data-title="کوبیده بوقلمون با نان و درچین" data-i18n-title="items.turkeyKobidehWithBread" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.turkeyKobidehWithBread">کوبیده بوقلمون با نان و درچین</strong>
-<span data-i18n="items.turkeyKobidehWithBreadPrice">۱۰۴.۰۰۰ تومان</span>
-</div>
-<img alt="کوبیده بوقلمون با نان و درچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/babab boqlamon.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کوبیده بوقلمون با نان و درچین"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-title="کباب لقمه گوسفندی" data-i18n-title="items.lambBiteKebab" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.lambBiteKebab">کباب لقمه گوسفندی</strong>
-<span data-i18n="items.lambBiteKebabPrice">۱۸۴.۰۰۰ تومان</span>
-</div>
-<img alt="کباب لقمه گوسفندی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه گوسفندی"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-title="کباب لقمه شتر" data-i18n-title="items.camelBiteKebab" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.camelBiteKebab">کباب لقمه شتر</strong>
-<span data-i18n="items.camelBiteKebabPrice">۲۳۰.۰۰۰ تومان</span>
-</div>
-<img alt="کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="کباب لقمه شتر"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg" data-title="ساندویچ کباب لقمه شتر" data-i18n-title="items.camelBiteSandwich" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.camelBiteSandwich">ساندویچ کباب لقمه شتر</strong>
-<span data-i18n="items.camelBiteSandwichPrice">۲۵۵.۰۰۰ تومان</span>
-</div>
-<img alt="ساندویچ کباب لقمه شتر" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/loqmeh.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ساندویچ کباب لقمه شتر"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg" data-title="جوجه کباب بوقلمون" data-i18n-title="items.turkeyJoojeh" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.turkeyJoojeh">جوجه کباب بوقلمون</strong>
-<span data-i18n="items.turkeyJoojehPrice">۲۰۸.۰۰۰ تومان</span>
-</div>
-<img alt="جوجه کباب بوقلمون" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/jojeh.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="جوجه کباب بوقلمون"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png" data-title="سیخ گوجه کبابی" data-i18n-title="items.tomatoSkewer" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.tomatoSkewer">سیخ گوجه کبابی</strong>
-<span data-i18n="items.tomatoSkewerPrice">۳۲.۰۰۰ تومان</span>
-</div>
-<img alt="سیخ گوجه سیخ گوجه کبابی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/gojehh.png"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="سیخ گوجه سیخ گوجه کبابی"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg" data-title="دورچین" data-i18n-title="items.sideDish" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.sideDish">دورچین</strong>
-<span data-i18n="items.sideDishPrice">۱۰.۰۰۰ تومان</span>
-</div>
-<img alt="دورچین" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/dorchin.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="دورچین"></div>
-</div>
-
-<div class="menu-item" data-category="کباب ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg" data-title="ظرف یکبار مصرف کباب آلومینیومی" data-i18n-title="items.aluminumContainer" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
-<div class="info">
-<strong data-i18n="items.aluminumContainer">ظرف یکبار مصرف کباب آلومینیومی</strong>
-<span data-i18n="items.aluminumContainerPrice">۸.۰۰۰ تومان</span>
-</div>
-<img alt="ظرف یکبار مصرف کباب آلومینیومی" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/zarf.jpg"/>
-<div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="ظرف یکبار مصرف کباب آلومینیومی"></div>
 </div>
 
 <div class="menu-item" data-category="ساندویچ ها" data-img="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" data-title="ساندویچ کوبیده گوسفندی" data-i18n-title="items.lambSandwich" onclick="handleItemClick(this)" onkeydown="if(event.key==='Enter'){handleItemClick(this)}" role="listitem" tabindex="0">
@@ -1112,9 +1286,9 @@
 </div>
 <img alt="آب معدنی خانواده" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/Vata-1500cc.jpg"/>
 <div aria-label="میانگین امتیاز: 0 از 5" class="average-rating" data-title="آب معدنی خانواده"></div>
-</div>
-</main>
+</div></main>
 
+<!-- مودال اصلی (موجود) -->
 <div aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog" tabindex="-1">
 <div class="modal-content">
 <button aria-label="بستن" class="close" id="modalClose" data-i18n="modal.close">×</button>
@@ -1123,6 +1297,7 @@
 <p id="modalPrice"></p>
 <p id="modalOrderTime" style="color: #f9c400; font-weight: bold;"></p>
 
+<!-- بخش‌های وزن‌ها -->
 <div class="weightOptions" id="weightOptions-soup" style="display:none; margin-top:1.2rem;">
 <h4 style="color:#f9c400; margin-bottom:1rem;" data-i18n="modal.weightSelectionSoup">انتخاب وزن سوپ جو:</h4>
 <div class="weight-cards" style="display:flex; gap:1rem;">
@@ -1167,8 +1342,68 @@
   <button class="submit-feedback" onclick="submitFeedback()" data-i18n="modal.submitFeedback">ارسال نظر</button>
 </div>
 
+<!-- دکمه مشاهده گالری در مودال اصلی -->
+<button class="control-btn view-gallery-btn" onclick="closeModalAndOpenGallery()" style="margin-top: 15px;">
+    مشاهده گالری محصولات
+</button>
+
 <p id="ratingMsg" style="margin-top: 0.5rem; color: #f9c400; font-weight: bold;"></p>
 </div>
+</div>
+
+<!-- مودال جدید محصولات -->
+<div id="productModal" class="product-modal">
+    <div class="product-modal-content">
+        <button class="close-btn" onclick="closeProductModal()">×</button>
+        
+        <div class="product-container">
+            <div class="main-image">
+                <img id="mainProductImage" src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" alt="تصویر اصلی محصول">
+            </div>
+            
+            <div class="thumbnail-container">
+                <div class="thumbnail active" onclick="showItemDetails('سوپ جو')">
+                    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg" alt="سوپ جو">
+                    <div class="thumbnail-overlay">سوپ جو</div>
+                </div>
+                <div class="thumbnail" onclick="showItemDetails('آش جو')">
+                    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg" alt="آش جو">
+                    <div class="thumbnail-overlay">آش جو</div>
+                </div>
+                <div class="thumbnail" onclick="showItemDetails('حلیم گندم')">
+                    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg" alt="حلیم گندم">
+                    <div class="thumbnail-overlay">حلیم گندم</div>
+                </div>
+                <div class="thumbnail" onclick="showItemDetails('کوبیده گوسفندی')">
+                    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg" alt="کوبیده گوسفندی">
+                    <div class="thumbnail-overlay">کوبیده گوسفندی</div>
+                </div>
+                <div class="thumbnail" onclick="showItemDetails('کوبیده بوقلمون')">
+                    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg" alt="کوبیده بوقلمون">
+                    <div class="thumbnail-overlay">کوبیده بوقلمون</div>
+                </div>
+                <div class="thumbnail" onclick="showItemDetails('ساندویچ کوبیده گوسفندی')">
+                    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg" alt="ساندویچ کوبیده گوسفندی">
+                    <div class="thumbnail-overlay">ساندویچ گوسفندی</div>
+                </div>
+                <div class="thumbnail" onclick="showItemDetails('ساندویچ کوبیده بوقلمون')">
+                    <img src="https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg" alt="ساندویچ کوبیده بوقلمون">
+                    <div class="thumbnail-overlay">ساندویچ بوقلمون</div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h2>گالری محصولات رستوران</h2>
+                <p>برای مشاهده جزئیات هر محصول، روی تصاویر کوچک کلیک کنید</p>
+                <p style="color: #f9c400; font-weight: bold;" id="currentProductInfo"></p>
+            </div>
+
+            <div class="control-buttons">
+                <button class="control-btn" onclick="previousImage()">تصویر قبلی</button>
+                <button class="control-btn" onclick="nextImage()">تصویر بعدی</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer class="footer">
@@ -1176,272 +1411,341 @@
 </footer>
 
 <script>
-const sideMenu = document.getElementById('sideMenu');
-const menuToggle = document.getElementById('menuToggle');
-const tabs = document.querySelectorAll('.tabs .tab');
-const sideTabs = document.querySelectorAll('.side-menu .tab');
-const searchInput = document.getElementById('search');
-const menuItems = document.querySelectorAll('.menu-item');
-const modal = document.getElementById('modal');
-const modalClose = document.getElementById('modalClose');
-const modalImg = document.getElementById('modalImg');
-const modalTitle = document.getElementById('modalTitle');
-const modalPrice = document.getElementById('modalPrice');
-const modalOrderTime = document.getElementById('modalOrderTime');
-const stars = modal.querySelectorAll('.star');
-const ratingMsg = document.getElementById('ratingMsg');
+  // کدهای اصلی موجود...
+  const sideMenu = document.getElementById('sideMenu');
+  const menuToggle = document.getElementById('menuToggle');
+  const tabs = document.querySelectorAll('.tabs .tab');
+  const sideTabs = document.querySelectorAll('.side-menu .tab');
+  const searchInput = document.getElementById('search');
+  const menuItems = document.querySelectorAll('.menu-item');
+  const modal = document.getElementById('modal');
+  const modalClose = document.getElementById('modalClose');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalPrice = document.getElementById('modalPrice');
+  const modalOrderTime = document.getElementById('modalOrderTime');
+  const stars = modal.querySelectorAll('.star');
+  const ratingMsg = document.getElementById('ratingMsg');
+  
+  const STORAGE_KEY = 'restaurant_ratings';
 
-const STORAGE_KEY = 'restaurant_ratings';
-const FEEDBACK_STORAGE_KEY = 'restaurant_feedbacks';
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
+  // کدهای جدید برای مودال محصولات و غذاهای امروز
+  let currentImageIndex = 0;
+  const productImages = [
+      'https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/soup.jpg',
+      'https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/ash.jpg',
+      'https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/haleam.jpg',
+      'https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/0c53a7a9-636.jpg',
+      'https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/008bcb7c-447.jpg',
+      'https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/sandevich gosfandy.jpg',
+      'https://restaurant-food-menu.khaneehsan.workers.dev//image.txt/boqlamon.jpg'
+  ];
 
-// توابع مربوط به زبان و تاریخ
-function getCurrentPersianDay() {
+  const productTitles = [
+      'سوپ جو',
+      'آش جو', 
+      'حلیم گندم',
+      'کوبیده گوسفندی',
+      'کوبیده بوقلمون',
+      'ساندویچ کوبیده گوسفندی',
+      'ساندویچ کوبیده بوقلمون'
+  ];
+
+  // برنامه غذایی هفتگی
+  const weeklyMenu = {
+      'شنبه': ['سوپ جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+      'یکشنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+      'دوشنبه': ['سوپ جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+      'سه‌شنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+      'چهارشنبه': ['حلیم گندم', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+      'پنجشنبه': ['آش جو', 'کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون'],
+      'جمعه': ['کوبیده گوسفندی', 'کوبیده بوقلمون', 'ساندویچ کوبیده گوسفندی', 'ساندویچ کوبیده بوقلمون']
+  };
+
+  // نمایش غذاهای امروز
+  function showTodaysFood() {
+      const today = getCurrentPersianDay();
+      const todaysFood = weeklyMenu[today] || [];
+      
+      // پنهان کردن همه آیتم‌ها
+      document.querySelectorAll('.menu-item').forEach(item => {
+          item.style.display = 'none';
+      });
+      
+      // نمایش فقط غذاهای امروز
+      document.querySelectorAll('.menu-item').forEach(item => {
+          const title = item.dataset.title;
+          if (todaysFood.includes(title)) {
+              item.style.display = 'flex';
+          }
+      });
+      
+      // به‌روزرسانی تب فعال
+      setActiveTab(document.querySelector('.tabs .tab[data-category="همه"]'));
+      
+      // به‌روزرسانی متن دکمه
+      document.getElementById('todaysFoodText').textContent = `غذاهای امروز (${today})`;
+      
+      alert(`امروز ${today} است\nغذاهای موجود: ${todaysFood.join('، ')}`);
+  }
+
+  // باز کردن مودال محصولات
+  function openProductModal() {
+      document.getElementById('productModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      updateCurrentProductInfo();
+  }
+
+  // بستن مودال محصولات
+  function closeProductModal() {
+      document.getElementById('productModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+  }
+
+  // تغییر تصویر اصلی
+  function changeImage(imageSrc) {
+      document.getElementById('mainProductImage').src = imageSrc;
+      
+      // به‌روزرسانی وضعیت فعال تامبنیل‌ها
+      const thumbnails = document.querySelectorAll('.thumbnail');
+      thumbnails.forEach((thumb, index) => {
+          if (thumb.onclick.toString().includes(imageSrc)) {
+              thumb.classList.add('active');
+              currentImageIndex = index;
+          } else {
+              thumb.classList.remove('active');
+          }
+      });
+      
+      updateCurrentProductInfo();
+  }
+
+  // نمایش جزئیات محصول با کلیک روی تامبنیل
+  function showItemDetails(productTitle) {
+      closeProductModal();
+      
+      // پیدا کردن آیتم مربوطه و نمایش مودال آن
+      const menuItems = document.querySelectorAll('.menu-item');
+      for (let item of menuItems) {
+          if (item.dataset.title === productTitle) {
+              handleItemClick(item);
+              break;
+          }
+      }
+  }
+
+  // به‌روزرسانی اطلاعات محصول فعلی
+  function updateCurrentProductInfo() {
+      const currentProduct = productTitles[currentImageIndex];
+      document.getElementById('currentProductInfo').textContent = 
+          `محصول فعلی: ${currentProduct} - برای مشاهده جزئیات کلیک کنید`;
+  }
+
+  // تصویر قبلی
+  function previousImage() {
+      currentImageIndex = (currentImageIndex - 1 + productImages.length) % productImages.length;
+      changeImage(productImages[currentImageIndex]);
+  }
+
+  // تصویر بعدی
+  function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % productImages.length;
+      changeImage(productImages[currentImageIndex]);
+  }
+
+  // بستن مودال و باز کردن گالری
+  function closeModalAndOpenGallery() {
+      const modal = document.getElementById('modal');
+      modal.classList.remove('show');
+      openProductModal();
+  }
+
+  // بستن مودال با کلید ESC
+  document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+          closeProductModal();
+          const modal = document.getElementById('modal');
+          if (modal.classList.contains('show')) {
+              modal.classList.remove('show');
+          }
+      }
+  });
+
+  // بستن مودال با کلیک خارج از محتوا
+  document.getElementById('productModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+          closeProductModal();
+      }
+  });
+
+  // کدهای اصلی موجود...
+  function getCurrentPersianDay() {
     const days = ['یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
     const today = new Date().getDay();
     return days[today];
-}
+  }
 
-function isItemAvailable(itemTitle) {
+  function isItemAvailable(itemTitle) {
     const today = getCurrentPersianDay();
     
     if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
-        return ['شنبه', 'دوشنبه'].includes(today);
+      return ['شنبه', 'دوشنبه' ].includes(today);
     } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
-        return ['یکشنبه', 'سه‌شنبه', 'پنجشنبه'].includes(today);
+      return ['یکشنبه', 'سه‌شنبه', 'پنجشنبه'].includes(today);
     } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
-        return ['چهارشنبه'].includes(today);
+      return ['چهارشنبه'].includes(today);
     }
     
     return true;
-}
+  }
 
-function getAvailableDaysMessage(itemTitle, lang) {
+  function getAvailableDaysMessage(itemTitle, lang) {
     if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
-        return lang === 'fa' 
-            ? "این غذا فقط در روزهای شنبه، دوشنبه و چهارشنبه موجود است."
-            : "This food is only available on Saturday, Monday and Wednesday.";
+      return lang === 'fa' 
+        ? "این غذا فقط در روزهای شنبه، دوشنبه و چهارشنبه موجود است."
+        : "This food is only available on Saturday, Monday and Wednesday.";
     } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
-        return lang === 'fa'
-            ? "این غذا فقط در روزهای یکشنبه، سه‌شنبه و پنجشنبه موجود است."
-            : "This food is only available on Sunday, Tuesday and Thursday.";
+      return lang === 'fa'
+        ? "این غذا فقط در روزهای یکشنبه، سه‌شنبه و پنجشنبه موجود است."
+        : "This food is only available on Sunday, Tuesday and Thursday.";
     } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
-        return lang === 'fa'
-            ? "این غذا فقط در روزهای چهارشنبه موجود است."
-            : "This food is only available on Wednesday.";
+      return lang === 'fa'
+        ? "این غذا فقط در روزهای چهارشنبه موجود است."
+        : "This food is only available on Wednesday.";
     }
     return "";
-}
+  }
 
-// توابع مدیریت منو
-function handleItemClick(element) {
+  function handleItemClick(element) {
     const itemTitle = element.dataset.title;
     const currentLang = document.documentElement.lang;
     
     if (!isItemAvailable(itemTitle)) {
-        const message = getAvailableDaysMessage(itemTitle, currentLang);
-        const alertMessage = translations[currentLang]["messages.unavailable"]
-            .replace("{{item}}", itemTitle)
-            .replace("{{message}}", message);
-        
-        alert(alertMessage);
-        return;
+      const message = getAvailableDaysMessage(itemTitle, currentLang);
+      const alertMessage = translations[currentLang]["messages.unavailable"]
+        .replace("{{item}}", itemTitle)
+        .replace("{{message}}", message);
+      
+      alert(alertMessage);
+      return;
     }
     
     showModal(element);
-}
+  }
 
-// توابع مدیریت امتیازها
-function loadRatings() {
+  function loadRatings() {
     try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : {};
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
     } catch {
-        return {};
+      return {};
     }
-}
+  }
 
-function saveRatings(ratings) {
+  function saveRatings(ratings) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(ratings));
-}
+  }
 
-function calculateAverage(arr) {
+  function calculateAverage(arr) {
     if (!arr || arr.length === 0) return 0;
     const sum = arr.reduce((a,b) => a+b, 0);
     return (sum / arr.length);
-}
+  }
 
-function updateAverageRatingsUI() {
+  function updateAverageRatingsUI() {
     const ratings = loadRatings();
     document.querySelectorAll('.average-rating').forEach(avgDiv => {
-        const title = avgDiv.dataset.title;
-        const scores = ratings[title] || [];
-        const avg = calculateAverage(scores);
-        avgDiv.innerHTML = '';
-        
-        const currentLang = document.documentElement.lang;
-        const ariaLabel = currentLang === 'fa' 
-            ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵`
-            : `Average rating: ${avg.toFixed(1)} out of 5`;
-        
-        avgDiv.setAttribute('aria-label', ariaLabel);
+      const title = avgDiv.dataset.title;
+      const scores = ratings[title] || [];
+      const avg = calculateAverage(scores);
+      avgDiv.innerHTML = '';
+      
+      const currentLang = document.documentElement.lang;
+      const ariaLabel = currentLang === 'fa' 
+        ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵`
+        : `Average rating: ${avg.toFixed(1)} out of 5`;
+      
+      avgDiv.setAttribute('aria-label', ariaLabel);
 
-        const fullStars = Math.floor(avg);
-        const halfStar = (avg - fullStars) >= 0.5;
-        for(let i=1; i<=5; i++){
-            let starSpan = document.createElement('span');
-            starSpan.classList.add('star');
-            starSpan.textContent = '★';
-            if(i <= fullStars) starSpan.style.color = 'gold';
-            else if(i === fullStars + 1 && halfStar) starSpan.style.color = 'goldenrod';
-            else starSpan.style.color = '#444';
-            avgDiv.appendChild(starSpan);
-        }
+      const fullStars = Math.floor(avg);
+      const halfStar = (avg - fullStars) >= 0.5;
+      for(let i=1; i<=5; i++){
+        let starSpan = document.createElement('span');
+        starSpan.classList.add('star');
+        starSpan.textContent = '★';
+        if(i <= fullStars) starSpan.style.color = 'gold';
+        else if(i === fullStars + 1 && halfStar) starSpan.style.color = 'goldenrod';
+        else starSpan.style.color = '#444';
+        avgDiv.appendChild(starSpan);
+      }
     });
-}
+  }
 
-// توابع مدیریت بازخوردها
-function loadFeedbacks() {
-    try {
-        const raw = localStorage.getItem(FEEDBACK_STORAGE_KEY);
-        return raw ? JSON.parse(raw) : {};
-    } catch {
-        return {};
-    }
-}
-
-function saveFeedbacks(feedbacks) {
-    localStorage.setItem(FEEDBACK_STORAGE_KEY, JSON.stringify(feedbacks));
-}
-
-function submitFeedback() {
-    const comment = document.getElementById('userComment').value.trim();
-    const currentLang = document.documentElement.lang;
-    
-    if (!comment) {
-        alert(translations[currentLang]["messages.emptyFeedback"]);
-        return;
-    }
-    
-    if (!currentItem) return;
-    
-    const title = currentItem.dataset.title;
-    const feedbacks = loadFeedbacks();
-    
-    if (!feedbacks[title]) {
-        feedbacks[title] = [];
-    }
-    
-    // اضافه کردن بازخورد جدید
-    feedbacks[title].push({
-        comment: comment,
-        date: new Date().toISOString(),
-        language: currentLang
-    });
-    
-    saveFeedbacks(feedbacks);
-    
-    // ارسال به سرور (اختیاری)
-    fetch("https://lokmahkhaneehsan.netlify.app/api/submit-feedback", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            title: title,
-            comment: comment,
-            language: currentLang,
-            timestamp: new Date().toISOString()
-        })
-    })
-    .then(response => {
-        if (!response.ok) throw new Error("خطا در ارسال بازخورد به سرور.");
-        return response.json();
-    })
-    .catch(error => {
-        console.error("Error submitting feedback:", error);
-    });
-    
-    alert(translations[currentLang]["messages.feedbackSuccess"]);
-    document.getElementById('userComment').value = '';
-}
-
-function displayPreviousFeedbacks(itemTitle) {
-    const feedbacks = loadFeedbacks();
-    const itemFeedbacks = feedbacks[itemTitle] || [];
-    
-    if (itemFeedbacks.length > 0) {
-        console.log(`بازخوردهای ${itemTitle}:`, itemFeedbacks);
-    }
-}
-
-// توابع مدیریت منوی جانبی و تب‌ها
-menuToggle.addEventListener('click', () => {
+  menuToggle.addEventListener('click', () => {
     const isOpen = sideMenu.classList.toggle('open');
     sideMenu.setAttribute('aria-hidden', !isOpen);
-});
+  });
 
-tabs.forEach(tab => {
+  tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-        changeCategory(tab.dataset.category);
-        setActiveTab(tab);
+      changeCategory(tab.dataset.category);
+      setActiveTab(tab);
     });
-});
+  });
 
-sideTabs.forEach(tab => {
+  sideTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-        changeCategory(tab.dataset.category);
-        setActiveSideTab(tab);
-        sideMenu.classList.remove('open');
-        sideMenu.setAttribute('aria-hidden', 'true');
+      changeCategory(tab.dataset.category);
+      setActiveSideTab(tab);
+      sideMenu.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
     });
-});
+  });
 
-function setActiveTab(activeTab) {
+  function setActiveTab(activeTab) {
     tabs.forEach(tab => {
-        const isActive = tab === activeTab;
-        tab.classList.toggle('active', isActive);
+      const isActive = tab === activeTab;
+      tab.classList.toggle('active', isActive);
     });
     sideTabs.forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
+      tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
     });
-}
+  }
 
-function setActiveSideTab(activeTab) {
+  function setActiveSideTab(activeTab) {
     sideTabs.forEach(tab => {
-        const isActive = tab === activeTab;
-        tab.classList.toggle('active', isActive);
+      const isActive = tab === activeTab;
+      tab.classList.toggle('active', isActive);
     });
     tabs.forEach(tab => {
-        tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
+      tab.classList.toggle('active', tab.dataset.category === activeTab.dataset.category);
     });
-}
+  }
 
-function changeCategory(category) {
+  function changeCategory(category) {
     const searchTerm = searchInput.value.trim().toLowerCase();
     menuItems.forEach(item => {
-        const title = item.dataset.title.toLowerCase();
-        const cat = item.dataset.category;
-        const matchesCategory = category === "همه" || cat === category;
-        const matchesSearch = title.includes(searchTerm);
-        if(matchesCategory && matchesSearch){
-            item.style.display = 'flex';
-        } else {
-            item.style.display = 'none';
-        }
+      const title = item.dataset.title.toLowerCase();
+      const cat = item.dataset.category;
+      const matchesCategory = category === "همه" || cat === category;
+      const matchesSearch = title.includes(searchTerm);
+      if(matchesCategory && matchesSearch){
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
     });
-}
+  }
 
-searchInput.addEventListener('input', () => {
+  searchInput.addEventListener('input', () => {
     const activeTab = document.querySelector('.tabs .tab.active');
     const category = activeTab ? activeTab.dataset.category : "همه";
     changeCategory(category);
-});
+  });
 
-// توابع مدیریت مودال
-let currentItem = null;
+  let currentItem = null;
 
-function showModal(element) {
+  function showModal(element) {
     currentItem = element;
     modalImg.src = element.dataset.img;
     modalImg.alt = element.dataset.title;
@@ -1449,22 +1753,22 @@ function showModal(element) {
     modalPrice.textContent = element.querySelector('.info span').textContent;
 
     if(element.dataset.title === "سوپ جو" || element.dataset.title === "Barley Soup"){
-        const currentLang = document.documentElement.lang;
-        modalOrderTime.textContent = currentLang === 'fa' 
-            ? "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵"
-            : "Order time: Saturday, Monday, Wednesday 12-15";
+      const currentLang = document.documentElement.lang;
+      modalOrderTime.textContent = currentLang === 'fa' 
+        ? "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵"
+        : "Order time: Saturday, Monday, Wednesday 12-15";
     } else if(element.dataset.title === "آش جو" || element.dataset.title === "Barley Stew"){
-        const currentLang = document.documentElement.lang;
-        modalOrderTime.textContent = currentLang === 'fa'
-            ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵"
-            : "Order time: Sunday, Tuesday, Thursday 12-15";
+      const currentLang = document.documentElement.lang;
+      modalOrderTime.textContent = currentLang === 'fa'
+        ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵"
+        : "Order time: Sunday, Tuesday, Thursday 12-15";
     } else if(element.dataset.title === "حلیم گندم" || element.dataset.title === "Wheat Halim"){
-        const currentLang = document.documentElement.lang;
-        modalOrderTime.textContent = currentLang === 'fa'
-            ? "زمان سفارش: چهارشنبه ۱۳:۳۰ تا اتمام موجودی"
-            : "Order time: Wednesday 13:30 until stock lasts";
+      const currentLang = document.documentElement.lang;
+      modalOrderTime.textContent = currentLang === 'fa'
+        ? "زمان سفارش: چهارشنبه ۱۳:۳۰ تا اتمام موجودی"
+        : "Order time: Wednesday 13:30 until stock lasts";
     } else {
-        modalOrderTime.textContent = "";
+      modalOrderTime.textContent = "";
     }
 
     const ratings = loadRatings();
@@ -1473,111 +1777,122 @@ function showModal(element) {
     
     const currentLang = document.documentElement.lang;
     const ratingText = currentLang === 'fa' 
-        ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`
-        : `Average rating: ${avg.toFixed(1)} out of 5 (${scores.length} votes)`;
+      ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${scores.length} رای)`
+      : `Average rating: ${avg.toFixed(1)} out of 5 (${scores.length} votes)`;
     
     ratingMsg.textContent = ratingText;
 
     stars.forEach(star => {
-        star.classList.remove('selected', 'hovered');
+      star.classList.remove('selected', 'hovered');
     });
 
     if(scores.length > 0){
-        const roundedAvg = Math.round(avg);
-        stars.forEach(star => {
-            if(parseInt(star.dataset.value) <= roundedAvg) {
-                star.classList.add('selected');
-            }
-        });
+      const roundedAvg = Math.round(avg);
+      stars.forEach(star => {
+        if(parseInt(star.dataset.value) <= roundedAvg) {
+          star.classList.add('selected');
+        }
+      });
     }
 
     modal.classList.add('show');
     updateWeightSection(element.dataset.title);
-    displayPreviousFeedbacks(element.dataset.title);
-}
+  }
 
-modalClose.addEventListener('click', () => {
+  modalClose.addEventListener('click', () => {
     modal.classList.remove('show');
-});
+  });
 
-window.addEventListener('click', (event) => {
+  window.addEventListener('click', (event) => {
     const isClickInsideMenu = sideMenu.contains(event.target);
     const isClickOnButton = menuToggle.contains(event.target);
     if (!isClickInsideMenu && !isClickOnButton) {
-        sideMenu.classList.remove('open');
-        sideMenu.setAttribute('aria-hidden', 'true');
+      sideMenu.classList.remove('open');
+      sideMenu.setAttribute('aria-hidden', 'true');
     }
-});
+  });
 
-modal.addEventListener('click', (e) => {
+  modal.addEventListener('click', (e) => {
     if(e.target === modal) {
-        modal.classList.remove('show');
+      modal.classList.remove('show');
     }
-});
+  });
 
-// توابع مدیریت ستاره‌های امتیازدهی
-stars.forEach(star => {
+  stars.forEach(star => {
     star.addEventListener('mouseenter', () => {
-        const val = parseInt(star.dataset.value);
-        stars.forEach(s => {
-            s.classList.toggle('hovered', parseInt(s.dataset.value) <= val);
-        });
+      const val = parseInt(star.dataset.value);
+      stars.forEach(s => {
+        s.classList.toggle('hovered', parseInt(s.dataset.value) <= val);
+      });
     });
     star.addEventListener('mouseleave', () => {
-        stars.forEach(s => s.classList.remove('hovered'));
+      stars.forEach(s => s.classList.remove('hovered'));
     });
     star.addEventListener('click', () => {
-        const val = parseInt(star.dataset.value);
-        saveRating(val);
+      const val = parseInt(star.dataset.value);
+      saveRating(val);
     });
-});
+  });
 
-function saveRating(value) {
+  function saveRating(value) {
     if (!currentItem) return;
     const title = currentItem.dataset.title;
     const ratings = loadRatings();
     if (!ratings[title]) ratings[title] = [];
     ratings[title].push(value);
     saveRatings(ratings);
-
-    fetch("https://lokmahkhaneehsan.netlify.app/api/submit-rating", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            title: title,
-            rating: value,
-            comment: ""
-        })
+	
+	fetch("https://lokmahkhaneehsan.netlify.app/api/submit-rating", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        rating: value,
+        comment: ""
+      })
     })
     .then(response => {
-        if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
-        return response.json();
+      if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
+      return response.json();
     })
-    .catch(error => {
-        console.error("Error submitting rating:", error);
-    });
 
     const avg = calculateAverage(ratings[title]);
     const currentLang = document.documentElement.lang;
     const ratingText = currentLang === 'fa'
-        ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`
-        : `Average rating: ${avg.toFixed(1)} out of 5 (${ratings[title].length} votes)`;
+      ? `میانگین امتیاز: ${avg.toFixed(1)} از ۵ (${ratings[title].length} رای)`
+      : `Average rating: ${avg.toFixed(1)} out of 5 (${ratings[title].length} votes)`;
     
     ratingMsg.textContent = ratingText;
 
     stars.forEach(star => {
-        star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
+      star.classList.toggle('selected', parseInt(star.dataset.value) <= Math.round(avg));
     });
 
     updateAverageRatingsUI();
-}
+  }
 
-// توابع مدیریت وزن و قیمت
-const allWeightSections = document.querySelectorAll('.weightOptions');
+  function submitFeedback() {
+    const comment = document.getElementById('userComment').value;
+    const currentLang = document.documentElement.lang;
+    
+    if (!comment.trim()) {
+      alert(translations[currentLang]["messages.emptyFeedback"]);
+      return;
+    }
+    
+    if (!currentItem) return;
+    
+    alert(translations[currentLang]["messages.feedbackSuccess"]);
+    document.getElementById('userComment').value = '';
+  }
 
-function updateWeightSection(title) {
+  updateAverageRatingsUI();
+
+  const allWeightSections = document.querySelectorAll('.weightOptions');
+
+  function updateWeightSection(title) {
     allWeightSections.forEach(section => section.style.display = 'none');
     let sectionId = null;
     if (title === "سوپ جو" || title === "Barley Soup") sectionId = "weightOptions-soup";
@@ -1585,30 +1900,37 @@ function updateWeightSection(title) {
     else if (title === "حلیم گندم" || title === "Wheat Halim") sectionId = "weightOptions-halim";
 
     if (sectionId) {
-        const section = document.getElementById(sectionId);
-        section.style.display = "block";
+      const section = document.getElementById(sectionId);
+      section.style.display = "block";
 
-        const cards = section.querySelectorAll('.weight-card');
-        const priceSpan = section.querySelector('.dynamicPrice');
+      const cards = section.querySelectorAll('.weight-card');
+      const priceSpan = section.querySelector('.dynamicPrice');
 
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                cards.forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          cards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
 
-                const priceStr = card.dataset.price?.replace(/[^0-9.]/g, '');
-                const price = Number(priceStr);
+          const priceStr = card.dataset.price?.replace(/[^0-9.]/g, '');
+          const price = Number(priceStr);
 
-                if (!isNaN(price)) {
-                    priceSpan.textContent = price.toLocaleString('fa-IR');
-                }
-            });
+          if (!isNaN(price)) {
+            priceSpan.textContent = price.toLocaleString('fa-IR');
+          }
         });
+      });
     }
-}
+  }
 
-// توابع مدیریت زبان و تم
-const translations = {
+  window.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modal.classList.contains('show')) {
+      modal.classList.remove('show');
+    }
+  });
+
+  changeCategory("همه");
+
+  const translations = {
     fa: {
         "welcome.title": "🌟 به رستوران لقمه احسان خوش آمدید 🌟",
         "welcome.subtitle": "لذیذترین طعم‌ها در انتظار شماست... نوش جان!",
@@ -1771,75 +2093,44 @@ const translations = {
     }
 };
 
-function changeLanguage(lang) {
+
+  function changeLanguage(lang) {
     document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
     
     document.getElementById('languageToggle').textContent = lang === 'fa' ? 'EN' : 'FA';
     
     document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            element.textContent = translations[lang][key];
-        }
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
     });
     
     document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-        const key = element.getAttribute('data-i18n-placeholder');
-        if (translations[lang][key]) {
-            element.placeholder = translations[lang][key];
-        }
+      const key = element.getAttribute('data-i18n-placeholder');
+      if (translations[lang][key]) {
+        element.placeholder = translations[lang][key];
+      }
     });
     
     document.querySelectorAll('[data-i18n-title]').forEach(element => {
-        const key = element.getAttribute('data-i18n-title');
-        if (translations[lang][key]) {
-            element.dataset.title = translations[lang][key];
-        }
+      const key = element.getAttribute('data-i18n-title');
+      if (translations[lang][key]) {
+        element.dataset.title = translations[lang][key];
+      }
     });
     
     localStorage.setItem('preferred-language', lang);
-}
+  }
 
-function applyTheme(mode) {
+  function applyTheme(mode) {
     document.body.classList.remove('day-mode', 'night-mode');
     document.body.classList.add(`${mode}-mode`);
     localStorage.setItem('site-theme', mode);
-}
+  }
 
-// تابع دریافت وضعیت موجودی از گوگل شیت
-function fetchMenuAvailability() {
-    fetch(SHEET_URL)
-        .then(res => res.json())
-        .then(data => {
-            data.forEach(item => {
-                const allMenuItems = document.querySelectorAll('.menu-item');
-                allMenuItems.forEach(el => {
-                    const title = el.dataset.title;
-                    if (title === item.title) {
-                        const infoBox = el.querySelector(".info strong");
-                        const light = document.createElement("span");
-                        light.classList.add("status-light");
-
-                        if (item.available === false || item.available === "FALSE") {
-                            light.classList.add("status-unavailable");
-                            el.classList.add('unavailable');
-                        } else {
-                            light.classList.add("status-available");
-                        }
-
-                        infoBox.prepend(light);
-                    }
-                });
-            });
-        })
-        .catch(err => {
-            console.error("خطا در دریافت موجودی منو:", err);
-        });
-}
-
-// رویدادهای صفحه
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     const savedLanguage = localStorage.getItem('preferred-language') || 'fa';
     changeLanguage(savedLanguage);
     
@@ -1847,28 +2138,46 @@ document.addEventListener('DOMContentLoaded', function() {
     applyTheme(savedTheme);
     
     document.getElementById('languageToggle').addEventListener('click', function() {
-        const currentLang = document.documentElement.lang;
-        const newLang = currentLang === 'fa' ? 'en' : 'fa';
-        changeLanguage(newLang);
+      const currentLang = document.documentElement.lang;
+      const newLang = currentLang === 'fa' ? 'en' : 'fa';
+      changeLanguage(newLang);
     });
     
     document.getElementById('themeToggle').addEventListener('click', function() {
-        const current = document.body.classList.contains('night-mode') ? 'night' : 'day';
-        const newTheme = current === 'night' ? 'day' : 'night';
-        applyTheme(newTheme);
+      const current = document.body.classList.contains('day-mode') ? 'day' : 'night';
+      const newTheme = current === 'night' ? 'day' : 'night';
+      applyTheme(newTheme);
     });
-    
-    fetchMenuAvailability();
-    updateAverageRatingsUI();
-    changeCategory("همه");
-});
+  });
+  
+  const SHEET_URL = "https://script.google.com/macros/s/AKfycbwV75_O9rWnQOz-rgLuJQKgaHpGIQU-EF_qxT0-x1XXBPl6n8VKluJwcCXHOTu9m7vs/exec";
 
-// رویدادهای کیبورد
-window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && modal.classList.contains('show')) {
-        modal.classList.remove('show');
-    }
-});
+  fetch(SHEET_URL)
+    .then(res => res.json())
+    .then(data => {
+      data.forEach(item => {
+        const allMenuItems = document.querySelectorAll('.menu-item');
+        allMenuItems.forEach(el => {
+          const title = el.dataset.title;
+          if (title === item.title) {
+            const infoBox = el.querySelector(".info strong");
+            const light = document.createElement("span");
+            light.classList.add("status-light");
+
+            if (item.available === false || item.available === "FALSE") {
+              light.classList.add("status-unavailable");
+            } else {
+              light.classList.add("status-available");
+            }
+
+            infoBox.prepend(light);
+          }
+        });
+      });
+    })
+    .catch(err => {
+      console.error("خطا در دریافت موجودی منو:", err);
+    });
 </script>
 </body>
 </html>
