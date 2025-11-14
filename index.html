@@ -1455,6 +1455,22 @@
     if (!ratings[title]) ratings[title] = [];
     ratings[title].push(value);
     saveRatings(ratings);
+	
+	fetch("https://lokmahkhaneehsan.netlify.app/api/submit-rating", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title: title,
+        rating: value,
+        comment: ""
+      })
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("خطا در ارسال امتیاز به سرور.");
+      return response.json();
+    })
 
     const avg = calculateAverage(ratings[title]);
     const currentLang = document.documentElement.lang;
