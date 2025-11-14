@@ -1690,7 +1690,7 @@
   function getAvailableDaysMessage(itemTitle, lang) {
       if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
           return lang === 'fa' 
-              ? "این غذا فقط در روزهای شنبه، دوشنبه و چهارشنبه موجود است."
+              ? "این غذا فقط در روزهای شنبه، دوشنبه موجود است."
               : "This food is only available on Saturday, Monday and Wednesday.";
       } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
           return lang === 'fa'
@@ -1843,12 +1843,12 @@
       if(element.dataset.title === "سوپ جو" || element.dataset.title === "Barley Soup"){
           const currentLang = document.documentElement.lang;
           modalOrderTime.textContent = currentLang === 'fa' 
-              ? "زمان سفارش: شنبه، دوشنبه، چهارشنبه ۱۲ تا ۱۵"
+              ? "زمان سفارش: شنبه، دوشنبه، ۱۲ تا اتمام موجودی"
               : "Order time: Saturday, Monday, Wednesday 12-15";
       } else if(element.dataset.title === "آش جو" || element.dataset.title === "Barley Stew"){
           const currentLang = document.documentElement.lang;
           modalOrderTime.textContent = currentLang === 'fa'
-              ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا ۱۵"
+              ? "زمان سفارش: یکشنبه، سه‌شنبه، پنجشنبه ۱۲ تا اتمام موجودی"
               : "Order time: Sunday, Tuesday, Thursday 12-15";
       } else if(element.dataset.title === "حلیم گندم" || element.dataset.title === "Wheat Halim"){
           const currentLang = document.documentElement.lang;
