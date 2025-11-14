@@ -1206,7 +1206,7 @@ function isItemAvailable(itemTitle) {
     const today = getCurrentPersianDay();
     
     if (itemTitle === "سوپ جو" || itemTitle === "Barley Soup") {
-        return ['شنبه', 'دوشنبه', 'چهارشنبه'].includes(today);
+        return ['شنبه', 'دوشنبه'].includes(today);
     } else if (itemTitle === "آش جو" || itemTitle === "Barley Stew") {
         return ['یکشنبه', 'سه‌شنبه', 'پنجشنبه'].includes(today);
     } else if (itemTitle === "حلیم گندم" || itemTitle === "Wheat Halim") {
